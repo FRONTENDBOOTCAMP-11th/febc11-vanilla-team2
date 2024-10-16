@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #eee;
+}
+body {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* header */
+header {
+    display: flex;
+    align-items: center;
+}
+
+#header img {
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: -4px;
+    padding: 0;
+}
+
+#logo-container {
+    padding: 14px 0 14px 20px;
+
+}
+
+#search-container {
+    padding: 10px 0 10px 98px;
+
+}
+#start-container {
+    padding: 13px 20px 13px 10px;
+
+}
+
+#search {
+    width: 30px;
+    height: 30px;
+}
