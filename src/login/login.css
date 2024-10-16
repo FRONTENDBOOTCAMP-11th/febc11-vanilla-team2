@@ -1,0 +1,146 @@
+/*Reset*/
+body {
+    margin: unset;
+}
+
+h1,
+p {
+    margin: unset;
+    font-size: unset;
+    font-weight: unset;
+}
+
+strong {
+    font-weight: unset;
+}
+
+img {
+    vertical-align: top;
+    max-width: 100%;
+}
+
+button {
+    all: unset;
+    display: block;
+}
+
+input {
+    all: unset;
+}
+
+/*css Variables*/
+:root {
+
+    --color-gray100: #8E8E8E;
+    --color-gray90: #AAAAAA;
+    --color-gray80: #D7D7D7;
+    --color-black: #111111;
+    --color-green20: #00C6BE;
+    --color-pink100: #FC3B75;
+    --color-white: #FFFFFF;
+    /*fonts*/
+
+    --font-ko: 'Pretendard';
+}
+
+:root {
+    font-family: var(--font-ko);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+
+/*layout*/
+.wrapper {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+/*component*/
+.hidden {
+    display: none;
+}
+
+
+.article-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.article-cover {
+    margin-top: 52px;
+    aspect-ratio: 220/130;
+    min-height: auto;
+}
+
+.article-cover-src {
+    margin-bottom: 15px;
+}
+
+.description-title {
+    font-size: 2.0rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.article-description p {
+    color: var(--color-gray100);
+    font-size: 1.2rem;
+    max-width: 240px;
+    text-align: center;
+}
+
+input[type='email'] {
+    display: block;
+    width: 320px;
+    border-bottom: 1px solid var(--color-gray80);
+    padding: 7.75px 0 11.8px 0;
+}
+
+input[type='password'] {
+    display: block;
+    width: 320px;
+    border-bottom: 1px solid var(--color-gray80);
+    padding: 7.75px 0 11.8px 0;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-gray80);
+    border-radius: 50%;
+}
+
+.btn {
+    width: 320px;
+    width: 100%;
+    padding: 13.75px 0;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.loginBtn {
+    background-color: var(--color-gray90);
+}
+
+.accountBtn {
+    color: var(--color-green20);
+    border: 1px solid var(--color-green20);
+}
+
+.check-container {
+    display: flex;
+    gap: 8px;
+}
