@@ -30,7 +30,6 @@ input {
 
 /*css Variables*/
 :root {
-
     --color-gray100: #8E8E8E;
     --color-gray90: #AAAAAA;
     --color-gray80: #D7D7D7;
@@ -101,19 +100,13 @@ body {
     text-align: center;
 }
 
-input[type='email'] {
+.login-input-container {
     display: block;
     width: 320px;
     border-bottom: 1px solid var(--color-gray80);
     padding: 7.75px 0 11.8px 0;
 }
 
-input[type='password'] {
-    display: block;
-    width: 320px;
-    border-bottom: 1px solid var(--color-gray80);
-    padding: 7.75px 0 11.8px 0;
-}
 
 input[type='checkbox'] {
     width: 20px;
@@ -143,4 +136,68 @@ input[type='checkbox'] {
 .check-container {
     display: flex;
     gap: 8px;
+}
+
+/*회원가입*/
+.toogle-password-cover {
+    position: absolute;
+    right: 0;
+}
+
+.article-title {
+    font-weight: 600;
+    font-size: 1.9rem;
+    text-align: center;
+    margin: 14px 0 44px 0;
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 43px;
+}
+
+/* .toogle-password-cover {
+    margin-bottom: -100px;
+} */
+
+.duplication-btn {
+    color: var(--color-green20);
+    position: absolute;
+    right: 0;
+    border-radius: 999px;
+    border: solid 1px var(--color-green20);
+    padding: 0 10px;
+    font-size: 1.3rem;
+    line-height: 29px;
+
+}
+
+input[type='nickname'] {
+    display: block;
+    width: 320px;
+    border-bottom: 1px solid var(--color-gray80);
+    padding: 7.75px 0 11.8px 0;
+}
+
+.content-container.container-email {
+    margin-bottom: 36px;
+}
+
+.signup-input-container {
+    display: block;
+    width: 320px;
+    border-bottom: 1px solid var(--color-gray80);
+    padding: 12.5px 0 11.8px 0;
+}
+
+.content-container.container-password {
+    margin-bottom: 114px;
+}
+
+.btn.signup-accountBtn {
+    color: var(--color-white);
+    background-color: var(--color-gray90);
 }
