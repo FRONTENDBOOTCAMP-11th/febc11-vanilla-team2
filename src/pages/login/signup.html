@@ -25,7 +25,7 @@
                     <br>
                     <div class="content_container container_email">
                         <label for="email" class="visually_hidden">이메일</label>
-                        <input class="signup_input_container" type="email" id="email" placeholder="이메일"
+                        <input class="signup_input_container" type="email" id="signupEmail" placeholder="이메일"
                             autocomplete="new_password">
                         <button class="duplication_btn">중복확인</button>
                     </div>
@@ -33,10 +33,10 @@
                     <!--닉네임 설명 표시-->
                     <div class="content_container">
                         <label for="password" class="visually_hidden">비밀번호</label>
-                        <input class="signup_input_container" type="password" id="password" placeholder="비밀번호"
+                        <input class="signup_input_container" type="password" id="signupPassword" placeholder="비밀번호"
                             autocomplete="new_password">
                         <button id="passwordBtn" type="button" aria-label="비밀번호 확인 버튼" class="toogle_password">
-                            <img class="toogle_password_cover" src="../assets/images/password.svg" alt="">
+                            <img class="toogle_password_cover" src="/src/assets/images/password.svg" alt="">
                         </button>
                     </div>
                     <div class="content_container container_password">
@@ -44,14 +44,14 @@
                         <input class="signup_input_container" type="password" id="confirm_password"
                             placeholder="비밀번호 확인" autocomplete="new_password">
                         <button id="confirm_passwordBtn" type="button" aria-label="비밀번호 확인 버튼" class="toogle_password">
-                            <img class="toogle_password_cover" src="../assets/images/password.svg" alt="버튼 확인">
+                            <img class="toogle_password_cover" src="/src/assets/images/password.svg" alt="버튼 확인">
                         </button>
                     </div>
                     <div id="passwordErr"></div>
                     <!--비밀번호 오류 표시-->
                     <br>
                 </form>
-                <button type="submit" id="accountBtn" class="btn signup_accountBtn">회원가입</button>
+                <button type="submit" id="signupBtn" class="btn signup_accountBtn">회원가입</button>
             </div>
         </article>
     </div>

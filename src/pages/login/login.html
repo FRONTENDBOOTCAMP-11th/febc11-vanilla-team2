@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <article class="article">
+
+            <section class="article_description">
+                <div class="article_cover">
+                    <img class='article_cover_src' src="/src/assets/images/login.svg" alt="">
+                </div>
+                <h1 class="description_title">브런치 작가로 데뷔하세요</h1>
+                <p class="description_content">진솔한 에세이부터 업계 전문 지식까지, 당신의 이야기를 세상에 선보이세요</p>
+            </section>
+
+            <div class="article_content">
+                <form action="">
+                    <label for="email" class="visually_hidden">이메일</label>
+                    <input class="login_input_container" type="email" id="loginEmail" placeholder="이메일">
+
+                    <label for="password" class="visually_hidden">비밀번호</label>
+                    <input class="login_input_container" type="password" id="loginPassword" placeholder="비밀번호"
+                        autocomplete="password">
+                    <br>
+                    <label for="loginCheck" class="visually_hidden">체크박스</label>
+                    <div class="check_container">
+                        <input id='loginCheck' class="check" type="checkbox">
+                        <p>로그인 정보 저장</p>
+                    </div>
+                    <br>
+                    <button type="submit" id="loginBtn" class="btn loginBtn">로그인</button>
+
+                    <button type="submit" id="loginAccountBtn" class="btn accountBtn">회원가입</button>
+                </form>
+            </div>
+
+        </article>
+
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
