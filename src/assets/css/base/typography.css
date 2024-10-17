@@ -1,7 +1,54 @@
+/* Pretendard Light Weight */
 @font-face {
-    font-family: 'Pretendard';
-    font-weight: normal;
-    font-style: normal;
-    src: url('../fonts/Pretendard.woff2') format('woff2'),
-        url('../fonts/Pretendard.woff') format('woff'),
+  font-family: "Pretendard";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url(../../fonts/Pretendard/Pretendard-Light.woff2) format("woff2"),
+    url(../../fonts/Pretendard/Pretendard-Light.woff) format("woff");
+}
+
+/* Pretendard Regular Weight */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url(../../fonts/Pretendard/Pretendard-Regular.woff2) format("woff2"),
+    url(../../fonts/Pretendard/Pretendard-Regular.woff) format("woff");
+}
+
+/* Pretendard Medium Weight */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url(../../fonts/Pretendard/Pretendard-Medium.woff2) format("woff2"),
+    url(../../fonts/Pretendard/Pretendard-Medium.woff) format("woff");
+}
+
+/* Pretendard SemiBold Weight */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url(../../fonts/Pretendard/Pretendard-SemiBold.woff2) format("woff2"),
+    url(../../fonts/Pretendard/Pretendard-SemiBold.woff) format("woff");
+}
+
+/* Pretendard Bold Weight */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url(../../fonts/Pretendard/Pretendard-Bold.woff2) format("woff2"),
+    url(../../fonts/Pretendard/Pretendard-Bold.woff1) format("woff");
 }
