@@ -103,7 +103,7 @@ header {
     display: inline-block;
     width: 21px;
     height: 21px;
-    background-image: url("../assets/images/Cheer.svg");
+    background-image: url("/src/assets/icons/Cheer.svg");
     background-repeat: no-repeat;
     margin-right: 5px;
     vertical-align: middle;
