@@ -149,7 +149,9 @@ input[type='checkbox'] {
     margin: 14px 0 44px 0;
 }
 
-.signup-content_container {
+
+
+.signup-form_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,7 +159,8 @@ input[type='checkbox'] {
     height: 43px;
 }
 
-.toogle_password {
+/**/
+.signup-form_button-password {
     display: flex;
     width: 24px;
     height: 24px;
@@ -167,7 +170,7 @@ input[type='checkbox'] {
 
 }
 
-.toogle_password_cover {
+.signup-form_button-password_cover {
     width: 100%;
     height: 100%;
 }
@@ -176,7 +179,7 @@ input[type='checkbox'] {
     margin-bottom: -100px;
 } */
 
-.duplication_btn {
+.signup-form_button-duplication {
     color: var(--color-green20);
     position: absolute;
     right: 0;
@@ -195,22 +198,22 @@ input[type='nickname'] {
     padding: 7.75px 0 11.8px 0;
 }
 
-.content_container.container_email {
+.signup-form_container.signup-form_container-email {
     margin-bottom: 36px;
 }
 
-.signup_input_container {
+.sign-form_input-container {
     display: block;
     width: 320px;
     border-bottom: 1px solid var(--color-gray80);
     padding: 12.5px 0 11.8px 0;
 }
 
-.content_container.container_password {
+.signup-form_container.signup-form_container-password {
     margin-bottom: 114px;
 }
 
-.btn.signup_accountBtn {
+.form-btn.signup-form_button-accountBtn {
     color: var(--color-white);
     background-color: var(--color-gray90);
 }
