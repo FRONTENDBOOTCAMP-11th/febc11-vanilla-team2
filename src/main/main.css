@@ -112,6 +112,7 @@ header {
 .slider-container {
     display: flex;
     align-items: center;
+    padding-top: 30px;
 }
 
 .slider-text {
