@@ -1,3 +1,24 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url("/src/assets/fonts/Pretendard/Pretendard-Regular.woff2") format("woff2"),
+         url("/src/assets/fonts/Pretendard/Pretendard-Regular.woff") format("woff");
+         font-weight: 400; /* regular */
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url("/src/assets/fonts/Pretendard/Pretendard-Light.woff2") format("woff2"),
+    url("/src/assets/fonts/Pretendard/Pretendard-Light.woff") format("woff");
+         font-weight: 200; /* light */
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url("/src/assets/fonts/Pretendard/Pretendard-SemiBold.woff2") format("woff2"),
+    url("/src/assets/fonts/Pretendard/Pretendard-SemiBold.woff") format("woff");
+         font-weight: 600; /* semibold */
+}
+
 * {
     box-sizing: border-box;
 }
@@ -11,6 +32,18 @@ body {
     width: 100%;
     margin: 0 auto;
     background-color: #fff;
+}
+
+.by {
+    font-size: 13px;
+    line-height: 19px;
+    font-family: 'Georgia';
+    font-style: italic;
+}
+
+.divider {
+    height: 9px;
+    background-color: #ddd;
 }
 
 /* header */
@@ -65,16 +98,10 @@ header {
 
 .nav-div2 p {
     font-size: 12px;
-    display: inline;
 }
 
 .name {
     margin-top: 10.5px;
-}
-
-.by {
-    color: #ddd;
-    margin-top: 8.75px;
 }
 
 #main-nav h2 {
@@ -138,3 +165,100 @@ header {
 /* .slider-text.active {
     color: rgba(255, 255, 255);
 } */
+
+/* todays-pick div */
+
+.todays-pick-header {
+    padding: 50px 25px 10px 25px;
+}
+
+.todays-pick-header h1 {
+    font-size: 12px;
+    font-family: "Georgia";
+    font-style: italic;
+    line-height: 14px;
+}
+
+.todays-pick-header h2 {
+    font-size: 19px;
+    line-height: 22px;
+    font-family: "Pretendard";
+}
+
+.top10-list {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 45px;
+}
+
+.top10 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 25px 0 25px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.top10:first-child {
+    border-top: none;
+}
+
+.top10:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 25px;
+    right: 25px;
+    height: 0.5px;
+    background-color: #eee;
+}
+
+.rank {
+    position: absolute;
+    top: 18px;
+    left: 32px;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -3px;
+}
+
+.rankUp {
+    position: absolute;
+    top: 50px;
+    left: 33.3px;
+}
+
+.top10-info {
+    padding-left: 34px;
+}
+
+.top10-info__header {
+    font-family: "Pretendard";
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.top10-info__author {
+    font-size: 13px;
+    color: #959595;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.top10-info__text {
+    font-size: 13px;
+    color: #666;
+    font-family: "Pretendard";
+    font-weight: 200;
+    line-height: 19px;
+    text-align: left;
+}
+
+.top10-img {
+    margin-left: 15px;
+}
