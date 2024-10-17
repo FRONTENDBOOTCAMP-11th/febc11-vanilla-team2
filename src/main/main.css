@@ -5,6 +5,7 @@
 html {
     background-color: #eee;
 }
+
 body {
     max-width: 360px;
     width: 100%;
@@ -43,3 +44,96 @@ header {
     width: 30px;
     height: 30px;
 }
+/* nav */
+#main-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #8D4E8E;
+    margin: 0;
+    align-items: center;
+}
+
+.nav-div1 {
+    padding-top: 55px;
+}
+
+#main-nav h2,p {
+    text-align: center;
+    margin: 0;
+    color: #fff;
+}
+
+.nav-div2 p {
+    font-size: 12px;
+    display: inline;
+}
+
+.name {
+    margin-top: 10.5px;
+}
+
+.by {
+    color: #ddd;
+    margin-top: 8.75px;
+}
+
+#main-nav h2 {
+    font-size: 22px;
+    line-height: 31px;
+}
+
+.nav-div3 {
+    position: relative;
+    padding-top: 66px;
+}
+
+.badge {
+    position: absolute;
+    top: 66px;
+    right: 10px;
+}
+
+.cheering {
+    line-height: 21px;
+    font-size: 14px;
+}
+
+.cheering::before {
+    content: "";
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background-image: url("../assets/images/Cheer.svg");
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+}
+
+.slider-text {
+    margin-left: 10px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.slider-bars {
+    display: flex;
+}
+
+.bar {
+    width: 20px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bar.active {
+    background-color: rgba(255, 255, 255);
+}
+
+/* .slider-text.active {
+    color: rgba(255, 255, 255);
+} */
