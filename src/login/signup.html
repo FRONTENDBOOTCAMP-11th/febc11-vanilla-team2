@@ -15,30 +15,33 @@
                 <h1 class="article-title">회원가입</h1>
                 <form action="nickname">
                     <div class="content-container">
-                        <label for="nickname" class="hidden">별명</label>
+                        <label for="nickname" class="visually-hidden">별명</label>
                         <input class="signup-input-container" type="nickname" id="nickname" placeholder="별명">
                         <button class="duplication-btn">중복확인</button>
                     </div>
                     <div id="nicknameErr"></div> <!--닉네임 설명 표시-->
                     <br>
                     <div class="content-container container-email">
-                        <label for="email" class="hidden">이메일</label>
-                        <input class="signup-input-container" type="email" id="email" placeholder="이메일">
+                        <label for="email" class="visually-hidden">이메일</label>
+                        <input class="signup-input-container" type="email" id="email" placeholder="이메일"
+                            autocomplete="new-password">
                         <button class="duplication-btn">중복확인</button>
                     </div>
                     <div id="emailErr"></div> <!--닉네임 설명 표시-->
 
                     <div class="content-container">
-                        <label for="password" class="hidden">비밀번호</label>
+                        <label for="password" class="visually-hidden">비밀번호</label>
                         <input class="signup-input-container" type="password" id="password" placeholder="비밀번호"
                             autocomplete="new-password">
                         <img class="toogle-password-cover" src="../assets/images/password.svg" alt="">
                     </div>
                     <div class="content-container container-password">
-                        <label for="password" class="hidden">비밀번호 확인</label>
+                        <label for="password" class="visually-hidden">비밀번호 확인</label>
                         <input class="signup-input-container" type="password" id="password" placeholder="비밀번호 확인"
                             autocomplete="new-password">
-                        <img class="toogle-password-cover" src="../assets/images/password.svg" alt="">
+                        <button type="button" aria-label="비밀번호 확인 버튼" class="toogle-password">
+                            <img class="toogle-password-cover" src="../assets/images/password.svg" alt="">
+                        </button>
                     </div>
                     <div id="passwordErr"></div><!--비밀번호 오류 표시-->
                     <br>
