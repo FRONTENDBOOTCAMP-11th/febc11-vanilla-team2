@@ -1,28 +1,4 @@
-/*Reset*/
-body {
-    margin: unset;
-}
-
-h1,
-p {
-    margin: unset;
-    font-size: unset;
-    font-weight: unset;
-}
-
-strong {
-    font-weight: unset;
-}
-
-img {
-    vertical-align: top;
-    max-width: 100%;
-}
-
-button {
-    all: unset;
-    display: block;
-}
+/**/
 
 input {
     all: unset;
@@ -60,7 +36,6 @@ body {
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
-
 }
 
 /*component*/
