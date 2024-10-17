@@ -143,3 +143,7 @@ img {
   vertical-align: top;
   max-width: 100%;
 }
+
+input {
+  all: unset;
+}
