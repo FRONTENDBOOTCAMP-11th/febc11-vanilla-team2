@@ -1,160 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brunch Story Main</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-     <header id="header">
-        <div id="logo-container">
-            <img src="/src/assets/logo/logo.svg" alt="로고" id="logo" />
-        </div>       
-        <div id="search-container">
-            <img src="/src/assets/icons/search.svg" alt="검색" id="search" />
-        </div>
-        <div id="start-container">
-            <!-- <img src="/src/assets/images/StartButton.svg" alt="시작하기" id="start" /> 버튼으로 변경 예정--> 
-        </div>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div id="logo-container">
+        <img src="/src/assets/logo/logo.svg" alt="로고" id="logo" />
+      </div>
+      <div id="search-container">
+        <img src="/src/assets/icons/search.svg" alt="검색" id="search" />
+      </div>
+      <div id="start-container">
+        <!-- <img src="/src/assets/images/StartButton.svg" alt="시작하기" id="start" /> 버튼으로 변경 예정-->
+      </div>
     </header>
     <nav id="main-nav">
-        <div class="nav-div1">
-            <h2>멈추어 버린 시간</h2>
+      <div class="nav-div1">
+        <h2>멈추어 버린 시간</h2>
+      </div>
+      <div class="nav-div2">
+        <p class="name"><span class="by">by</span> 김수정</p>
+      </div>
+      <div class="nav-div3">
+        <img src="/src/assets/images/멈추어 버린 시간.svg" />
+        <img
+          src="/src/assets/icons/응원 뱃지.svg"
+          alt="응원 뱃지"
+          class="badge"
+        />
+      </div>
+      <div class="nav-div4">
+        <p class="cheering">47명의 응원</p>
+      </div>
+      <div class="slider-container">
+        <div class="slider-bars">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar active"></div>
+          <div class="bar"></div>
         </div>
-        <div class="nav-div2">
-            <p class="name"><span class="by">by</span> 김수정</p>
-        </div>
-        <div class="nav-div3">
-            <img src="/src/assets/images/멈추어 버린 시간.svg">
-            <img src="/src/assets/icons/응원 뱃지.svg" alt="응원 뱃지" class="badge"/>
-        </div>
-        <div class="nav-div4">
-            <p class="cheering">47명의 응원</p>
-        </div>
-        <div class="slider-container">
-            <div class="slider-bars">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar active"></div>
-                <div class="bar"></div>
-            </div>
-            <div class="slider-text">5 / 6</div>
-        </div>
+        <div class="slider-text">5 / 6</div>
+      </div>
     </nav>
     <div class="divider"></div>
     <div class="todays-pick-container">
-        <article class="todays-pick">
-            <div class="todays-pick-header">
-                <h1>Today's Pick</h1>
-                <h2>요즘 뜨는 브런치</h2>
+      <article class="todays-pick">
+        <div class="todays-pick-header">
+          <h1>Today's Pick</h1>
+          <h2>요즘 뜨는 브런치</h2>
+        </div>
+        <ol class="top10-list">
+          <li class="top10">
+            <span class="rank" data-rank="1">1</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">무사히 마흔살이 될 수 있을까</h1>
+              <p class="top10-info__author">
+                <span class="by">by</span> 강윤이
+              </p>
+              <p class="top10-info__text">
+                병원에서 암 진단을 받고 나와 햇볕 이 작열하며 끓어오르는 거리를
+                …
+              </p>
             </div>
-            <ol class="top10-list">
-                <li class="top10">
-                    <span class="rank" data-rank="1">1</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">무사히 마흔살이 될 수 있을까</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 강윤이</p>
-                        <p class="top10-info__text">병원에서 암 진단을 받고 나와 햇볕
-                            이 작열하며 끓어오르는 거리를 …</p>
-                    </div>
-                    <img src="/src/assets/images/top1.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="2">2</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">맞벌이 하루살이</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 서리</p>
-                        <p class="top10-info__text">누구의 엄마로 불리지만, 그 전에 내
-                            이름이 있다. 엄마로 육아하면서 …</p>
-                    </div>
-                    <img src="/src/assets/images/top2.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="3">3</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">집이 있었는데,이제는 없습니다</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 준지</p>
-                        <p class="top10-info__text">성북동 부모님 집에서 편하게 얹혀
-                            살며 대학도, 직장도 30분이 넘지…</p>
-                    </div>
-                    <img src="/src/assets/images/top3.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="4">4</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">나의 우울일기 2</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 그레이스</p>
-                        <p class="top10-info__text">언제부터인지 모를, 심한 우울증을
-                            앓고 있습니다. 인생이 무언가 잘…</p>
-                    </div>
-                    <img src="/src/assets/images/top4.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="5">5</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">포카리스웨트같은 과학콘텐츠이야기</h1>
-                        <p class="top10-info__author"><span class="by">by</span> corescienc</p>
-                        <p class="top10-info__text">우리의 삶속에는 많은 과학적 지식
-                            들이 숨어져 있습니다.알지만 지…</p>
-                    </div>
-                    <img src="/src/assets/images/top5.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="6">6</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">서울이 싫어서</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 은연주</p>
-                        <p class="top10-info__text">원래부터 도시를 싫어했다. 남편과
-                            연애할 때도 맨날 귀촌하자고 서…</p>
-                    </div>
-                    <img src="/src/assets/images/top6.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="7">7</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">수요에세이</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 뮤뮤</p>
-                        <p class="top10-info__text">일주일에 한 번, 수요일마다 에세이
-                            한 편을 배달해 드리겠습니다. 매…</p>
-                    </div>
-                    <img src="/src/assets/images/top7.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="8">8</span>
-                    <img src="/src/assets/icons/rankUp.svg" class="rankUp" />
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">강남 안에, 강북 남자</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 눅눅한과자</p>
-                        <p class="top10-info__text">나도 몰랐다. 내가 강남에 살게 될 줄
-                            은. 강남 출신 아내를 만나 덜컥 집…</p>
-                    </div>
-                    <img src="/src/assets/images/top8.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="9">9</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">서울에서 혼자 밥해먹고 사는 사람</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 이확위</p>
-                        <p class="top10-info__text">해외에서 2년 반을 살다가 다시 한
-                            국에 돌아왔습니다. 서울에서 다…</p>
-                    </div>
-                    <img src="/src/assets/images/top9.svg" class="top10-img" />  
-                </li>
-                <li class="top10">
-                    <span class="rank" data-rank="10">10</span>
-                    <div class="top10-info">
-                        <h1 class="top10-info__header">이과 남편과 문과 아내의 실화극</h1>
-                        <p class="top10-info__author"><span class="by">by</span> 빛날현</p>
-                        <p class="top10-info__text">결혼은 보통 극과 극이 만나 맞춰간
-                            다고들 하지만..이건 모서리와 모…</p>
-                    </div>
-                    <img src="/src/assets/images/top10.svg" class="top10-img" />  
-                </li>
-            </ol>
-        </article>
+            <img src="/src/assets/images/top1.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="2">2</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">맞벌이 하루살이</h1>
+              <p class="top10-info__author"><span class="by">by</span> 서리</p>
+              <p class="top10-info__text">
+                누구의 엄마로 불리지만, 그 전에 내 이름이 있다. 엄마로
+                육아하면서 …
+              </p>
+            </div>
+            <img src="/src/assets/images/top2.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="3">3</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">집이 있었는데,이제는 없습니다</h1>
+              <p class="top10-info__author"><span class="by">by</span> 준지</p>
+              <p class="top10-info__text">
+                성북동 부모님 집에서 편하게 얹혀 살며 대학도, 직장도 30분이
+                넘지…
+              </p>
+            </div>
+            <img src="/src/assets/images/top3.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="4">4</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">나의 우울일기 2</h1>
+              <p class="top10-info__author">
+                <span class="by">by</span> 그레이스
+              </p>
+              <p class="top10-info__text">
+                언제부터인지 모를, 심한 우울증을 앓고 있습니다. 인생이 무언가
+                잘…
+              </p>
+            </div>
+            <img src="/src/assets/images/top4.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="5">5</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">
+                포카리스웨트같은 과학콘텐츠이야기
+              </h1>
+              <p class="top10-info__author">
+                <span class="by">by</span> corescienc
+              </p>
+              <p class="top10-info__text">
+                우리의 삶속에는 많은 과학적 지식 들이 숨어져 있습니다.알지만 지…
+              </p>
+            </div>
+            <img src="/src/assets/images/top5.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="6">6</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">서울이 싫어서</h1>
+              <p class="top10-info__author">
+                <span class="by">by</span> 은연주
+              </p>
+              <p class="top10-info__text">
+                원래부터 도시를 싫어했다. 남편과 연애할 때도 맨날 귀촌하자고 서…
+              </p>
+            </div>
+            <img src="/src/assets/images/top6.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="7">7</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">수요에세이</h1>
+              <p class="top10-info__author"><span class="by">by</span> 뮤뮤</p>
+              <p class="top10-info__text">
+                일주일에 한 번, 수요일마다 에세이 한 편을 배달해 드리겠습니다.
+                매…
+              </p>
+            </div>
+            <img src="/src/assets/images/top7.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="8">8</span>
+            <img src="/src/assets/icons/rankUp.svg" class="rankUp" />
+            <div class="top10-info">
+              <h1 class="top10-info__header">강남 안에, 강북 남자</h1>
+              <p class="top10-info__author">
+                <span class="by">by</span> 눅눅한과자
+              </p>
+              <p class="top10-info__text">
+                나도 몰랐다. 내가 강남에 살게 될 줄 은. 강남 출신 아내를 만나
+                덜컥 집…
+              </p>
+            </div>
+            <img src="/src/assets/images/top8.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="9">9</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">
+                서울에서 혼자 밥해먹고 사는 사람
+              </h1>
+              <p class="top10-info__author">
+                <span class="by">by</span> 이확위
+              </p>
+              <p class="top10-info__text">
+                해외에서 2년 반을 살다가 다시 한 국에 돌아왔습니다. 서울에서 다…
+              </p>
+            </div>
+            <img src="/src/assets/images/top9.svg" class="top10-img" />
+          </li>
+          <li class="top10">
+            <span class="rank" data-rank="10">10</span>
+            <div class="top10-info">
+              <h1 class="top10-info__header">이과 남편과 문과 아내의 실화극</h1>
+              <p class="top10-info__author">
+                <span class="by">by</span> 빛날현
+              </p>
+              <p class="top10-info__text">
+                결혼은 보통 극과 극이 만나 맞춰간 다고들 하지만..이건 모서리와
+                모…
+              </p>
+            </div>
+            <img src="/src/assets/images/top10.svg" class="top10-img" />
+          </li>
+        </ol>
+      </article>
     </div>
-</body>
+    <div class="bestseller">
+      <div class="bestseller-header">
+        <h1 class="bestseller-header__title">브런치북 원작 베스트셀러</h1>
+      </div>
+      <div class="bestseller-contents">
+        <div class="bestseller-contents-info">
+          <div class="bestseller-contents-info__text">
+            <h2 class="bestseller-contents-info__title">여자야구입문기</h2>
+            <p class="bestseller-contents-info__author">김입문</p>
+          </div>
+          <img
+            src="/src/assets/images/여자야구입문기.svg"
+            class="bestseller-contents-info__img"
+          />
+        </div>
+        <div class="bestseller-contents-description">
+          <h2 class="bestseller-contents-description__title">
+            작가가 사랑한 문장
+          </h2>
+          <p class="bestseller-contents-description__text">
+            최선을 다해서 응원해주는 이가 내 뒤에 있다. 그들을 뒤에 두고 있으
+            면, 나는 앞을 볼 수 밖에 없다.
+          </p>
+        </div>
+      </div>
+      <button type="button" class="bestseller-btn">원작 브런치북 보기 ></button>
+    </div>
+  </body>
 </html>
