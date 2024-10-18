@@ -1,0 +1,29 @@
+/* 브런치 스토리 - 내 서랍 CSS */
+
+.wrapper {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.bs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bs-header__icons a:nth-child(2) {
+  margin-left: 10px;
+}
+
+.bs-header__profile {
+  margin-left: 21px;
+}
+
+.bs-header__icons .bs-header__profile img {
+  width: 30px;
+  height: 30px;
+}
