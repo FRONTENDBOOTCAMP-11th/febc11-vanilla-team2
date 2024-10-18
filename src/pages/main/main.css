@@ -602,3 +602,87 @@ p {
   width: 15px;
   height: 11px;
 }
+
+/* subjump */
+
+.subjump-title {
+  font-size: 19px;
+  line-height: 22px;
+  font-family: "Pretendard";
+  font-weight: 600;
+  margin: 50px 0 30px 25px;
+  text-align: left;
+}
+
+.subjump-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  padding: 0 25px 40px 25px;
+}
+
+.subjump-grid-item {
+  padding: 15px;
+  text-align: center;
+}
+
+.subjump-grid-item:nth-child(2n-1) {
+  padding: 0 23px 0 11px;
+}
+
+.subjump-grid-item:nth-child(2n) {
+  padding: 0 11px 0 22px;
+}
+
+.subjump-grid-item:nth-child(4n-3) {
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.subjump-grid-item:nth-child(4n-2) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+.subjump-grid-item:nth-child(4n-1) {
+  border-right: 1px solid #ccc;
+  padding-top: 31px;
+}
+
+.subjump-grid-item:nth-child(4n) {
+  padding-top: 31px;
+}
+
+.subjump-author {
+  margin-bottom: 0;
+}
+
+.subjump-grid-item__name {
+  color: #111;
+  font-size: 19px;
+  line-height: 22px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.subjump-grid-item__job {
+  color: #959595;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: "Pretendard";
+  font-weight: 300;
+  margin: 0;
+  margin-top: 2.75px;
+}
+
+.subjump-grid-item__text {
+  color: #666666;
+  font-size: 13px;
+  line-height: 19px;
+  font-family: "Pretendard";
+  font-weight: 300;
+  margin: 0;
+  margin-top: 15px;
+}
