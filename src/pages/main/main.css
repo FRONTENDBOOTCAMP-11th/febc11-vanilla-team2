@@ -755,6 +755,7 @@ p {
 
 .newauthor-footer {
   margin: 0 25px;
+  position: relative;
 }
 
 .newauthor-footer__link {
@@ -766,4 +767,12 @@ p {
   font-family: "Pretendard";
   font-weight: 400;
   white-space: nowrap;
+}
+
+.upbutton {
+  position: absolute;
+  bottom: -10px;
+  right: -30px;
+  transform: translateX(-50%);
+  cursor: pointer;
 }
