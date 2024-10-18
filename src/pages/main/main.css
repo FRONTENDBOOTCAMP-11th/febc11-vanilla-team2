@@ -686,3 +686,84 @@ p {
   margin: 0;
   margin-top: 15px;
 }
+
+/* newauthor */
+
+.newauthor {
+  background-color: #111;
+  padding-bottom: 8px;
+}
+
+.newauthor-header {
+  padding: 50px 25px 25px 25px;
+}
+
+.newauthor-header__title {
+  color: gold;
+  font-size: 18px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  margin: 0;
+}
+
+.newauthor-header__subtitle {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Pretendard";
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.newauthor-header__winners {
+  color: #ddd;
+  font-size: 19px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.newauthor-seewinners {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 0 25px 25px 25px;
+}
+
+.newauthor-seewinners__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.newauthor-seewinners__list-title {
+  color: #bbb;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  margin: 15px 0 7px 0;
+}
+
+.newauthor-seewinners__list-name {
+  color: #959595;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "Pretendard";
+  font-weight: 300;
+}
+
+.newauthor-footer {
+  margin: 0 25px;
+}
+
+.newauthor-footer__link {
+  padding: 31px 62px 40px 62px;
+  border-top: 1px solid #959595;
+  color: #959595;
+  font-size: 15px;
+  line-height: 24px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  white-space: nowrap;
+}
