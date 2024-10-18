@@ -1,5 +1,4 @@
 /* reset */
-body,
 hr {
   margin: unset;
   padding: unset;
@@ -9,17 +8,11 @@ hr {
   font-family: "Pretendard";
 }
 
-/*모바일에서 오른쪽에 흰 여백 잡아줌 */
-/* height: 100%은 footer 맨밑으로 가기 위함 */
 html,
 body {
   /* margin: 0px; */
-  height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  /* max-width: 360px; */
+  /* height: 100%; */
+  overflow: hidden;
 }
 
 input,
@@ -40,8 +33,10 @@ hr {
 
 /* component */
 .wrap {
-  min-height: 100%;
-  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .wrap-header {
@@ -80,7 +75,7 @@ hr {
   margin: 0 auto;
   position: relative;
   min-height: 40vh;
-  width: 100%;
+  /* width: 100%; */
   padding: 40px 0;
   margin: 0 28px;
 }
@@ -88,26 +83,32 @@ hr {
 .wrap-main-contents_text {
   font-size: 20px;
   line-height: 18px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   resize: none;
   overflow: hidden;
   white-space: pre-wrap;
 }
 
-.footer-addBar {
+.wrap-addBar-contents {
+  position: fixed;
+  bottom: 0px;
   padding: 22px 25px;
   background-color: rgba(248, 248, 248, 1);
   display: flex;
 }
 
-.footer-addBar img {
+.wrap-addBar-contents img {
   width: 40px;
 }
 
-.footer-addBar_picture {
-  margin-right: 24px;
+.wrap-addBar-contents_picture {
+  margin-right: 15px;
 }
 
-.footer-addBar_keyboard {
+.wrap-addBar-contents_align {
+  margin-right: 135px;
+}
+
+.wrap-addBar-contents_keyboard {
   margin-left: auto;
 }
