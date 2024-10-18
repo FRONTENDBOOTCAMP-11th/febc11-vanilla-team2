@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
+    <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
+    <link rel="stylesheet" href="write.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="wrap-header">
+        <img class="wrap-header_doneOff" src="/src/assets/icons/exit.svg" />
+        <h1 class="wrap-header_title">글쓰기</h1>
+        <img class="wrap-header_exit" src="/src/assets/icons/done-off.svg" />
+      </header>
+      <hr />
+
+      <div class="wrap-main">
+        <div class="wrap-main-subject">
+          <input
+            class="wrap-main-subject_mainTitle"
+            type="text"
+            id="mainTitle"
+            placeholder="제목을 입력하세요"
+            maxlegth="34"
+          />
+          <hr />
+          <input
+            class="wrap-main-subject_subTitle"
+            type="text"
+            id="subTitle"
+            placeholder="소제목을 입력하세요"
+            maxlegth="34"
+          />
+          <hr />
+        </div>
+
+        <div class="wrap-main-contents">
+          <textarea
+            class="wrap-main-contents_text"
+            type="text"
+            id="textContents"
+            placeholder="내용을 입력하세요"
+            cols="27"
+            rows="20"
+          ></textarea>
+        </div>
+      </div>
+      <div class="wrap-addBar">
+        <div class="wrap-addBar-contents">
+          <img
+            class="wrap-addBar-contents_picture"
+            src="/src/assets/icons/picture.svg"
+          />
+          <img
+            class="wrap-addBar-contents_align"
+            src="/src/assets/icons/align-left.svg"
+          />
+          <img
+            class="wrap-addBar-contents_keyboard"
+            src="/src/assets/icons/keyboard.svg"
+          />
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+
+    <script src="write.js"></script>
+  </body>
+</html>
