@@ -395,3 +395,53 @@ p {
 .bestseller-btn span {
   font-size: 15px;
 }
+
+/* today-author */
+
+.today-author-header {
+  margin: 50px 25px 25px 25px;
+}
+
+.today-author-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.today-author-header-top-left__title {
+  color: #00c6be;
+  font-size: 13px;
+  line-height: 14px;
+  font-family: "Pretendard";
+  font-weight: 600;
+  margin: 0;
+}
+
+.today-author-header-top-left__name {
+  color: #111;
+  font-size: 30px;
+  line-height: 32px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  margin: 15px 17px 7px 0;
+}
+
+.today-author-header-top-left__job {
+  color: #959595;
+  font-size: 12px;
+  line-height: 18px;
+  font-family: "Pretendard";
+  font-weight: 300;
+  margin: 0;
+}
+
+.today-author-header__text {
+  color: #666;
+  font-size: 13px;
+  line-height: 22px;
+  font-family: "Pretendard";
+  font-weight: 300;
+  text-align: left;
+  margin-top: 23px;
+  margin-right: 13.65px;
+}
