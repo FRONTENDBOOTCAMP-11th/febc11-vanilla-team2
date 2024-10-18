@@ -84,14 +84,21 @@ body {
     padding: 7.75px 0 11.8px 0;
 }
 
+.login-form_input-password {
+    margin-bottom: 22.75px;
+}
+
+
 .login-form_check-container {
     display: flex;
     gap: 8px;
+    margin-bottom: 30px;
 }
 
 .login-form_check-container p {
     position: relative;
-    top: 1px;
+    top: 3px;
+    font-size: 1.3rem;
 }
 
 .login-form_button-checkBtn {
@@ -135,7 +142,6 @@ input[type='checkbox'] {
 }
 
 
-
 /*회원가입*/
 
 .signup-content_title {
@@ -154,6 +160,7 @@ input[type='checkbox'] {
     position: relative;
     height: 43px;
 }
+
 
 /**/
 .signup-form_button-password {
@@ -196,6 +203,27 @@ input[type='nickname'] {
 
 .signup-form_container.signup-form_container-email {
     margin-bottom: 36px;
+
+}
+
+.signup-form_container.signup-form_container-nickname {
+    margin-bottom: 36px;
+    position: relative;
+}
+
+/*error msg*/
+.signup-form_error {
+    position: absolute;
+    margin-top: -30px;
+    font-size: 1.2rem;
+    color: var(--color-green20);
+}
+
+.signup-form_error-password {
+    position: absolute;
+    margin-top: -105px;
+    font-size: 1.2rem;
+    color: var(--color-pink100);
 }
 
 .sign-form_input-container {
@@ -207,6 +235,7 @@ input[type='nickname'] {
 
 .signup-form_container.signup-form_container-password {
     margin-bottom: 114px;
+
 }
 
 .form-btn.signup-form_button-accountBtn {

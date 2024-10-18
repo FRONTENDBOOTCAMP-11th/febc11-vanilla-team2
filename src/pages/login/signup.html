@@ -21,21 +21,21 @@
 
                 <div class="signup-form">
                     <form action="">
-                        <div class="signup-form_container">
+                        <div class="signup-form_container signup-form_container-nickname">
                             <label for="nickname" class="visually_hidden">별명</label>
                             <input class="sign-form_input-container" type="nickname" id="nickname" placeholder="별명">
                             <button class="signup-form_button-duplication">중복확인</button>
                         </div>
-                        <div id="nicknameErr"></div>
+                        <div id="nicknameErr" class="signup-form_error"></div>
                         <!--닉네임 설명 표시-->
-                        <br>
+
                         <div class="signup-form_container signup-form_container-email">
                             <label for="email" class="visually_hidden">이메일</label>
                             <input class="sign-form_input-container" type="email" id="signupEmail" placeholder="이메일"
                                 autocomplete="new_password">
                             <button class="signup-form_button-duplication">중복확인</button>
                         </div>
-                        <div id="emailErr"></div>
+                        <div id="emailErr" class="signup-form_error"></div>
                         <!--닉네임 설명 표시-->
                         <div class="signup-form_container">
                             <label for="password" class="visually_hidden">비밀번호</label>
@@ -58,9 +58,9 @@
                                     alt="버튼 확인">
                             </button>
                         </div>
-                        <div id="passwordErr"></div>
+                        <div id="passwordErr" class="signup-form_error-password"></div>
                         <!--비밀번호 오류 표시-->
-                        <br>
+
                     </form>
                 </div>
                 <button type="submit" id="signupBtn" class="form-btn signup-form_button-accountBtn">회원가입</button>
