@@ -811,6 +811,7 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .mainpagefooter-sns {
@@ -841,4 +842,38 @@ p {
 
 .mainpagefooter-logo {
   padding-bottom: 30px;
+}
+
+/* footer */
+
+#footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-around;
+  align-items: center;
+  width: 360px;
+  height: 100px;
+  background-color: #fff;
+  z-index: 100;
+}
+
+.footer-icon {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.footer-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.icon-item span {
+  font-size: 12px;
+  line-height: 22px;
+  font-family: "Pretendard";
+  font-weight: 300;
 }
