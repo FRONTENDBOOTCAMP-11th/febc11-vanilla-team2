@@ -16,31 +16,31 @@
       </header>
       <hr />
 
-      <div class="main">
-        <div class="main-subject">
+      <div class="wrap-main">
+        <div class="wrap-main-subject">
           <input
-            class="input-title"
+            class="wrap-main-subject_mainTitle"
             type="text"
-            id="write-title"
+            id="mainTitle"
             placeholder="제목을 입력하세요"
             maxlegth="34"
           />
           <hr />
           <input
-            class="input-semi-title"
+            class="wrap-main-subject_subTitle"
             type="text"
-            id="write-semi-title"
+            id="subTitle"
             placeholder="소제목을 입력하세요"
             maxlegth="34"
           />
           <hr />
         </div>
 
-        <div class="wrap-contents">
+        <div class="wrap-main-contents">
           <textarea
-            class="input-contents"
+            class="wrap-main-contents_text"
             type="text"
-            id="write-contents"
+            id="textContents"
             placeholder="내용을 입력하세요"
             cols="36"
             rows="20"
@@ -49,10 +49,19 @@
       </div>
     </div>
     <footer class="footer">
-      <div class="add-bar">
-        <img class="write-picture" src="/src/assets/icons/picture.svg" />
-        <img class="write-align-right" src="/src/assets/icons/align-left.svg" />
-        <img class="write-keyboard" src="/src/assets/icons/keyboard.svg" />
+      <div class="footer-addBar">
+        <img
+          class="footer-addBar_picture"
+          src="/src/assets/icons/picture.svg"
+        />
+        <img
+          class="footer-addBar_alignLeft"
+          src="/src/assets/icons/align-left.svg"
+        />
+        <img
+          class="footer-addBar_keyboard"
+          src="/src/assets/icons/keyboard.svg"
+        />
       </div>
     </footer>
     <script src="write.js"></script>
