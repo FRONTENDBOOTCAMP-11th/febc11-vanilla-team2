@@ -776,3 +776,43 @@ p {
   transform: translateX(-50%);
   cursor: pointer;
 }
+
+/* mainpagefooter */
+
+.mainpagefooter {
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mainpagefooter-sns {
+  padding-top: 31px;
+}
+
+.mainpagefooter-sns img {
+  margin: 10px;
+}
+
+.mainpagefooter-links {
+  margin: 38px 37px 55px 37px;
+}
+
+.mainpagefooter-links a {
+  font-size: 11px;
+  line-height: 20px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  margin: 0;
+  text-decoration: none;
+  color: #959595;
+}
+
+.mainpagefooter-links a:hover {
+  color: #fff;
+}
+
+.mainpagefooter-logo {
+  padding-bottom: 30px;
+}
