@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="write.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="wrap-header">
+        <img class="wrap-header_doneOff" src="/src/assets/icons/exit.svg" />
+        <h1 class="wrap-header_title">글쓰기</h1>
+        <img class="wrap-header_exit" src="/src/assets/icons/done-off.svg" />
+      </header>
+      <hr />
+
+      <div class="main">
+        <div class="main-subject">
+          <input
+            class="input-title"
+            type="text"
+            id="write-title"
+            placeholder="제목을 입력하세요"
+            maxlegth="34"
+          />
+          <hr />
+          <input
+            class="input-semi-title"
+            type="text"
+            id="write-semi-title"
+            placeholder="소제목을 입력하세요"
+            maxlegth="34"
+          />
+          <hr />
+        </div>
+
+        <div class="wrap-contents">
+          <textarea
+            class="input-contents"
+            type="text"
+            id="write-contents"
+            placeholder="내용을 입력하세요"
+            cols="36"
+            rows="20"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="add-bar">
+        <img class="write-picture" src="/src/assets/icons/picture.svg" />
+        <img class="write-align-right" src="/src/assets/icons/align-left.svg" />
+        <img class="write-keyboard" src="/src/assets/icons/keyboard.svg" />
+      </div>
+    </footer>
+    <script src="write.js"></script>
+  </body>
+</html>

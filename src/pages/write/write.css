@@ -1,0 +1,132 @@
+@import "./src/assets/css/base/reset.css";
+@import "./src/assets/css/base/typography.css";
+
+/* reset */
+body,
+hr {
+  margin: unset;
+  padding: unset;
+}
+
+:root {
+  font-family: "Pretendard";
+}
+
+body {
+  /* max-width: 360px; */
+}
+
+/*모바일에서 오른쪽에 흰 여백 잡아줌 */
+/* height: 100%은 footer 맨밑으로 가기 위함 */
+html,
+body {
+  /* margin: 0px; */
+  height: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+input,
+textarea {
+  border-width: 0;
+  /* white-space: pre-wrap; */
+  /* width: fit-content; */
+}
+
+input,
+textarea:focus {
+  outline: none;
+}
+
+hr {
+  background: #eee;
+  height: 1px;
+  border: 0;
+}
+
+/* component */
+.wrap {
+  min-height: 100%;
+  position: relative;
+}
+
+.wrap-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 14px 20px;
+}
+
+.wrap-header_title {
+  margin: auto;
+  font-size: 19px;
+  line-height: 22px;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 1);
+}
+
+.main-subject {
+  /* padding: 0 28px; */
+  /* width: 100%; */
+}
+
+.main {
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.input-title {
+  font-size: 24px;
+  line-height: 26px;
+  margin: 20px 20px;
+  /* width: fit-content; */
+  /* word-break: keep-all; */
+}
+
+.input-semi-title {
+  font-size: 20px;
+  line-height: 18px;
+  margin: 20px 20px;
+}
+
+.wrap-contents {
+  margin: 0 auto;
+  position: relative;
+  min-height: 40vh;
+  width: 100%;
+  padding: 40px 0;
+  margin: 0 28px;
+}
+
+.input-contents {
+  font-size: 20px;
+  line-height: 18px;
+  /* min-width: auto; */
+  /* width: auto; */
+  margin: 0 auto;
+  resize: none;
+  overflow: hidden;
+}
+
+.add-bar {
+  padding: 22px 25px;
+  background-color: rgba(248, 248, 248, 1);
+  display: flex;
+  /* width: 100%; */
+}
+
+.add-bar img {
+  width: 40px;
+}
+
+.write-picture {
+  margin-right: 24px;
+}
+
+.write-keyboard {
+  margin-left: auto;
+}
