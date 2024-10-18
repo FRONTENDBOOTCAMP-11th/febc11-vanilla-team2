@@ -398,6 +398,10 @@ p {
 
 /* today-author */
 
+.today-author {
+  margin-bottom: 39px;
+}
+
 .today-author-header {
   margin: 50px 25px 25px 25px;
 }
@@ -444,4 +448,69 @@ p {
   text-align: left;
   margin-top: 23px;
   margin-right: 13.65px;
+}
+
+.today-author-list {
+  list-style: none;
+  padding: 0 25px;
+  margin: 0;
+  padding-bottom: 39px;
+}
+
+.today-author-list__one,
+.today-author-list__two {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 5px;
+  background-color: #f8f8f8;
+}
+
+.today-author-list-left {
+  flex: 0 0 auto;
+  margin: 20px 25px 20px 20px;
+}
+
+.today-author-list-right {
+  flex: 1;
+  padding: 25px 20px 27px 0;
+}
+
+.today-author-list-right__title {
+  color: #111;
+  font-size: 15px;
+  line-height: 20px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.today-author-list-right__text {
+  color: #666;
+  font-size: 13px;
+  line-height: 19px;
+  font-family: "Pretendard";
+  font-weight: 300;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.image-container {
+  position: relative;
+}
+
+.latest {
+  font-size: 11px;
+  line-height: 12px;
+  font-family: "Pretendard";
+  font-weight: 600;
+  background-color: rgba(18, 18, 18, 0.9);
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 12px;
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
