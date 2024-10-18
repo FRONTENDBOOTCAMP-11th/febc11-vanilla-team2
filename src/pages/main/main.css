@@ -330,6 +330,7 @@ p {
 .bestseller-contents-description {
   margin: 0 22px;
   background-color: #fff;
+  margin-top: -10px;
 }
 
 .bestseller-contents-description__title {
@@ -351,4 +352,46 @@ p {
   height: 1px;
   left: calc(100% + 3.66px);
   top: 50%;
+}
+
+.bestseller-contents-description__text {
+  color: #111;
+  font-size: 15px;
+  line-height: 24px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  padding: 26px 19px 23px 42px;
+  text-align: left;
+  position: relative;
+}
+
+.bestseller-contents-description__text::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-image: url("/src/assets/icons/mark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 30px;
+  left: 22px;
+  width: 15px;
+  height: 11px;
+}
+
+.bestseller-btn {
+  margin: 30px 105px 39px 105px;
+  padding: 12px 20px 9px 20px;
+  font-size: 11px;
+  line-height: 15px;
+  font-family: "Pretendard";
+  font-weight: 300;
+  border-radius: 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  color: #fff;
+}
+
+.bestseller-btn span {
+  font-size: 15px;
 }
