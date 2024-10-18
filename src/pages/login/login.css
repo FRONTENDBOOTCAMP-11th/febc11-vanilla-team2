@@ -1,9 +1,3 @@
-/**/
-
-input {
-    all: unset;
-}
-
 /*css Variables*/
 :root {
     --color-gray100: #8E8E8E;
@@ -55,7 +49,7 @@ body {
 .login-header_cover {
     margin-top: 52px;
     aspect-ratio: 220/130;
-    min-height: auto;
+
 }
 
 .login-header_cover-src {
@@ -112,8 +106,6 @@ body {
     position: relative;
     top: 3px;
 }
-
-
 
 input[type='checkbox'] {
     width: 20px;

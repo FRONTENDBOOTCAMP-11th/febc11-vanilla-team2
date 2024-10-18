@@ -1,0 +1,117 @@
+/*css Variables*/
+:root {
+    --color-black100: #111;
+    --color-black90: #1B1B1B;
+    --color-balck80: #333;
+    --color-gray80: #666;
+    --color-gray60: rgba(149, 149, 149, 0.5);
+    --color-gray30: #EEE;
+    --color-white: #FFF;
+    --color-green20: #00C6BE;
+    /*fonts*/
+    --font-ko: 'Pretendard';
+}
+
+
+
+
+
+:root {
+    font-family: var(--font-ko);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+
+/*layout*/
+.wrapper {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.detail-header_title {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--color-balck80);
+    margin-bottom: 3.75px;
+    max-width: 260px;
+    margin-top: 78.75px;
+}
+
+.detail-header_title-addition {
+    font-weight: 300;
+    color: var(--color-gray80);
+    margin-bottom: 31.5px;
+}
+
+.detail-header_author {
+    font-weight: 300;
+    color: var(--color-gray80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4.5px;
+    font-size: 1.2rem;
+}
+
+.detail-header_author::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 2px;
+    background-color: var(--color-gray60);
+    border-radius: 50%;
+}
+
+.detail-header_information {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    align-items: end;
+    align-content: end;
+    margin-bottom: 16px;
+}
+
+.detail-header_date {
+    font-size: 1.2rem;
+    color: var(--color-gray60);
+}
+
+.detail-header {
+    border-bottom: 1px solid var(--color-gray30);
+    margin-bottom: 70.75px;
+    position: relative;
+}
+
+.detail-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    /* 좌측 네거티브 마진 */
+    right: -20px;
+    /* 우측 네거티브 마진 */
+    bottom: 0;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    border-bottom: 1px solid var(--color-gray30);
+    width: 360px;
+    height: 100%;
+    /* 가상 요소를 부모 요소 뒤로 배치 */
+}
+
+.detail-content-description {
+    font-size: 1.73rem;
+    font-weight: 300;
+    color: var(--color-black90);
+    line-height: 28px;
+}
