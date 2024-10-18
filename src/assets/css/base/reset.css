@@ -133,3 +133,17 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+button {
+  all: unset;
+  display: block;
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+input {
+  all: unset;
+}
