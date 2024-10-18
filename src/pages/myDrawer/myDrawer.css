@@ -1,18 +1,27 @@
 /* 브런치 스토리 - 내 서랍 CSS */
 
+/* 공통으로 빼야 할 CSS - wrapper */
 .wrapper {
   width: 100%;
   max-width: 360px;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 14px 20px;
-  border-bottom: 1px solid #e0e0e0;
 }
 
+/* 공통으로 빼야 할 CSS - brunch story header */
 .bs-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+
+  margin: 0 -20px;
+  padding: 14px 20px;
+}
+
+.bs-header__logo {
+  padding: 14px 0;
 }
 
 .bs-header__icons a:nth-child(2) {
@@ -26,4 +35,24 @@
 .bs-header__icons .bs-header__profile img {
   width: 30px;
   height: 30px;
+}
+
+/* 내 서랍 - 관심 작가 CSS */
+.fav-authors__header {
+  display: flex;
+  align-items: center;
+  margin-top: 34px;
+  margin-left: 14px;
+}
+
+.fav-authors__header-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #111111;
+  margin-right: 3px;
+}
+
+.fav-authors__header-img {
+  width: 20px;
+  height: 20px;
 }
