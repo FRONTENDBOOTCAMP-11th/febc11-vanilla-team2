@@ -399,7 +399,7 @@ p {
 /* today-author */
 
 .today-author {
-  margin-bottom: 39px;
+  margin: 0;
 }
 
 .today-author-header {
@@ -513,4 +513,92 @@ p {
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
+}
+
+/* advertisement */
+.advertisement {
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 75px 17.5px 39px 17.5px;
+}
+
+.advertisement-info {
+  display: flex;
+  align-items: top;
+  margin: 0 25px;
+}
+
+.advertisement-info__title {
+  font-size: 17px;
+  line-height: 24px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  color: #111;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.advertisement-info__author {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Pretendard";
+  font-weight: 300;
+  color: #666;
+  text-align: left;
+}
+
+.advertisement-info__img {
+  margin-left: 15px;
+}
+
+.advertisement-info-description {
+  background-color: #fff;
+  padding-top: 22.75px;
+}
+
+.advertisement-info-description__title {
+  color: #111;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Pretendard";
+  font-weight: 600;
+  margin: 0;
+  padding-left: 25px;
+  position: relative;
+  display: inline-block;
+}
+
+.advertisement-info-description__title::after {
+  content: "";
+  position: absolute;
+  background-color: #111;
+  width: 25px;
+  height: 1px;
+  left: calc(100% + 3.66px);
+  top: 50%;
+}
+
+.advertisement-contents-description__text {
+  color: #111;
+  font-size: 15px;
+  line-height: 24px;
+  font-family: "Pretendard";
+  font-weight: 400;
+  padding: 25px 26px 67px 47px;
+  text-align: left;
+  position: relative;
+}
+
+.advertisement-contents-description__text::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background-image: url("/src/assets/icons/mark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 30px;
+  left: 25px;
+  width: 15px;
+  height: 11px;
 }
