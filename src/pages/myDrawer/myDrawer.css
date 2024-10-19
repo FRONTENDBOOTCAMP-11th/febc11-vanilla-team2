@@ -38,21 +38,53 @@
 }
 
 /* 내 서랍 - 관심 작가 CSS */
+
+/* 내 서랍 - 관심 작가 - Header CSS */
 .fav-authors__header {
   display: flex;
   align-items: center;
-  margin-top: 34px;
-  margin-left: 14px;
+  margin: 34px 0 15px 14px;
 }
 
-.fav-authors__header-title {
+.fav-authors__title {
   font-size: 19px;
   font-weight: 600;
   color: #111111;
   margin-right: 3px;
+  line-height: 22px;
 }
 
-.fav-authors__header-img {
+.fav-authors__icon {
   width: 20px;
   height: 20px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* 내 서랍 - 관심 작가 - Author List CSS */
+.fav-authors__list {
+  display: flex;
+  overflow-x: auto; /* 가로 스크롤. 가로로 넘칠 경우에만 스크롤바 나타나게 설정 */
+}
+
+.fav-authors__list::-webkit-scrollbar {
+  /* 스크롤바 안보이게 하기 위한 설정 */
+  display: none;
+}
+
+.fav-authors__item {
+  text-align: center;
+  margin-right: 26px;
+  flex: none;
+}
+
+.fav-authors__avatar {
+  margin-bottom: 16px;
+}
+
+.fav-authors__name {
+  font-size: 13px;
+  font-weight: 300;
+  color: #393939;
+  line-height: 20px;
 }
