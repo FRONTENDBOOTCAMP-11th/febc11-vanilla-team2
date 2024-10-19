@@ -37,16 +37,14 @@
   height: 30px;
 }
 
-/* 내 서랍 - 관심 작가 CSS */
-
-/* 내 서랍 - 관심 작가 - Header CSS */
-.fav-authors__header {
+/* 내 서랍 - 공통 - Section Header CSS */
+.my-drawer__header {
   display: flex;
   align-items: center;
   margin: 34px 0 15px 14px;
 }
 
-.fav-authors__title {
+.my-drawer__title {
   font-size: 19px;
   font-weight: 600;
   color: #111111;
@@ -54,13 +52,14 @@
   line-height: 22px;
 }
 
-.fav-authors__icon {
+.my-drawer__icon {
   width: 20px;
   height: 20px;
   display: block;
   margin-bottom: 2px;
 }
 
+/* 내 서랍 - 관심 작가 CSS */
 /* 내 서랍 - 관심 작가 - Author List CSS */
 .fav-authors__list {
   display: flex;
