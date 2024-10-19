@@ -14,14 +14,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   border-bottom: 1px solid #e0e0e0;
-
   margin: 0 -20px;
-  padding: 0 20px;
-}
-
-.bs-header__logo {
-  padding: 14px 0;
+  padding: 0 20px 14px;
 }
 
 .bs-header__icons a:nth-child(2) {
@@ -64,7 +60,7 @@
   margin-bottom: 34px;
 }
 
-/* 내 서랍 - 관심 작가 - Author List CSS */
+/* 내 서랍 - 관심 작가 - Favorite Author List CSS */
 .fav-authors__list {
   display: flex;
   overflow-x: auto; /* 가로 스크롤. 가로로 넘칠 경우에만 스크롤바 나타나게 설정 */
@@ -137,4 +133,88 @@
   font-weight: 300;
   line-height: 20px;
   color: #959595;
+}
+
+/* 내 서랍 - 관심 글 CSS */
+.fav-articles {
+  margin-bottom: 34px;
+}
+
+/* 내 서랍 - 관심 글 - Favorite Articels List CSS */
+.fav-articles__list {
+  display: flex;
+  overflow-x: auto;
+}
+
+.fav-articles__list::-webkit-scrollbar {
+  display: none;
+}
+
+.fav-articles__item {
+  width: 123px;
+  margin-right: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+}
+
+.fav-articles__book-thumbnail {
+  width: 123px;
+  height: 172px;
+  margin-bottom: 16px;
+  object-fit: cover; /* 이미지 비율 유지를 위한 설정 */
+}
+
+.fav-articles__title {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 23px;
+  white-space: normal;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.fav-articles__author {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #959595;
+}
+
+/* 내 서랍 - 내 브런치 CSS */
+.my-brunch__list {
+  margin-top: 14px;
+  border-top: 1px solid #e0e0e0;
+  margin: 0 -20px;
+  padding: 14px 20px;
+}
+
+.my-brunch__item {
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0 -20px;
+  padding: 14px 20px;
+}
+
+.my-brunch__chapter {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26px;
+
+  margin-bottom: 8px;
+}
+
+.my-brunch__book {
+  color: #959595;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 9px;
+}
+
+.my-brunch__published-date {
+  color: #959595;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
 }
