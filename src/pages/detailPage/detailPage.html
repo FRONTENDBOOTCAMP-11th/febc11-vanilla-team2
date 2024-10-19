@@ -71,7 +71,7 @@
         </section>
         <!--------댓글 콘텐츠---------->
         <section class="detail-comment">
-          <p class="detail-comment_count">댓글7</p>
+          <p class="detail-comment_count">댓글 <span>7</span></p>
           <div class="detail-comment_information">
             <!---댓글 블럭-->
             <div class="detail-comment_information-header">
@@ -127,10 +127,67 @@
             </div>
             <!--컨테이너 패딩 끝-->
             <div class="detail-comment_writing_container-btn">
-              <button class="detail-comment_writing-btn" type="submit">
-                <img src="/src/assets/icons/submit-btn.svg" alt="" />
+              <button
+                title="More Options Button"
+                class="detail-comment_writing-btn"
+                type="submit"
+              >
+                <img
+                  src="/src/assets/icons/submit-btn.svg"
+                  alt="More Options Button"
+                />
               </button>
             </div>
+          </div>
+        </section>
+
+        <section class="detail-profile">
+          <div class="detail-profile_information">
+            <div class="detail-profile_container">
+              <p class="detail-profile_name">Sunny</p>
+              <p class="detail-profile_job">회사원</p>
+            </div>
+            <img
+              class="detail-profile_src"
+              src="/src/assets/images/author-3.svg"
+              alt="작가 프로필 이미지"
+            />
+          </div>
+          <p class="detail-profile_description">
+            12년 차 국내 항공사 승무원의 겨울 산티아고 순례길 이야기 연재 중.
+            커피 한 잔을 벗 삼아 편하게 읽을 수 있는 글쓰기에 꽤나 진심인 편입
+            니다. 후후.
+          </p>
+          <div class="detail-profile_subcribe-information">
+            <div class="detail-profile_subscribe-information_container">
+              <p class="detail-profile_subscribe-information_subscriber">
+                구독자
+                <span
+                  id="subscribeCount"
+                  class="detail-profile_subscribe-information_count"
+                  >108</span
+                >
+              </p>
+            </div>
+            <button class="detail-profile_subscribe-btn">
+              <img src="/src/assets/icons/subscribe.svg" alt="구독하기" />
+            </button>
+          </div>
+        </section>
+
+        <section class="detail-footer">
+          <div class="detail-footer_container">
+            <button class="detail-footer_like-btn" id="likeBtn">
+              <img src="/src/assets/icons/like-on.svg" alt="좋아요" />
+              <span class="detail-footer_like">81</span>
+            </button>
+            <button class="detail-footer_share-btn" id="shareBtn">
+              <img src="/src/assets/icons/share.svg" alt="공유하기" />
+            </button>
+            <button class="detail-footer_message_btn" id="messageBtn">
+              <img src="/src/assets/icons/message.svg" alt="댓글 보기" />
+              <span>3</span>
+            </button>
           </div>
         </section>
       </article>
