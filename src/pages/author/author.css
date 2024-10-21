@@ -69,7 +69,7 @@ header {
   text-decoration: none;
 }
 
-/* Component */
+/* profile */
 .wrap-profile {
   /* display: flex; */
 }
@@ -84,8 +84,22 @@ header {
 
 .wrap-profile-thumb {
   position: relative;
-  margin: 0 auto 35px;
-  padding: 20px 0 0;
+  margin: 0 20px;
+}
+
+.wrap-profile-thumb .authorImage {
+  overflow: hidden;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background-position: -250px -80px;
+}
+
+#follower {
+  float: left;
+  margin-right: 12px;
 }
 
 .wrap-profile-btn {
@@ -93,42 +107,66 @@ header {
 }
 
 /* main */
-
-.wrap_article_list .list_article .link_category {
+.wrap-article-list .list_article .link_category {
   display: inline-block;
   vertical-align: top;
 }
 
-.wrap_article_list .tit_category {
+.wrap-article-list_post {
+  margin: 20px;
+}
+
+.wrap-article-list_post .titCategory {
   color: #00c6be;
   min-width: 20px;
   text-decoration-line: underline;
 }
 
-.wrap_article_list .link-post {
+.post-title {
+  margin-top: 10px;
 }
 
-.wrap_article_list .title_subject {
+.wrap-article-list_post .post-title_subject {
   color: #333;
   font-size: 17px;
   line-height: 24px;
 }
 
-.wrap_article_list .title_sub {
+.wrap-article-list .titleSub {
   color: #666;
 }
 
-.wrap_article_list span {
+.wrap-title-contents {
   color: #959595;
   font-size: 12px;
   line-height: 20px;
+  padding-top: 4px;
 }
 
-.post_append span {
-  float: left;
+.post-content {
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.ico_dot {
+.post-append {
+  /* padding-top: 6px; */
+  /* float: left; */
+}
+
+.ico_bar {
+  display: inline-block;
+  width: 1px;
+  height: 11px;
+  margin: 4px 3px 0;
+  background-color: #eee;
+  vertical-align: top;
+}
+
+.ico-dot {
   display: inline-block;
   width: 2px;
   height: 2px;
@@ -137,36 +175,8 @@ header {
   vertical-align: top;
 }
 
-/* footer */
-
-#footer {
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  justify-content: space-around;
-  align-items: center;
-  width: 360px;
-  height: 100px;
-  background-color: var(--color-white);
-  z-index: 100;
-}
-
-.footer-icon {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.footer-icon-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 15px;
-}
-
-.icon-item span {
-  font-size: 12px;
-  line-height: 22px;
-  font-family: "Pretendard";
-  font-weight: 300;
+hr {
+  height: 1px;
+  border: 0;
+  background-color: #eee;
 }
