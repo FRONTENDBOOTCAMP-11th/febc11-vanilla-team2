@@ -835,6 +835,8 @@ p {
 
 .mainpagefooter-sns {
   padding-top: 31px;
+  display: flex;
+  justify-content: center;
 }
 
 .mainpagefooter-sns img {
