@@ -4,6 +4,7 @@
 .wrapper {
   background-color: #ffffff;
   width: 100%;
+  height: 100vh;
   max-width: 360px;
   margin: 0 auto;
   box-sizing: border-box;
@@ -26,6 +27,10 @@
   left: 0;
   right: 0;
   box-sizing: border-box;
+}
+
+.bs-header a {
+  text-decoration: none;
 }
 
 .bs-header__icons a:nth-child(2) {
