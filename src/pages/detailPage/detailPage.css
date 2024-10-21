@@ -17,6 +17,7 @@ textarea {
     --color-black90: #1B1B1B;
     --color-black80: #333;
     --color-gray80: #666;
+    --color-gray75: #838383;
     --color-gray70: #959595;
     --color-gray65: #BBB;
     --color-gray60: rgba(149, 149, 149, 0.5);
@@ -181,6 +182,7 @@ body {
 .detail-content_description-addition {
     text-align: center;
     margin-bottom: 28.34px;
+    color: var(--color-gray75);
 }
 
 .detail-content_information {
@@ -215,6 +217,10 @@ body {
 
 .detail-comment_count {
     margin-bottom: 56.73px;
+}
+
+.detail-comment_count-color {
+    color: var(--color-green20);
 }
 
 .detail-comment_information-header {
