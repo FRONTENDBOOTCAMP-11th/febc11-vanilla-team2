@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
+    <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
+    <link rel="stylesheet" href="detailPage.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <article class="article">
+        <!-----브런치 스토리 공통 헤더------------>
+        <header class="brunch-story-header">
+          <a class="brunch-story-header__logo">
+            <img src="../../assets/logo/logo.svg" alt="Brunch Story Logo" />
+          </a>
+          <div class="brunch-story-header__icons">
+            <span class="brunch-story-header__icon">
+              <img src="../../assets/icons/notice.svg" alt="Notice Icon" />
+            </span>
+            <span class="brunch-story-header__icon">
+              <img src="../../assets/icons/search.svg" alt="Notice Icon" />
+            </span>
+            <span class="brunch-story-header__profile">
+              <img src="../../assets/images/author-3.svg" alt="Notice Icon" />
+            </span>
+          </div>
+        </header>
+        <!---haeder------->
+        <section class="detail-header">
+          <h1 class="detail-header_title">
+            우여곡절 끝에 도착한 첫번째 목적지
+          </h1>
+          <p class="detail-header_title-addition">Val carlos</p>
+          <div class="detail-header_information">
+            <img
+              class="detail-header_bycover"
+              src="/src/assets/icons/by.svg"
+              alt="작가 확인"
+            />
+            <p class="detail-header_author">Sunny</p>
+            <p class="detail-header_date">Jul 23.2024</p>
+          </div>
+        </section>
+        <!--------메인 내용----------->
+        <section class="detail-content">
+          <p class="detail-content_description">
+            그래 지난 화를 요약해 보면 생장에 도착한 나 는 도착 당일 바로 첫
+            여정을 시작하기로 마음먹 었고 추천받은 목적지인 Val carlos까지
+            구글맵 으로 걸어서 2시간 30분 거리를 확인했다. 그러 나 걸어도 걸어도
+            줄지 않는 시간과 거리에 괴로 워했었지.
+          </p>
+          <div class="detail-content_cover">
+            <img class="detail-content_cover-src" src="" alt="" />
+          </div>
+          <p class="detail-content_description-addition">
+            여기가 바로 국경이다! 좌-프랑스, 우-스페인
+          </p>
+          <p class="detail-content_description">
+            오후 5시 36분. 세상에 인터넷에서 사진으로만 보다가 직접 내 눈으로
+            처음 목격한 정식적인(?) 까미노 표식! 아주 반갑기 그지없었다. 왠지 목
+            적지가 가까워진 것만 같은 느낌적인 느낌! 하지 만 구글맵의 내 위치는
+            전혀 그렇지 못했다.
+          </p>
+          <div class="detail-content_information">
+            <a class="detail-content_tag" href="">산티아고 순례길</a>
+            <a class="detail-content_tag" href="">트레킹</a>
+          </div>
+        </section>
+        <!--------댓글 콘텐츠---------->
+        <section class="detail-comment">
+          <p class="detail-comment_count">
+            댓글 <span class="detail-comment_count-color">7</span>
+          </p>
+          <div class="detail-comment_information">
+            <!---댓글 블럭-->
+            <div class="detail-comment_information-header">
+              <img
+                class="detail-comment_header-profile_src"
+                src="/src/assets/images/author-1.svg"
+                alt=""
+              />
+              <div class="detail-comment_header-container">
+                <p class="detail-comment_header-profile_name">이상욱</p>
+                <p class="detail-comment_header_date">Jul 23. 2024</p>
+              </div>
+              <div class="detail-comment_header-container_btn">
+                <button class="detail-comment_header-btn">
+                  <img
+                    src="/src/assets/icons/detail-btn.svg"
+                    alt="답글 추가 보기"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <p class="detail-comment_information-description">
+              유럽은 국경이 희미해서 좋아요. 옛추억에 점 심은 프랑스에서 저녁은
+              스위스에서 먹던 기 억이 나네요. 홀로 산티아고 길을, 마치 행군
+              하듯이 걷는 그 고통이 기쁨으로 충만하길 바 라며 읽고 있습니다. ^^
+            </p>
+            <button class="detail-comment_information-btn">답글달기</button>
+          </div>
+
+          <div class="detail-comment_writing">
+            <div class="detail-comment_writing-container">
+              <!--컨테이너 패딩 시작-->
+              <div class="detail-comment_writing-container_profile">
+                <!--프로필 플렉스 시작-->
+                <img
+                  class="detail-comment_writing-src"
+                  src="/src/assets/images/author-2.svg"
+                  alt=" 글쓰기 프로필"
+                />
+                <p class="detail-comment_writing-name">주정</p>
+              </div>
+              <!--프로필 플렉스 끝-->
+              <label class="visually_hidden" for="commentInput">
+                댓글 내용을 입력해주세요</label
+              >
+              <textarea
+                type="text"
+                class="detail-comment_writing-input"
+                id="commentInput"
+                placeholder="댓글을 입력하세요"
+              ></textarea>
+            </div>
+            <!--컨테이너 패딩 끝-->
+            <div class="detail-comment_writing_container-btn">
+              <button
+                title="More Options Button"
+                class="detail-comment_writing-btn"
+                type="submit"
+              >
+                <img
+                  src="/src/assets/icons/submit-btn.svg"
+                  alt="More Options Button"
+                />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="detail-profile">
+          <div class="detail-profile_information">
+            <div class="detail-profile_container">
+              <p class="detail-profile_name">Sunny</p>
+              <p class="detail-profile_job">회사원</p>
+            </div>
+            <img
+              class="detail-profile_src"
+              src="/src/assets/images/author-3.svg"
+              alt="작가 프로필 이미지"
+            />
+          </div>
+          <p class="detail-profile_description">
+            12년 차 국내 항공사 승무원의 겨울 산티아고 순례길 이야기 연재 중.
+            커피 한 잔을 벗 삼아 편하게 읽을 수 있는 글쓰기에 꽤나 진심인 편입
+            니다. 후후.
+          </p>
+          <div class="detail-profile_subcribe-information">
+            <div class="detail-profile_subscribe-information_container">
+              <p class="detail-profile_subscribe-information_subscriber">
+                구독자
+                <span
+                  id="subscribeCount"
+                  class="detail-profile_subscribe-information_count"
+                  >108</span
+                >
+              </p>
+            </div>
+            <button class="detail-profile_subscribe-btn">
+              <img src="/src/assets/icons/subscribe.svg" alt="구독하기" />
+            </button>
+          </div>
+        </section>
+
+        <section class="detail-footer">
+          <div class="detail-footer_container">
+            <button class="detail-footer_like-btn" id="likeBtn">
+              <img src="/src/assets/icons/like-on.svg" alt="좋아요" />
+              <span class="detail-footer_like">81</span>
+            </button>
+            <button class="detail-footer_share-btn" id="shareBtn">
+              <img src="/src/assets/icons/share.svg" alt="공유하기" />
+            </button>
+            <button class="detail-footer_message_btn" id="messageBtn">
+              <img src="/src/assets/icons/message.svg" alt="댓글 보기" />
+              <span>3</span>
+            </button>
+          </div>
+        </section>
+      </article>
+    </div>
+    <script src="detailPage.js"></script>
+  </body>
+</html>
