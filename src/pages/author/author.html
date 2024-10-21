@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
+    <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
+    <link rel="stylesheet" href="author.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header id="header">
+        <div id="logo-container">
+          <a href="main.html">
+            <img src="/src/assets/logo/logo.svg" alt="로고" id="logo" />
+          </a>
+        </div>
+        <div id="search-container">
+          <img src="/src/assets/icons/search.svg" alt="검색" id="search" />
+        </div>
+        <div id="start-container">
+          <a href="/src/pages/login/login.html" class="startbtn">시작하기</a>
+        </div>
+      </header>
+
+      <div class="wrap-profile">
+        <div class="wrap-profile coverImage"></div>
+        <div class="wrap-profile-thumb">
+          <img
+            class="wrap-profile-thumb authorImage"
+            src="/src/assets/images/author-1.svg"
+            width="80"
+            height="80"
+            alt="프로필 이미지"
+          />
+          <div class="wrap-profile-thumb-info">
+            <strong class="wrap-profile-thumb-info_authorName">Author1</strong>
+            <pre class="desc_bloger">작가소개란 입니다.</pre>
+            <dl class="blog_count">
+              <dd class="#follower">
+                <em class="txt_g">구독자</em>
+                <span class="num_count">0</span>
+              </dd>
+              <dd class="#following">
+                <a href="/@7b4ed273ccff445/following" class="link_count">
+                  <em class="txt_g">관심작가</em>
+                  <span class="num_count">1</span>
+                </a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="wrap-profile-btn">
+          <button
+            type="button"
+            id="btn_2xr"
+            value="2xr"
+            class="btn_type btn_new_type btn_profile btn_subscription btnUnFollow btn_post #unfollow"
+          >
+            <span class="ico_brunch" style="display: none"></span>
+            <span class="txt_default">
+              <img
+                class="ico_check"
+                src="/src/assets/icons/subscribe-on.svg"
+                alt="구독중"
+              />
+            </span>
+            <span class="txt_on" alt="구독취소"></span>
+          </button>
+          <div class="more_control">
+            <div class="dimmed_layer" style="display: none"></div>
+          </div>
+        </div>
+      </div>
+
+      <main class="main">
+        <div class="wrap_article_list">
+          <ul>
+            <li>
+              <a class="link_category" href="">
+                <em class="tit_category">취준은 처음이라</em>
+              </a>
+              <a
+                class="link-post #post_listview"
+                onclick="clickContents"
+                href=""
+              >
+                <div class="post_title">
+                  <strong class="title_subject"
+                    >[취업특강] 노션 포트폴리오 만들기</strong
+                  >
+                  <div class="post_desc">
+                    <div class="wrap_sub_content">
+                      <em class="title_sub"
+                        >with 노슈니, 슈크림 마을, 마포청년나루</em
+                      >
+                      <span class="ico_bar"></span>
+                      <span class="article_content"
+                        >취업 준비를 위해 반드시 필요한 것 세 가지. 자기소개서,
+                        이력서, 포트폴리오. 그중에서 최…</span
+                      >
+                    </div>
+                    <span class="post_append">
+                      <span>댓글</span>
+                      <span class="num_txt">0</span>
+                      <span class="ico_dot"></span>
+                      <span class="publish_time">Oct 07. 2024</span>
+                    </span>
+                  </div>
+                  <!-- <div class="post_thumb">
+                    <img class="img_thumb" src="" alt="이미지정보" />
+                  </div> -->
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </main>
+      <footer id="footer">
+        <div class="footer-icon">
+          <div class="footer-icon-item">
+            <a href="main.html">
+              <img src="/src/assets/icons/home-on.svg" alt="홈" />
+            </a>
+            <span>홈</span>
+          </div>
+          <div class="footer-icon-item">
+            <a href="/src/pages/search/search.html">
+              <img src="/src/assets/icons/search-off.svg" alt="발견" />
+            </a>
+            <span>발견</span>
+          </div>
+          <div class="footer-icon-item">
+            <a href="/src/pages/write/write.html">
+              <img src="/src/assets/icons/write-off.svg" alt="글쓰기" />
+            </a>
+            <span>글쓰기</span>
+          </div>
+          <div class="footer-icon-item">
+            <a href="/src/pages/myDrawer/myDrawer.html">
+              <img src="/src/assets/icons/mydrawer-off.svg" alt="내 서랍" />
+            </a>
+            <span>내 서랍</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="author.js"></script>
+  </body>
+</html>
