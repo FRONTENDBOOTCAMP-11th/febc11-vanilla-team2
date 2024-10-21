@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brunch Story Main</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div id="logo-container">
+        <a href="main.html">
+            <img src="/src/assets/logo/logo.svg" alt="로고" id="logo" />
+        </a>
+      </div>
+      <div id="search-container">
+        <img src="/src/assets/icons/search.svg" alt="검색" id="search" />
+      </div>
+      <div id="start-container">
+        <a href="/src/pages/login/login.html" class="startbtn">시작하기</a>
+      </div>
+    </header>
+
+    <div class="mainpage">
+      <nav id="main-nav">
+        <div class="main-nav-title">
+          <h2>멈추어 버린 시간</h2>
+        </div>
+        <div class="main-nav-author">
+          <p class="main-nav-author__name"><span class="by">by</span> 김수정</p>
+        </div>
+        <div class="main-nav__img">
+          <img src="/src/assets/images/멈추어 버린 시간.svg" />
+          <img
+            src="/src/assets/icons/응원 뱃지.svg"
+            alt="응원 뱃지"
+            class="badge"
+          />
+        </div>
+        <div class="main-nav-cheer">
+          <p class="cheering">47명의 응원</p>
+        </div>
+        <div class="slider-container">
+          <div class="slider-container__bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar active"></div>
+            <div class="bar"></div>
+          </div>
+          <div class="slider-text">5 / 6</div>
+        </div>
+      </nav>
+
+      <div class="divider"></div>
+
+      <div class="todays-pick-container">
+        <article class="todays-pick">
+          <div class="todays-pick-header">
+            <h1>Today's Pick</h1>
+            <h2>요즘 뜨는 브런치</h2>
+          </div>
+          <ol class="top10-list">
+            <li class="top10">
+              <span class="rank" data-rank="1">1</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">무사히 마흔살이 될 수 있을까</h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 강윤이
+                </p>
+                <p class="top10-info__text">
+                  병원에서 암 진단을 받고 나와 햇볕 이 작열하며 끓어오르는
+                  거리를 …
+                </p>
+              </div>
+              <img src="/src/assets/images/top1.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="2">2</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">맞벌이 하루살이</h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 서리
+                </p>
+                <p class="top10-info__text">
+                  누구의 엄마로 불리지만, 그 전에 내 이름이 있다. 엄마로
+                  육아하면서 …
+                </p>
+              </div>
+              <img src="/src/assets/images/top2.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="3">3</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">
+                  집이 있었는데,이제는 없습니다
+                </h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 준지
+                </p>
+                <p class="top10-info__text">
+                  성북동 부모님 집에서 편하게 얹혀 살며 대학도, 직장도 30분이
+                  넘지…
+                </p>
+              </div>
+              <img src="/src/assets/images/top3.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="4">4</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">나의 우울일기 2</h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 그레이스
+                </p>
+                <p class="top10-info__text">
+                  언제부터인지 모를, 심한 우울증을 앓고 있습니다. 인생이 무언가
+                  잘…
+                </p>
+              </div>
+              <img src="/src/assets/images/top4.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="5">5</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">
+                  포카리스웨트같은 과학콘텐츠이야기
+                </h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> corescienc
+                </p>
+                <p class="top10-info__text">
+                  우리의 삶속에는 많은 과학적 지식 들이 숨어져 있습니다.알지만
+                  지…
+                </p>
+              </div>
+              <img src="/src/assets/images/top5.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="6">6</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">서울이 싫어서</h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 은연주
+                </p>
+                <p class="top10-info__text">
+                  원래부터 도시를 싫어했다. 남편과 연애할 때도 맨날 귀촌하자고
+                  서…
+                </p>
+              </div>
+              <img src="/src/assets/images/top6.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="7">7</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">수요에세이</h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 뮤뮤
+                </p>
+                <p class="top10-info__text">
+                  일주일에 한 번, 수요일마다 에세이 한 편을 배달해 드리겠습니다.
+                  매…
+                </p>
+              </div>
+              <img src="/src/assets/images/top7.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="8">8</span>
+              <img src="/src/assets/icons/rankUp.svg" class="rankUp" />
+              <div class="top10-info">
+                <h1 class="top10-info__header">강남 안에, 강북 남자</h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 눅눅한과자
+                </p>
+                <p class="top10-info__text">
+                  나도 몰랐다. 내가 강남에 살게 될 줄 은. 강남 출신 아내를 만나
+                  덜컥 집…
+                </p>
+              </div>
+              <img src="/src/assets/images/top8.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="9">9</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">
+                  서울에서 혼자 밥해먹고 사는 사람
+                </h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 이확위
+                </p>
+                <p class="top10-info__text">
+                  해외에서 2년 반을 살다가 다시 한 국에 돌아왔습니다. 서울에서
+                  다…
+                </p>
+              </div>
+              <img src="/src/assets/images/top9.svg" class="top10-img" />
+            </li>
+            <li class="top10">
+              <span class="rank" data-rank="10">10</span>
+              <div class="top10-info">
+                <h1 class="top10-info__header">
+                  이과 남편과 문과 아내의 실화극
+                </h1>
+                <p class="top10-info__author">
+                  <span class="by">by</span> 빛날현
+                </p>
+                <p class="top10-info__text">
+                  결혼은 보통 극과 극이 만나 맞춰간 다고들 하지만..이건 모서리와
+                  모…
+                </p>
+              </div>
+              <img src="/src/assets/images/top10.svg" class="top10-img" />
+            </li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="bestseller">
+        <div class="bestseller-header">
+          <h1 class="bestseller-header__title">브런치북 원작 베스트셀러</h1>
+        </div>
+        <div class="bestseller-contents">
+          <div class="bestseller-contents-info">
+            <div class="bestseller-contents-info__text">
+              <h2 class="bestseller-contents-info__title">여자야구입문기</h2>
+              <p class="bestseller-contents-info__author">김입문</p>
+            </div>
+            <img
+              src="/src/assets/images/여자야구입문기.svg"
+              class="bestseller-contents-info__img"
+            />
+          </div>
+          <div class="bestseller-contents-description">
+            <h2 class="bestseller-contents-description__title">
+              작가가 사랑한 문장
+            </h2>
+            <p class="bestseller-contents-description__text">
+              최선을 다해서 응원해주는 이가 내<br />
+              뒤에 있다. 그들을 뒤에 두고 있으<br />
+              면, 나는 앞을 볼 수 밖에 없다.
+            </p>
+          </div>
+        </div>
+        <button type="button" class="bestseller-btn">
+          원작 브런치북 보기 <span>></span>
+        </button>
+      </div>
+
+      <div class="today-author">
+        <div class="today-author-header">
+          <div class="today-author-header-top">
+            <div class="today-author-header-top-left">
+              <h1 class="today-author-header-top-left__title">오늘의 작가</h1>
+              <h2 class="today-author-header-top-left__name">동그라미 원</h2>
+              <h3 class="today-author-header-top-left__job">에세이스트</h3>
+            </div>
+            <div class="today-author-header-top-right">
+              <img
+                src="/src/assets/images/author-7.svg"
+                class="today-author-header-top-right__img"
+              />
+            </div>
+          </div>
+          <p class="today-author-header__text">
+            새로운 인생 2막을 향해 나아가고 있습니다. 살면서 깨닫고 어려움을
+            극복한 마음들을 글을 통해 함께…
+          </p>
+        </div>
+        <ul class="today-author-list">
+          <li class="today-author-list__one">
+            <div class="today-author-list-left">
+              <img
+                src="/src/assets/images/행복하게먹으려면.svg"
+                class="happy-eat"
+              />
+            </div>
+            <div class="today-author-list-right">
+              <h1 class="today-author-list-right__title">행복하게먹으려면</h1>
+              <p class="today-author-list-right__text">
+                사람이 행복하기를 원하면서 음식의 맛이나 건강 여부는 따지지만
+                먹는…
+              </p>
+            </div>
+          </li>
+          <li class="today-author-list__two">
+            <div class="today-author-list-left">
+              <div class="image-container">
+                <img
+                  src="/src/assets/images/저는이런마음입니다.svg"
+                  class="mind"
+                />
+                <div class="latest">최신작</div>
+              </div>
+            </div>
+            <div class="today-author-list-right">
+              <h1 class="today-author-list-right__title">
+                저는 이런 마음입니다
+              </h1>
+              <p class="today-author-list-right__text">
+                우리는 어떤 일들을 겪거나, 어떤 사 람들과의 만남을 통해 마음이
+                요동…
+              </p>
+            </div>
+          </li>
+        </ul>
+        <div class="divider"></div>
+      </div>
+
+      <div class="advertisement">
+        <div class="advertisement-info">
+          <div class="advertisement-info__text">
+            <h2 class="advertisement-info__title">그리움이 지칠 때</h2>
+            <p class="advertisement-info__author">
+              <span class="by">by</span> 산들
+            </p>
+          </div>
+          <img
+            src="/src/assets/images/여행을꺼내읽다.svg"
+            class="advertisement-info__img"
+          />
+        </div>
+        <div class="advertisement-info-description">
+          <h2 class="advertisement-info-description__title">
+            작가가 사랑한 문장
+          </h2>
+          <p class="advertisement-contents-description__text">
+            여행의 끝에서 일상으로 돌아오는<br />
+            것은 몸의 기억을 되살리는 일이다.
+          </p>
+        </div>
+      </div>
+
+      <div class="subjump">
+        <h1 class="subjump-title">구독자 급등 작가</h1>
+        <div class="subjump-grid">
+          <div class="subjump-grid-item">
+            <img src="/src/assets/images/author-5.svg" class="subjump-author" />
+            <h2 class="subjump-grid-item__name">피터팬</h2>
+            <p class="subjump-grid-item__job">목사 만화가</p>
+            <p class="subjump-grid-item__text">
+              하나님을 사랑하고 아내 를 사랑하고 여행을 …
+            </p>
+          </div>
+          <div class="subjump-grid-item">
+            <img src="/src/assets/images/author-6.svg" class="subjump-author" />
+            <h2 class="subjump-grid-item__name">빛날현</h2>
+            <p class="subjump-grid-item__job">에세이스트</p>
+            <p class="subjump-grid-item__text">
+              26살부터 47살까지 교 수님이라 불리우는 목…
+            </p>
+          </div>
+          <div class="subjump-grid-item">
+            <img src="/src/assets/images/author-8.svg" class="subjump-author" />
+            <h2 class="subjump-grid-item__name">허사이</h2>
+            <p class="subjump-grid-item__job"></p>
+            <p class="subjump-grid-item__text">
+              책방 셔터맨을 꿈꾸는 40대 공돌이. 다양한 …
+            </p>
+          </div>
+          <div class="subjump-grid-item">
+            <img src="/src/assets/images/author-9.svg" class="subjump-author" />
+            <h2 class="subjump-grid-item__name">마틸다 하나씨</h2>
+            <p class="subjump-grid-item__job">에세이스트</p>
+            <p class="subjump-grid-item__text">
+              하노이에 깃든 시간을 따라 매일 새로운 세…
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="newauthor">
+        <div class="newauthor-header">
+          <h1 class="newauthor-header__title">새로운 작가의 탄생</h1>
+          <h2 class="newauthor-header__subtitle">
+            제11회 브런치북 출판 프로젝트
+          </h2>
+          <h2 class="newauthor-header__winners">수상작 보기 ></h2>
+        </div>
+        <div class="newauthor-seewinners">
+          <div class="newauthor-seewinners__list">
+            <img src="/src/assets/images/태어나는말들.svg" />
+            <h3 class="newauthor-seewinners__list-title">태어나는 말들</h3>
+            <p class="newauthor-seewinners__list-name">
+              <span class="by">by</span> 조소연
+            </p>
+          </div>
+          <div class="newauthor-seewinners__list">
+            <img src="/src/assets/images/엄마없는농담.svg" />
+            <h3 class="newauthor-seewinners__list-title">엄마 없는 농담</h3>
+            <p class="newauthor-seewinners__list-name">
+              <span class="by">by</span> 김현민
+            </p>
+          </div>
+          <div class="newauthor-seewinners__list">
+            <img src="/src/assets/images/인생은방탈출.svg" />
+            <h3 class="newauthor-seewinners__list-title">인생은 방탈출</h3>
+            <p class="newauthor-seewinners__list-name">
+              <span class="by">by</span> 오지은
+            </p>
+          </div>
+        </div>
+        <div class="newauthor-footer">
+          <p class="newauthor-footer__link">브런치 작가 지원 프로젝트 ></p>
+          <img src="/src/assets/icons/up.svg" class="upbutton" />
+        </div>
+      </div>
+
+      <div class="mainpagefooter">
+        <div class="mainpagefooter-sns">
+          <img src="/src/assets/icons/kakaotalkicon.svg" />
+          <img src="/src/assets/icons/facebookicon.svg" />
+          <img src="/src/assets/icons/Xicon.svg" />
+        </div>
+        <div class="mainpagefooter-links">
+          <div class="link-row">
+            <a href="/terms">이용약관</a>
+            <a href="/previous-terms">이전 이용약관</a>
+            <a href="/kakao-paid-service-terms">카카오 유료서비스 이용약관</a>
+          </div>
+          <div class="link-row">
+            <a href="/kakao-privacy-policy">카카오 개인정보 처리방침</a>
+            <a href="/youth-protection-policy">청소년 보호정책</a>
+            <a href="/operating-policy">운영정책</a>
+          </div>
+        </div>
+        <img
+          src="/src/assets/logo/logo-white.svg"
+          class="mainpagefooter-logo"
+        />
+      </div>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-icon">
+            <div class="footer-icon-item">
+                <a href="main.html">
+                    <img src="/src/assets/icons/home-on.svg" alt="홈">
+                </a>
+                    <span>홈</span>
+            </div>
+            <div class="footer-icon-item">
+                <a href="/src/pages/search/search.html">
+                    <img src="/src/assets/icons/search-off.svg" alt="발견">
+                </a>
+                    <span>발견</span>
+            </div>
+            <div class="footer-icon-item">
+                <a href="/src/pages/write/write.html">
+                    <img src="/src/assets/icons/write-off.svg" alt="글쓰기">
+                </a>
+                    <span>글쓰기</span>
+            </div>
+            <div class="footer-icon-item">
+                <a href="/src/pages/myDrawer/myDrawer.html">
+                    <img src="/src/assets/icons/mydrawer-off.svg" alt="내 서랍">
+                </a>
+                    <span>내 서랍</span>
+            </div>
+    </footer>
+  </body>
+</html>
