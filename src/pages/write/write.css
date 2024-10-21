@@ -1,0 +1,112 @@
+/* reset */
+hr {
+  margin: unset;
+  padding: unset;
+}
+
+* {
+  font-family: "Pretendard";
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+input,
+textarea {
+  border-width: 0;
+}
+
+input,
+textarea:focus {
+  outline: none;
+}
+
+hr {
+  background: #eee;
+  height: 1px;
+  border: 0;
+}
+
+/* component */
+.wrap {
+  max-width: 360px;
+  margin: 0 auto;
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+.wrap-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 14px 20px;
+}
+
+.wrap-header_title {
+  margin: auto;
+  font-size: 19px;
+  line-height: 22px;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 1);
+}
+
+.wrap-main {
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.wrap-main-subject_mainTitle {
+  font-size: 24px;
+  line-height: 26px;
+  margin: 20px 20px;
+}
+
+.wrap-main-subject_subTitle {
+  font-size: 20px;
+  line-height: 18px;
+  margin: 20px 20px;
+}
+
+.wrap-main-contents {
+  margin: 0 auto;
+  position: relative;
+  min-height: 40vh;
+  margin: 0 28px;
+  overflow: hidden;
+}
+
+.wrap-main-contents_text {
+  font-size: 20px;
+  line-height: 18px;
+  padding: 30px 0;
+  resize: none;
+  white-space: pre-wrap;
+}
+
+.wrap-addBar-contents {
+  position: fixed;
+  bottom: 0px;
+  padding: 22px 25px;
+  width: 360px;
+  box-sizing: border-box;
+  background-color: rgba(248, 248, 248, 1);
+  display: flex;
+}
+
+.wrap-addBar-contents img {
+  width: 40px;
+}
+
+.wrap-addBar-contents_picture {
+  margin-right: 15px;
+}
+
+.wrap-addBar-contents_align {
+  margin-right: 135px;
+}
+
+.wrap-addBar-contents_keyboard {
+  margin-left: auto;
+}
