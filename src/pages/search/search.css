@@ -7,7 +7,7 @@
   max-width: 360px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 62px 20px 14px;
+  padding: 22px 20px 14px;
   height: 100vh;
 }
 
@@ -52,37 +52,55 @@
 }
 
 /* 발견 - Section Header CSS */
-.search__header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+.search-header {
   border-bottom: 1px solid #dddddd;
   margin: 0 -20px;
+  text-align: center;
 }
 
-.search__input {
+.search-query__input {
   width: 100%;
   max-width: 320px;
-  padding: 22px 40px;
+  padding: 20px 40px;
   text-align: center;
   box-sizing: border-box;
+
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 36px;
+  color: #333333;
 }
 
-.search__input::placeholder {
+.search-query__input::placeholder {
   font-size: 24px;
   color: #bfbfbf;
   font-weight: 300;
 }
 
-.search__clear-button {
+.search-query__clear-btn {
   background: none;
   border: none;
   cursor: pointer;
   display: none;
 }
 
-.search__clear-button img {
+.search-query__clear-btn img {
   width: 16px;
   height: 16px;
+}
+
+.search-tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-tab__item {
+  flex: 1;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 37px;
+  color: #666666;
 }

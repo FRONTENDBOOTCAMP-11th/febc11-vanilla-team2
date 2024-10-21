@@ -10,11 +10,21 @@
   <body>
     <div class="wrapper">
       <!-- 발견 - 검색어 입력 Header -->
-      <header class="search__header">
-        <input type="text" class="search__input" placeholder="검색어 입력" />
-        <button type="button" class="search__clear-button">
-          <img src="../../assets/icons/clear-button.svg" alt="Clear Button" />
-        </button>
+      <header class="search-header">
+        <div class="search-query">
+          <input
+            type="text"
+            class="search-query__input"
+            placeholder="검색어 입력"
+          />
+          <button type="button" class="search-query__clear-btn">
+            <img src="../../assets/icons/clear-button.svg" alt="Clear Button" />
+          </button>
+        </div>
+        <div class="search-tab">
+          <span class="search-tab__item">글</span>
+          <span class="search-tab__item">작가</span>
+        </div>
       </header>
 
       <!-- 발견 - 추천 작가 키워드 -->
