@@ -2,6 +2,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    vertical-align: middle;
+}
+
 /*css Variables*/
 :root {
     --color-black100: #111;
@@ -25,8 +29,19 @@ a {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-gray60);
+    margin: 0 auto;
+    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    max-width: 360px;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    background-color: var(--color-white);
 }
 
+/*마이페이지*/
 .brunch-story-header__icons span {
     margin-left: 10px;
 }
@@ -370,6 +385,7 @@ body {
 
 .detail-footer_message_btn {
     margin-left: auto;
+
 }
 
 /*좋아요 등록/취소(필수) 구독 등록/취소(필수)*/
