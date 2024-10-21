@@ -11,6 +11,7 @@
   --color-white-transparent40: rgba(255, 255, 255, 0.4);
   --color-white-transparent80: rgba(255, 255, 255, 0.8);
   --color-black1: #111;
+  --color-black2: #231f20;
   --color-black-transparent90: rgba(18, 18, 18, 0.9);
   --color-black-transparent5: rgba(0, 0, 0, 0.05);
   --color-lightgrayF: #f8f8f8;
@@ -78,9 +79,13 @@ header {
 
 #search-container {
   padding: 10px 0 10px 98px;
+  display: flex;
+  align-items: center;
 }
 #start-container {
   padding: 13px 20px 13px 10px;
+  display: flex;
+  align-items: center;
 }
 
 #search {
@@ -89,7 +94,7 @@ header {
 }
 
 .startbtn {
-  background-color: var(--color-lightgrayD);
+  background-color: var(--color-black2);
   color: var(--color-white);
   border-radius: 15px;
   font-size: 10px;
