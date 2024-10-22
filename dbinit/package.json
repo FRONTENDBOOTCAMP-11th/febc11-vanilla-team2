@@ -7,7 +7,8 @@
     "dbinit:brunch:prod": "cross-env NODE_ENV=production node ./init.js brunchStory 00-brunch",
     "dbinit:brunch": "cross-env NODE_ENV=local node ./init.js brunchStory 00-brunch",
     "dbinit:nike:prod": "cross-env NODE_ENV=production node ./init.js nike 00-nike",
-    "dbinit:nike": "cross-env NODE_ENV=local node ./init.js nike 00-nike"
+    "dbinit:nike": "cross-env NODE_ENV=local node ./init.js nike 00-nike",
+    "dbinit": "cross-env NODE_ENV=production node ./init.js brunchStory 00-brunch"
   },
   "keywords": [],
   "author": "",
