@@ -67,7 +67,7 @@ const jsonData = {
         },
       ],
       myBookmarkId: 23,
-      repliesCount: 3,
+      repliesCount: 7,
     },
   ],
   pagination: {
@@ -78,4 +78,101 @@ const jsonData = {
   },
 };
 
-const titleNode=
+const titleNode = document.querySelector(".detail-header_title");
+const authorNode = document.querySelector(".detail-header_author");
+const dateNode = document.querySelector(".detail-header_date");
+const contentNode = document.querySelector(".detail-content_description");
+const contentImageNode = document.querySelector(".detail-content_cover-src");
+
+const likeNode = document.querySelector(".detail-footer_like");
+const jobNode = document.querySelector(".detail-profile_job");
+const profileAuthorNode = document.querySelector(".detail-profile_name");
+const profileDescription = document.querySelector(
+  ".detail-profile_description",
+);
+const profileSrc = document.querySelector(".detail-profile_src");
+const commentCount = document.querySelector(".detail-comment_count-color");
+console.log(commentCount);
+
+//태그 출력 함수
+function displayTags(tag) {
+  tag.forEach(tag => {
+    let tagContainNode = document.querySelector(".detail-content_information");
+    let tagNode = document.createElement("a");
+    let tagHref = document.createAttribute("href");
+    let tagClass = document.createAttribute("class");
+    tagClass.value = "detail-content_tag";
+    tagHref.value = "#";
+    let tagText = document.createTextNode(tag);
+    tagContainNode.appendChild(tagNode);
+  });
+}
+
+function displayComment(comments) {
+  comments.forEach(comment => {
+    const commentDiv = document.createElement("div");
+    const commentContainer = document.querySelector(
+      ".detail-comment_container",
+    );
+
+    commentDiv.innerHTML += `
+            <div class="detail-comment_information-header">
+              <img
+                class="detail-comment_header-profile_src"
+                src="${comment.user.profileImage}"
+                alt=""
+              />
+              <div class="detail-comment_header-container">
+                <p class="detail-comment_header-profile_name">${comment.user.name}</p>
+                <p class="detail-comment_header_date">${comment.createdAt}</p>
+              </div>
+              <div class="detail-comment_header-container_btn">
+                <button class="detail-comment_header-btn">
+                  <img
+                    src="/src/assets/icons/detail-btn.svg"
+                    alt="답글 추가 보기"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <p class="detail-comment_information-description">
+             ${comment.content}
+            </p>
+            <button class="detail-comment_information-btn">답글달기</button>
+          </div>
+          `;
+    commentContainer.insertBefore(
+      commentDiv,
+      commentContainer.querySelector(".detail-comment_writing"),
+    );
+  });
+}
+
+//json출력 함수
+function displayPost(data) {
+  const post = data.item[0]; //첫번째 item
+  //상세 페이지 헤더 출력
+  titleNode.innerHTML = post.title;
+  authorNode.innerHTML = post.user.name;
+  dateNode.innerHTML = post.createdAt;
+  contentImageNode.setAttribute("src", post.content.src);
+
+  //콘텐츠 출력
+  contentNode.innerHTML = post.content; //보류,,
+  //푸터 프로필 출력
+  likeNode.innerHTML = post.likes;
+  jobNode.innerHTML = post.user.job;
+  profileAuthorNode.innerHTML = post.user.name;
+  profileDescription.innerHTML = post.user.introduction;
+  profileSrc.setAttribute("src", post.user.profileImage);
+
+  //태그 출력
+  displayTags(post.tag);
+  //댓글 출력
+  displayComment(post.comments);
+}
+
+window.onload = function () {
+  displayPost(jsonData);
+};
