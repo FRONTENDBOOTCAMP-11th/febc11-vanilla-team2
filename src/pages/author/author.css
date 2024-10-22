@@ -15,65 +15,35 @@ a {
   box-sizing: border-box;
 }
 
+body {
+  /* padding-top: 50px; */
+}
+
 /* header */
-header {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  max-width: 360px;
-  height: 50px;
-  z-index: 100;
-  margin-top: -50px;
-  background-color: var(--color-white);
+.header {
 }
 
-#header img {
-  display: inline-block;
+.header-wrap {
+  position: sticky;
+  top: 0;
+  margin: 10px 20px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+}
+
+.header img {
   cursor: pointer;
-  margin-bottom: -4px;
-  padding: 0;
 }
 
-#logo-container {
-  padding: 14px 0 14px 20px;
-}
-
-#search-container {
-  padding: 10px 0 10px 98px;
-  display: flex;
-  align-items: center;
-}
-#start-container {
-  padding: 13px 20px 13px 10px;
-  display: flex;
-  align-items: center;
-}
-
-#search {
+.header-icons_userProfile {
   width: 30px;
   height: 30px;
 }
 
-.startbtn {
-  background-color: var(--color-black2);
-  color: var(--color-white);
-  border-radius: 15px;
-  font-size: 10px;
-  line-height: 15px;
-  font-family: "Pretendard";
-  font-weight: 400;
-  padding: 4px 12px 5px 13px;
-  border-style: none;
-  white-space: nowrap;
-  cursor: pointer;
-  text-decoration: none;
-}
-
 /* profile */
-.wrap-profile {
-  /* display: flex; */
-}
-
 .wrap-profile.coverImage {
   position: relative;
   height: 100px;
@@ -82,28 +52,71 @@ header {
   background-size: cover;
 }
 
+.wrap-profile-layout {
+  display: flex;
+}
+
 .wrap-profile-thumb {
   position: relative;
-  margin: 0 20px;
+  margin: 0 20px 20px;
 }
 
 .wrap-profile-thumb .authorImage {
   overflow: hidden;
   position: absolute;
   top: -40px;
-  right: 0;
+  left: 220px;
   width: 80px;
   height: 80px;
-  background-position: -250px -80px;
+  /* background-position: -250px -80px; */
 }
 
-#follower {
-  float: left;
-  margin-right: 12px;
+.wrap-profile-thumb-info_authorName {
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 30px;
+  color: #333;
+}
+
+.desc_bloger {
+  padding-top: 5px;
+}
+
+.wrap-profile-thumb-info .desc_bloger,
+.txt_g {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 300;
+  color: #959595;
+}
+
+.wrap-profile-thumb-info .num_count {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #666;
+}
+
+.wrap-profile-thumb-info .blog_count {
+  display: flex;
+  flex-direction: row;
+  padding-top: 16px;
+}
+
+.wrap-profile-thumb-info .num_count {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog_count .follower {
+  margin-right: 27px;
 }
 
 .wrap-profile-btn {
-  /* margin-left: auto; */
+  margin-left: auto;
+  margin-top: auto;
+  padding-right: 20px;
+  margin-bottom: 20px;
 }
 
 /* main */

@@ -10,64 +10,80 @@
   </head>
   <body>
     <div class="wrap">
-      <header id="header">
-        <div id="logo-container">
-          <a href="main.html">
-            <img src="/src/assets/logo/logo.svg" alt="로고" id="logo" />
-          </a>
-        </div>
-        <div id="search-container">
-          <img src="/src/assets/icons/search.svg" alt="검색" id="search" />
-        </div>
-        <div id="start-container">
-          <a href="/src/pages/login/login.html" class="startbtn">시작하기</a>
+      <header class="header">
+        <div class="header-wrap">
+          <div class="header-logo">
+            <a href="main.html">
+              <img
+                class="header-logo_brunchstory"
+                src="/src/assets/logo/logo.svg"
+                alt="brunchstory 로고"
+              />
+            </a>
+          </div>
+          <div class="header-icons">
+            <img
+              class="header-icons_notice"
+              src="/src/assets/icons/notice.svg"
+              alt="알림"
+            />
+            <img
+              class="header-icons_search"
+              src="/src/assets/icons/search.svg"
+              alt="검색"
+            />
+            <a href="" id="btnStart">
+              <img
+                class="header-icons_userProfile"
+                src="/src/assets/images/author-1.svg"
+                alt="유저 프로필"
+              />
+            </a>
+          </div>
         </div>
       </header>
 
       <div class="wrap-profile">
         <div class="wrap-profile coverImage"></div>
-        <div class="wrap-profile-thumb">
-          <img
-            class="wrap-profile-thumb authorImage"
-            src="/src/assets/images/author-1.svg"
-            alt="프로필 이미지"
-          />
-          <div class="wrap-profile-thumb-info">
-            <strong class="wrap-profile-thumb-info_authorName">AB</strong>
-            <pre class="desc_bloger">기획자</pre>
-            <dl class="blog_count">
-              <dd class="#follower">
-                <em class="txt_g">구독자</em>
-                <span class="num_count">30</span>
-              </dd>
-              <dd class="#following">
-                <a href="/@7b4ed273ccff445/following" class="link_count">
-                  <em class="txt_g">관심작가</em>
-                  <span class="num_count">16</span>
-                </a>
-              </dd>
-            </dl>
+        <div class="wrap-profile-layout">
+          <div class="wrap-profile-thumb">
+            <img
+              class="wrap-profile-thumb authorImage"
+              src="/src/assets/images/author-9.svg"
+              alt="프로필 이미지"
+            />
+            <div class="wrap-profile-thumb-info">
+              <strong class="wrap-profile-thumb-info_authorName">AB</strong>
+              <pre class="desc_bloger">기획자</pre>
+              <dl class="blog_count">
+                <dd class="follower">
+                  <em class="txt_g">구독자</em>
+                  <span class="num_count">30</span>
+                </dd>
+                <dd class="following">
+                  <a href="/@7b4ed273ccff445/following" class="link_count">
+                    <em class="txt_g">관심작가</em>
+                    <span class="num_count">16</span>
+                  </a>
+                </dd>
+              </dl>
+            </div>
           </div>
-        </div>
-        <div class="wrap-profile-btn">
-          <button
-            type="button"
-            id="btn_2xr"
-            value="2xr"
-            class="btn_type btn_new_type btn_profile btn_subscription btnUnFollow btn_post #unfollow"
-          >
-            <span class="ico_brunch" style="display: none"></span>
-            <span class="txt_default">
-              <img
-                class="ico_check"
-                src="/src/assets/icons/subscribe-on.svg"
-                alt="구독중"
-              />
-            </span>
-            <span class="txt_on" alt="구독취소"></span>
-          </button>
-          <div class="more_control">
-            <div class="dimmed_layer" style="display: none"></div>
+          <div class="wrap-profile-btn">
+            <button type="button" class="btn_subscribe">
+              <span class="txt_default">
+                <img
+                  class="ico_check"
+                  src="/src/assets/icons/subscribe-on.svg"
+                  alt="구독중"
+                />
+              </span>
+              <span
+                class="txt_on"
+                src="/src/assets/icons/subscribe-off.svg"
+                alt="구독취소"
+              ></span>
+            </button>
           </div>
         </div>
       </div>
