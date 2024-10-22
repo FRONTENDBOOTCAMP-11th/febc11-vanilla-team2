@@ -9,7 +9,7 @@ const jsonData = {
       type: "community",
       user: {
         _id: 4,
-        name: "sunny",
+        name: "Sunny",
         job: "회사원",
         introduction:
           "12년 차 국내 항공사 승무원의 겨울 산티아고 순례길 이야기 연재 중. 커피 한 잔을 벗 삼아 편하게 읽을 수 있는 글쓰기에 꽤나 진심인 편입니다. 후후.",
@@ -83,7 +83,7 @@ const authorNode = document.querySelector(".detail-header_author");
 const dateNode = document.querySelector(".detail-header_date");
 const contentNode = document.querySelector(".detail-content_description");
 const contentImageNode = document.querySelector(".detail-content_cover-src");
-
+const subTitle = document.querySelector(".detail-header_title-addition");
 const likeNode = document.querySelector(".detail-footer_like");
 const jobNode = document.querySelector(".detail-profile_job");
 const profileAuthorNode = document.querySelector(".detail-profile_name");
@@ -91,23 +91,26 @@ const profileDescription = document.querySelector(
   ".detail-profile_description",
 );
 const profileSrc = document.querySelector(".detail-profile_src");
-const commentCount = document.querySelector(".detail-comment_count-color");
-console.log(commentCount);
+const commentCountNode = document.querySelector(".detail-comment_count-color");
+
+console.log(commentCountNode);
 
 //태그 출력 함수
 function displayTags(tag) {
+  const tagContainNode = document.querySelector(".detail-content_information");
   tag.forEach(tag => {
-    let tagContainNode = document.querySelector(".detail-content_information");
     let tagNode = document.createElement("a");
-    let tagHref = document.createAttribute("href");
-    let tagClass = document.createAttribute("class");
-    tagClass.value = "detail-content_tag";
-    tagHref.value = "#";
+
+    tagNode.setAttribute("class", "detail-content_tag");
+    tagNode.setAttribute("href", "#");
+
     let tagText = document.createTextNode(tag);
+    tagNode.appendChild(tagText);
     tagContainNode.appendChild(tagNode);
   });
 }
 
+//댓글 출력 함수
 function displayComment(comments) {
   comments.forEach(comment => {
     const commentDiv = document.createElement("div");
@@ -116,6 +119,7 @@ function displayComment(comments) {
     );
 
     commentDiv.innerHTML += `
+    <div class="detail-comment_information">
             <div class="detail-comment_information-header">
               <img
                 class="detail-comment_header-profile_src"
@@ -141,6 +145,7 @@ function displayComment(comments) {
             </p>
             <button class="detail-comment_information-btn">답글달기</button>
           </div>
+            </div> 
           `;
     commentContainer.insertBefore(
       commentDiv,
@@ -157,6 +162,7 @@ function displayPost(data) {
   authorNode.innerHTML = post.user.name;
   dateNode.innerHTML = post.createdAt;
   contentImageNode.setAttribute("src", post.content.src);
+  subTitle.innerHTML = post.subTitle;
 
   //콘텐츠 출력
   contentNode.innerHTML = post.content; //보류,,
@@ -167,6 +173,8 @@ function displayPost(data) {
   profileDescription.innerHTML = post.user.introduction;
   profileSrc.setAttribute("src", post.user.profileImage);
 
+  //댓글 개수 출력
+  commentCountNode.innerHTML = post.repliesCount;
   //태그 출력
   displayTags(post.tag);
   //댓글 출력
