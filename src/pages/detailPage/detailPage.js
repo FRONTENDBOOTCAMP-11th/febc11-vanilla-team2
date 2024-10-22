@@ -93,7 +93,9 @@ const profileDescription = document.querySelector(
 const profileSrc = document.querySelector(".detail-profile_src");
 const commentCountNode = document.querySelector(".detail-comment_count-color");
 
-console.log(commentCountNode);
+const subscribeCount = document.querySelector(
+  ".detail-profile_subscribe-information_count",
+);
 
 //태그 출력 함수
 function displayTags(tag) {
@@ -166,14 +168,16 @@ function displayPost(data) {
 
   //콘텐츠 출력
   contentNode.innerHTML = post.content; //보류,,
+
   //푸터 프로필 출력
   likeNode.innerHTML = post.likes;
   jobNode.innerHTML = post.user.job;
   profileAuthorNode.innerHTML = post.user.name;
   profileDescription.innerHTML = post.user.introduction;
   profileSrc.setAttribute("src", post.user.profileImage);
+  subscribeCount.innerHTML = post.user.subscribers;
 
-  //댓글 개수 출력
+  //댓글-comment 개수 출력
   commentCountNode.innerHTML = post.repliesCount;
   //태그 출력
   displayTags(post.tag);
