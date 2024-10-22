@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dbinit": "cross-env NODE_ENV=production node ./init.js nike vanilla00"
+    "dbinit": "cross-env NODE_ENV=production node ./init.js brunch vanilla02"
   },
   "keywords": [],
   "author": "",
