@@ -168,18 +168,8 @@ button {
   text-overflow: ellipsis;
 }
 
-.post-append {
-  /* padding-top: 6px; */
-  /* float: left; */
-}
-
-.ico_bar {
-  display: inline-block;
-  width: 1px;
-  height: 11px;
-  margin: 4px 3px 0;
-  background-color: #eee;
-  vertical-align: top;
+.ico-bar {
+  margin: 0 3px 0 16px;
 }
 
 .ico-dot {
