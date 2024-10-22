@@ -51,11 +51,18 @@
   text-align: center;
 }
 
-/* 발견 - Section Header CSS */
+/* 발견 - 헤더 */
 .search-header {
   border-bottom: 1px solid #dddddd;
   margin: 0 -20px;
   text-align: center;
+}
+
+.search-query {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .search-query__input {
@@ -78,9 +85,8 @@
 }
 
 .search-query__clear-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
+  position: absolute;
+  right: 20px;
   display: none;
 }
 
@@ -90,7 +96,7 @@
 }
 
 .search-tab {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
 }
@@ -103,4 +109,88 @@
   font-weight: 300;
   line-height: 37px;
   color: #666666;
+}
+
+/* 발견 - 컨텐츠 */
+.search-contents {
+  background-color: #f8f8f8;
+  height: 100vh;
+  margin: 0 -20px;
+}
+
+/* 발견 - 추천 작가 키워드 */
+.search-keywords {
+  padding: 30px 20px;
+}
+
+.search-keywords__title {
+  color: #bbbbbb;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 12px;
+}
+
+.search-keywords__description {
+  color: #333333;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 29px;
+
+  margin-bottom: 10px;
+}
+
+.search-keywords__highlight {
+  color: #00c6be;
+}
+
+.search-keywords__tags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-keywords__tag {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 15px;
+  letter-spacing: -0.2px;
+  padding: 10px 16px;
+  background-color: #ffffff;
+  color: #959595;
+  border-radius: 20px;
+  border: 1px solid #dddddd;
+}
+
+/* 발견 - 최근검색어 */
+.search-recent {
+  padding: 30px 20px;
+  border-top: 1px solid #eeeeee;
+}
+
+.search-recent__title {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #828282;
+  margin-bottom: 10px;
+}
+
+.search-recent__keywords {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-recent__keyword {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 40px;
+  color: #333333;
+}
+
+.search-recent__delete-button {
+  width: 9px;
+  height: 9px;
 }
