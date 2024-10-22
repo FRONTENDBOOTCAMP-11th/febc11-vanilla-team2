@@ -53,7 +53,6 @@
 
 /* 발견 - 헤더 */
 .search-header {
-  border-bottom: 1px solid #dddddd;
   margin: 0 -20px;
   text-align: center;
 }
@@ -96,7 +95,8 @@
 }
 
 .search-tab {
-  display: none;
+  /* display: none; */
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -104,7 +104,6 @@
 .search-tab__item {
   flex: 1;
   text-align: center;
-  padding-top: 20px;
   font-size: 14px;
   font-weight: 300;
   line-height: 37px;
@@ -113,9 +112,15 @@
 
 /* 발견 - 컨텐츠 */
 .search-contents {
+  border-top: 1px solid #dddddd;
   background-color: #f8f8f8;
   height: 100vh;
   margin: 0 -20px;
+}
+
+/* 발견 - 컨텐츠 내부 - JS 작업 시 삭제 예정 */
+.search-contents__no-input {
+  display: none;
 }
 
 /* 발견 - 추천 작가 키워드 */
@@ -140,7 +145,7 @@
   margin-bottom: 10px;
 }
 
-.search-keywords__highlight {
+.highlight {
   color: #00c6be;
 }
 
@@ -190,7 +195,103 @@
   color: #333333;
 }
 
-.search-recent__delete-button {
+.search-recent__button-delete {
   width: 9px;
   height: 9px;
+}
+
+/* 발견 - 글 검색 결과 및 정확도/최신 버튼 */
+.search-contents__articles-input {
+  /* display: none; */
+}
+
+.search-articles {
+  padding: 20px;
+}
+
+.articles-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.search-articles__result {
+  font-size: 12px;
+  font-weight: 300;
+  color: #959595;
+}
+
+.search-articles__sort {
+  display: flex;
+  gap: 10px;
+}
+
+.search-articles__relevance {
+  font-size: 13px;
+  font-weight: 300;
+  color: #333333;
+}
+
+.search-articles__latest {
+  font-size: 13px;
+  font-weight: 300;
+  color: #959595;
+}
+
+/* 발견 - 글 검색 리스트 */
+.search-articles__article {
+  margin-bottom: 35px;
+}
+
+.search-articles__title {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 5px;
+  color: #333333;
+}
+
+.search-articles__column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-articles__description {
+  flex: 2;
+}
+
+.search-articles__excerpt {
+  font-size: 12px;
+  font-weight: 300;
+  color: #959595;
+
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: calc(1.5em * 2);
+
+  margin-bottom: 7px;
+  margin-right: 7px;
+}
+
+.search-articles__date {
+  font-size: 12px;
+  font-weight: 300;
+  color: #959595;
+}
+
+.search-articles__author {
+  font-size: 12px;
+  font-weight: 300;
+  color: #959595;
+}
+
+.search-articles__image img {
+  flex: 1;
+  width: 60px;
+  height: 60px;
 }
