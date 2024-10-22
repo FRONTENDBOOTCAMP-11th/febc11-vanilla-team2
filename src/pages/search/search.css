@@ -203,64 +203,65 @@
 /* 발견 - 글 검색 결과 및 정확도/최신 버튼 */
 .search-contents__articles-input {
   /* display: none; */
-}
-
-.search-articles {
   padding: 20px;
 }
 
-.articles-info {
+.search-results {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
 }
 
-.search-articles__result {
+.search-results__meta {
   font-size: 12px;
   font-weight: 300;
   color: #959595;
 }
 
-.search-articles__sort {
+.search-results__sort {
   display: flex;
   gap: 10px;
 }
 
-.search-articles__relevance {
+.search-results__sort-relevance {
   font-size: 13px;
   font-weight: 300;
   color: #333333;
 }
 
-.search-articles__latest {
+.search-results__sort-latest {
   font-size: 13px;
   font-weight: 300;
   color: #959595;
 }
 
-/* 발견 - 글 검색 리스트 */
-.search-articles__article {
+/* 발견 - 글 검색 결과 리스트 */
+.result-articles {
   margin-bottom: 35px;
 }
 
-.search-articles__title {
+.result-articles__lists {
+  margin-bottom: 35px;
+}
+
+.result-articles__title {
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 5px;
   color: #333333;
 }
 
-.search-articles__column {
+.result-articles__list {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.search-articles__description {
+.result-articles__description {
   flex: 2;
 }
 
-.search-articles__excerpt {
+.result-articles__excerpt {
   font-size: 12px;
   font-weight: 300;
   color: #959595;
@@ -278,19 +279,19 @@
   margin-right: 7px;
 }
 
-.search-articles__date {
+.result-articles__date {
   font-size: 12px;
   font-weight: 300;
   color: #959595;
 }
 
-.search-articles__author {
+.result-articles__author {
   font-size: 12px;
   font-weight: 300;
   color: #959595;
 }
 
-.search-articles__image img {
+.result-articles__image img {
   flex: 1;
   width: 60px;
   height: 60px;
