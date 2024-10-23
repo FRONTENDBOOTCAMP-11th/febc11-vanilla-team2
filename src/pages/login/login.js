@@ -6,6 +6,30 @@ window.onload = function () {
   const loginBtn = document.querySelector("#loginBtn"); // 로그인 버튼
   const checkBtn = document.querySelector(".login-form_check-container");
 
+  // 첫 화면 로그인 버튼 누름과 관련 없이 체크버튼 클릭 => 체크 버튼 누르면 로그인 후 로컬에 저장 가능하게 => 아닐시 세션에 저장
+
+  let accessToken = "";
+  let refreshToken = "";
+  //로그인 저장 체크버튼 클릭시 로컬에 저장함
+  let loginSave = false;
+
+  //로그인 저장버튼 클릭
+  checkBtn.addEventListener("click", async e => {
+    e.preventDefault();
+    console.log("버튼클릭");
+    loginSave = !loginSave; //로그인 저장 버튼 버튼 토글 , true면 저장
+    // localStorage.setItem("accessToken", accessToken);
+    // localStorage.setItem("refreshToken", refreshToken);
+    // loginSave = true;
+    console.log("로컬 저장 true 여부", loginSave);
+    const checkBtnColor = document.querySelector(".login-form_button-checkBtn");
+    if (loginSave) {
+      checkBtnColor.style.backgroundColor = "var(--color-green20)";
+    } else {
+      checkBtnColor.style.backgroundColor = ""; //원래 기본 값
+    }
+  });
+
   // 이메일 유효성 검사
   function emailVaild(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,7 +39,6 @@ window.onload = function () {
   // 로그인 버튼 클릭 시 비동기 처리
   loginBtn.addEventListener("click", async e => {
     e.preventDefault(); // 폼의 기본 동작을 막음
-
     const emailValue = loginEmail.value;
     const pwValue = loginPassword.value;
 
@@ -24,15 +47,14 @@ window.onload = function () {
       alert("이메일과 비밀번호를 입력하세요");
       return;
     }
-
     // 이메일 유효성 검사
     if (!emailVaild(emailValue)) {
       alert("유효한 이메일을 입력하세요");
       return;
     }
 
+    // 서버에 POST 요청
     try {
-      // 서버에 POST 요청
       const response = await axios.post(
         "https://11.fesp.shop/users/login",
         {
@@ -59,6 +81,13 @@ window.onload = function () {
         const refreshToken = response.data.item.token.refreshToken; //토큰 접근
         sessionStorage.setItem("accessToken", accessToken); //토큰 세션 스토리지에 저장함
         sessionStorage.setItem("refreshToken", refreshToken);
+        console.log("세션에 저장");
+
+        //체크버튼 활성화  => 로컬에 저장
+        if (loginSave) {
+          localStorage.setItem("accessToken", accessToken);
+          localStorage.setItem("refreshToken", refreshToken);
+        }
         window.location.href = "/src/pages/main/main.html"; //저장 후 메인으로 이동
       } else {
         console.error("로그인 실패:", response.data);
