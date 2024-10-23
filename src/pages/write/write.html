@@ -11,13 +11,35 @@
 
   <body>
     <div class="wrap">
+      <!-- header -->
       <header class="wrap-header">
-        <img class="wrap-header_doneOff" src="/src/assets/icons/exit.svg" />
+        <img
+          class="wrap-header_exit"
+          src="/src/assets/icons/exit.svg"
+          id="btnExit"
+          onclick="exitClick"
+        />
         <h1 class="wrap-header_title">글쓰기</h1>
-        <img class="wrap-header_exit" src="/src/assets/icons/done-off.svg" />
+        <div class="wrap-header-done">
+          <span class="hoverDoneOff">
+            <img
+              class="wrap-header-done_doneOff"
+              src="/src/assets/icons/done-off.svg"
+              id="btnPost"
+            />
+          </span>
+          <span class="hoverDoneOn">
+            <img
+              class="wrap-header-done_doneON"
+              src="/src/assets/icons/done-on.svg"
+              id="btnPost"
+              onclick="postClick"
+            />
+          </span>
+        </div>
       </header>
       <hr />
-
+      <!-- main -->
       <div class="wrap-main">
         <div class="wrap-main-subject">
           <input
@@ -42,13 +64,16 @@
           <textarea
             class="wrap-main-contents_text"
             type="text"
-            id="textContents"
+            id="contents"
             placeholder="내용을 입력하세요"
             cols="27"
             rows="20"
           ></textarea>
         </div>
       </div>
+    </div>
+    <!-- 브런치 스토리 Footer -->
+    <footer class="bs-footer">
       <div class="wrap-addBar">
         <div class="wrap-addBar-contents">
           <img
@@ -65,9 +90,34 @@
           />
         </div>
       </div>
-    </div>
-    <footer></footer>
+      <ul class="bs-footer__list">
+        <li class="bs-footer__button">
+          <a class="bs-footer__link" href="../../pages/main/main.html">
+            <img src="../../assets/icons/home-off.svg" alt="Home Off" />
+            <h6 class="bs-footer__title">홈</h6>
+          </a>
+        </li>
+        <li class="bs-footer__button">
+          <a class="bs-footer__link" href="../../pages/main/main.html">
+            <img src="../../assets/icons/search-off.svg" alt="Search Off" />
+            <h6 class="bs-footer__title">발견</h6>
+          </a>
+        </li>
+        <li class="bs-footer__button">
+          <a class="bs-footer__link" href="../../pages/main/main.html">
+            <img src="../../assets/icons/write-off.svg" alt="Write Off" />
+            <h6 class="bs-footer__title">글쓰기</h6>
+          </a>
+        </li>
+        <li class="bs-footer__button">
+          <a class="bs-footer__link" href="../../pages/main/main.html">
+            <img src="../../assets/icons/mydrawer-on.svg" alt="My Drawer On" />
+            <h6 class="bs-footer__title">내서랍</h6>
+          </a>
+        </li>
+      </ul>
+    </footer>
 
-    <script src="write.js"></script>
+    <script type="module" src="write.js"></script>
   </body>
 </html>
