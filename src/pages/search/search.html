@@ -23,8 +23,8 @@
           </button>
         </div>
         <div class="search-tab">
-          <span class="search-tab__item active">글</span>
-          <span class="search-tab__item">작가</span>
+          <button type="button" class="search-tab__item active">글</button>
+          <button type="button" class="search-tab__item">작가</button>
         </div>
       </header>
 
@@ -131,12 +131,75 @@
         </section>
 
         <!-- 검색어 입력 시 작가 탭 내용 페이지 -->
-        <section class="search-contents__authors-input">
-          <div class="search-authors"></div>
+        <section class="search-contents__authors-input" style="display: none">
+          <div class="search-results">
+            <!-- 검색 결과 건 수 -->
+            <div class="search-results__meta">작가 검색 결과 800건</div>
+          </div>
+
+          <!-- 작가 탭 검색 결과 -->
+          <div class="result-authors">
+            <div class="result-authors__lists">
+              <div class="result-authors__list">
+                <div class="result-authors__image">
+                  <img src="../../assets/images/result-article-1.svg" alt="" />
+                </div>
+                <div class="result-authors__description">
+                  <h3 class="result-authors__title">꿀아빠</h3>
+                  <p class="result-authors__excerpt">
+                    두아들 아빠 기록남기기 좋아하는 아빠 고민하는 아빠입니다
+                  </p>
+                  <span class="result-authors__tag">여행</span>
+                </div>
+              </div>
+            </div>
+            <div class="result-authors__lists">
+              <div class="result-authors__list">
+                <div class="result-authors__image">
+                  <img src="../../assets/images/result-article-1.svg" alt="" />
+                </div>
+                <div class="result-authors__description">
+                  <h3 class="result-authors__title">꿀아빠</h3>
+                  <p class="result-authors__excerpt">
+                    두아들 아빠 기록남기기 좋아하는 아빠 고민하는 아빠입니다
+                  </p>
+                  <span class="result-authors__tag">여행</span>
+                </div>
+              </div>
+            </div>
+            <div class="result-authors__lists">
+              <div class="result-authors__list">
+                <div class="result-authors__image">
+                  <img src="../../assets/images/result-article-1.svg" alt="" />
+                </div>
+                <div class="result-authors__description">
+                  <h3 class="result-authors__title">꿀아빠</h3>
+                  <p class="result-authors__excerpt">
+                    두아들 아빠 기록남기기 좋아하는 아빠 고민하는 아빠입니다
+                  </p>
+                  <div class="result-authors__tags">
+                    <span class="result-authors__tag">여행</span>
+                    <span class="result-authors__tag">여행</span>
+                    <span class="result-authors__tag">여행</span>
+                    <span class="result-authors__tag">여행</span>
+                    <span class="result-authors__tag">여행</span>
+                    <span class="result-authors__tag">여행</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- 검색어 입력 시 검색 내용 없을 때 페이지 -->
-        <div class="search-contents__dismatch-input"></div>
+        <section class="search-contents__dismatch-input" style="display: none">
+          <div class="result-dismatch">
+            <div class="result-dismatch__image">
+              <img src="../../assets/images/result-dismatch.svg" alt="" />
+            </div>
+            <h3 class="result-dismatch__description">검색 결과가 없습니다.</h3>
+          </div>
+        </section>
       </div>
 
       <!-- 브런치 스토리 Footer -->
