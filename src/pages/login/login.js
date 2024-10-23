@@ -4,9 +4,10 @@ window.onload = function () {
   const loginEmail = document.querySelector("#loginEmail"); // 로그인 인풋
   const loginPassword = document.querySelector("#loginPassword"); // 패스워드 인풋
   const loginBtn = document.querySelector("#loginBtn"); // 로그인 버튼
+  const signupBtn = document.querySelector("#loginAccountBtn"); //회원가입 버튼
   const checkBtn = document.querySelector(".login-form_check-container");
 
-  // 첫 화면 로그인 버튼 누름과 관련 없이 체크버튼 클릭 => 체크 버튼 누르면 로그인 후 로컬에 저장 가능하게 => 아닐시 세션에 저장
+  // 첫 화면 로그인 버튼 누름과 관련 없이 체크버튼 클릭(활성화 되도록) => 체크 버튼 누르면 로그인 후 로컬에 저장 가능하게 => 아닐시 세션에 저장
 
   let accessToken = "";
   let refreshToken = "";
@@ -25,8 +26,14 @@ window.onload = function () {
     const checkBtnColor = document.querySelector(".login-form_button-checkBtn");
     if (loginSave) {
       checkBtnColor.style.backgroundColor = "var(--color-green20)";
+      signupBtn.classList.add("visually_hidden"); //회원가입 버튼 숨김
+      loginBtn.style.backgroundColor = "var(--color-green20)"; //로그인 버튼 색 변화
+      loginBtn.style.color = "var(--color-white)";
     } else {
       checkBtnColor.style.backgroundColor = ""; //원래 기본 값
+      signupBtn.classList.remove("visually_hidden");
+      loginBtn.style.backgroundColor = "";
+      loginBtn.style.color = "";
     }
   });
 
