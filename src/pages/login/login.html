@@ -27,36 +27,25 @@
           </p>
         </section>
 
-        <div class="login-form">
-          <form action="">
-            <label for="loginEmail" class="visually_hidden">이메일</label>
-            <input
-              class="login-form_input login-form_input-email"
-              type="email"
-              id="loginEmail"
-              placeholder="이메일"
-            />
-            <label for="loginPassword" class="visually_hidden">비밀번호</label>
-            <input
-              class="login-form_input login-form_input-password"
-              type="password"
-              id="loginPassword"
-              placeholder="비밀번호"
-              autocomplete="password"
-            />
-            <div class="login-form_check-container">
-              <button
-                type="button"
-                id="checkBtn"
-                class="login-form_button-checkBtn"
-              >
-                <img
-                  class="login-form_button-checkBtn_cover"
-                  src="/src/assets/icons/check.svg"
-                  alt="로그인 정보 저장"
-                />
-              </button>
-              <p>로그인 정보 저장</p>
+            <div class="login-form">
+                <form action="">
+                    <label for="loginEmail" class="visually_hidden">이메일</label>
+                    <input class="login-form_input login-form_input-email" type="email" id="loginEmail"
+                        placeholder="이메일">
+                    <label for="loginPassword" class="visually_hidden">비밀번호</label>
+                    <input class="login-form_input login-form_input-password" type="password" id="loginPassword"
+                        placeholder="비밀번호" autocomplete="password">
+                    <div class="login-form_check-container">
+                        <button type="button" id="checkBtn" class="login-form_button-checkBtn">
+                            <img class="login-form_button-checkBtn_cover" src="/src/assets/icons/check.svg"
+                                alt="로그인 정보 저장">
+                        </button>
+                        <p>로그인 정보 저장</p>
+                    </div>
+                    <button type="submit" id="loginBtn" class="form-btn login-form_button-loginBtn" onclick="goLogin()">로그인</button>
+                    <button type="submit" id="loginAccountBtn"
+                        class="form-btn login-form_button-accountBtn" onclick="goSignup()">회원가입</button>
+                </form>
             </div>
             <button
               type="submit"
