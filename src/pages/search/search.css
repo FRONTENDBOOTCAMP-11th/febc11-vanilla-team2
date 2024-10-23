@@ -5,10 +5,10 @@
   background-color: #ffffff;
   width: 100%;
   max-width: 360px;
+  height: 100vh;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 22px 20px 14px;
-  height: 100vh;
 }
 
 /* 공통으로 빼야 할 CSS - Brunch Stroy Footer */
@@ -112,10 +112,13 @@
 
 /* 발견 - 컨텐츠 */
 .search-contents {
+  flex-grow: 1;
+  overflow-y: auto;
   border-top: 1px solid #dddddd;
   background-color: #f8f8f8;
-  height: 100vh;
   margin: 0 -20px;
+  min-height: 100%;
+  box-sizing: border-box;
 }
 
 /* 발견 - 컨텐츠 내부 - JS 작업 시 삭제 예정 */
