@@ -103,4 +103,11 @@ window.onload = function () {
       console.error("에러 발생", error);
     }
   });
+
+  //회원가입 버튼 누르면 회원가입 화면으로 이동
+
+  signupBtn.addEventListener("click", e => {
+    e.preventDefault();
+    window.location.href = "/src/pages/login/signup.html";
+  });
 };
