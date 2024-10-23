@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient } from "mongodb";
 
 async function getDB(clientId) {
   // const url = `${process.env.DB_URL}/${clientId}?authSource=admin`;
@@ -11,16 +11,16 @@ async function getDB(clientId) {
 
     await client.connect();
     const db = client.db(clientId);
-    db.user = db.collection('user');
-    db.product = db.collection('product');
-    db.cart = db.collection('cart');
-    db.order = db.collection('order');
-    db.review = db.collection('review');
-    db.seq = db.collection('seq');
-    db.code = db.collection('code');
-    db.bookmark = db.collection('bookmark');
-    db.config = db.collection('config');
-    db.post = db.collection('post');
+    db.user = db.collection("user");
+    db.product = db.collection("product");
+    db.cart = db.collection("cart");
+    db.order = db.collection("order");
+    db.review = db.collection("review");
+    db.seq = db.collection("seq");
+    db.code = db.collection("code");
+    db.bookmark = db.collection("bookmark");
+    db.config = db.collection("config");
+    db.post = db.collection("post");
 
     const nextSeq = async _id => {
       let result = await db.seq.findOneAndUpdate({ _id }, { $inc: { no: 1 } });
@@ -29,7 +29,7 @@ async function getDB(clientId) {
         await db.seq.insertOne({ _id, no: 2 });
       }
       return result.no;
-    }
+    };
 
     return { db, client, nextSeq };
   } catch (err) {
