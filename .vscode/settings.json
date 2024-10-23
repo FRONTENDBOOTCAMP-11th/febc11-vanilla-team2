@@ -1,16 +1,23 @@
 {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "gitmoji.addCustomEmoji": [
-           {
-      "emoji": "✨",
-      "code": ":feat:",
-      "description": "새로운 기능 추가"
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitmoji.addCustomEmoji": [
+    {
+      "emoji": "🎉",
+      "code": ":init:",
+      "description": "초기 설정"
     },
     {
-      "emoji": "👔",
-      "code": ":logic:",
-      "description": "비즈니스 로직 수정"
+      "emoji": "✨",
+      "code": ":feat:",
+      "description": "기능 추가, 변경"
     },
     {
       "emoji": "🚧",
@@ -25,7 +32,7 @@
     {
       "emoji": "🔥",
       "code": ":remove:",
-      "description": "파일 삭제"
+      "description": "파일이나 코드 삭제"
     },
     {
       "emoji": "🚚",
@@ -43,9 +50,9 @@
       "description": "UI/Style 추가/수정"
     },
     {
-      "emoji": "🐛",
+      "emoji": "🐞",
       "code": ":fix:",
-      "description": "버그 수정"
+      "description": "버그, 오류 수정"
     },
     {
       "emoji": "📝",
@@ -67,6 +74,6 @@
       "code": ":conf:",
       "description": "설정파일 추가/수정"
     }
-    ],
-     "gitmoji.onlyUseCustomEmoji": true,
+  ],
+  "gitmoji.onlyUseCustomEmoji": true
 }

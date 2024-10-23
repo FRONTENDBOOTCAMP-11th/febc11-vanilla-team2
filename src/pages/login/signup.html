@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
+    <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <article class="article">
+        <div class="signup-content">
+          <h1 class="signup-content_title">회원가입</h1>
+          <div class="signup-form">
+            <form action="">
+              <div class="signup-form_container signup-form_container-nickname">
+                <label for="signupNickname" class="visually_hidden">별명</label>
+                <input
+                  class="sign-form_input-container"
+                  type="nickname"
+                  id="signupNickname"
+                  placeholder="별명"
+                />
+                <button class="signup-form_button-duplication">중복확인</button>
+              </div>
+              <div id="nicknameErr" class="signup-form_error"></div>
+              <!--닉네임 설명 표시-->
+
+              <div class="signup-form_container signup-form_container-email">
+                <label for="signupEmail" class="visually_hidden">이메일</label>
+                <input
+                  class="sign-form_input-container"
+                  type="email"
+                  id="signupEmail"
+                  placeholder="이메일"
+                  autocomplete="new_password"
+                />
+                <button class="signup-form_button-duplication">중복확인</button>
+              </div>
+              <div id="emailErr" class="signup-form_error"></div>
+              <!--닉네임 설명 표시-->
+              <div class="signup-form_container">
+                <label for="signupPassword" class="visually_hidden"
+                  >비밀번호</label
+                >
+                <input
+                  class="sign-form_input-container"
+                  type="password"
+                  id="signupPassword"
+                  placeholder="비밀번호"
+                  autocomplete="new_password"
+                />
+
+                <button
+                  id="passwordBtn"
+                  type="button"
+                  aria-label="비밀번호 확인 버튼"
+                  class="signup-form_button-password"
+                >
+                  <img
+                    class="signup-form_button-password_cover"
+                    src="/src/assets/icons/eye-off.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+              <div class="signup-form_container signup-form_container-password">
+                <label for="confirmPassword" class="visually_hidden"
+                  >비밀번호 확인</label
+                >
+                <input
+                  class="sign-form_input-container"
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="비밀번호 확인"
+                  autocomplete="new_password"
+                />
+                <button
+                  id="confirm_passwordBtn"
+                  type="button"
+                  aria-label="비밀번호 확인 버튼"
+                  class="signup-form_button-password"
+                >
+                  <img
+                    class="signup-form_button-password_cover"
+                    src="/src/assets/icons/eye-off.svg"
+                    alt="버튼 확인"
+                  />
+                </button>
+              </div>
+              <div id="passwordErr" class="signup-form_error-password"></div>
+              <!--비밀번호 오류 표시-->
+            </form>
+          </div>
+          <button
+            type="submit"
+            id="signupBtn"
+            class="form-btn signup-form_button-accountBtn"
+          >
+            회원가입
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>

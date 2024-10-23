@@ -1,0 +1,273 @@
+/* 브런치 스토리 - 내 서랍 CSS */
+
+/* 공통으로 빼야 할 CSS - Brunch Stroy wrapper */
+.wrapper {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+  max-width: 360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 62px 20px 14px;
+}
+
+/* 공통으로 빼야 할 CSS - Brunch Stroy header */
+.bs-header {
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  position: fixed;
+  width: 100%;
+  max-width: 360px;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+.bs-header a {
+  text-decoration: none;
+}
+
+.bs-header__icons a:nth-child(2) {
+  margin-left: 10px;
+}
+
+.bs-header__profile {
+  margin-left: 21px;
+}
+
+.bs-header__icons .bs-header__profile img {
+  width: 30px;
+  height: 30px;
+}
+
+/* 공통으로 빼야 할 CSS - Brunch Stroy Footer */
+.bs-footer {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+}
+
+.bs-footer__list {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.bs-footer__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bs-footer__button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bs-footer__title {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 27px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* 내 서랍 - 공통 - Section Header CSS */
+.my-drawer__header {
+  display: flex;
+  align-items: center;
+  margin: 34px 0 15px;
+}
+
+.my-drawer__title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #111111;
+  margin-right: 3px;
+  line-height: 22px;
+}
+
+.my-drawer__icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* 내 서랍 - 관심 작가 CSS */
+.fav-authors {
+  margin-bottom: 34px;
+}
+
+/* 내 서랍 - 관심 작가 - Favorite Author List CSS */
+.fav-authors__list {
+  display: flex;
+  overflow-x: auto; /* 가로 스크롤. 가로로 넘칠 경우에만 스크롤바 나타나게 설정 */
+}
+
+.fav-authors__list::-webkit-scrollbar {
+  /* 스크롤바 안보이게 하기 위한 설정 */
+  display: none;
+}
+
+.fav-authors__item {
+  text-align: center;
+  margin-right: 26px;
+  flex: none;
+}
+
+.fav-authors__avatar {
+  margin-bottom: 16px;
+}
+
+.fav-authors__name {
+  font-size: 13px;
+  font-weight: 300;
+  color: #393939;
+  line-height: 20px;
+}
+
+/* 내 서랍 - 최근 본 CSS */
+.recent-views {
+  margin-bottom: 34px;
+}
+
+/* 내 서랍 - 최근 본 - Recent View List CSS */
+.recent-views__list {
+  display: flex;
+  overflow-x: auto;
+}
+
+.recent-views__list::-webkit-scrollbar {
+  display: none;
+}
+
+.recent-views__item {
+  width: 123px;
+  margin-right: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+}
+
+.recent-views__book-thumbnail {
+  width: 123px;
+  height: 172px;
+  margin-bottom: 16px;
+  object-fit: cover; /* 이미지 비율 유지를 위한 설정 */
+}
+
+.recent-views__title {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 23px;
+  white-space: normal;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.recent-views__author {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #959595;
+}
+
+/* 내 서랍 - 관심 글 CSS */
+.fav-articles {
+  margin-bottom: 34px;
+}
+
+/* 내 서랍 - 관심 글 - Favorite Articels List CSS */
+.fav-articles__list {
+  display: flex;
+  overflow-x: auto;
+}
+
+.fav-articles__list::-webkit-scrollbar {
+  display: none;
+}
+
+.fav-articles__item {
+  width: 123px;
+  margin-right: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: none;
+}
+
+.fav-articles__book-thumbnail {
+  width: 123px;
+  height: 172px;
+  margin-bottom: 16px;
+  object-fit: cover; /* 이미지 비율 유지를 위한 설정 */
+}
+
+.fav-articles__title {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 23px;
+  white-space: normal;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.fav-articles__author {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #959595;
+}
+
+/* 내 서랍 - 내 브런치 CSS */
+.my-brunch__list {
+  margin-top: 14px;
+  border-top: 1px solid #e0e0e0;
+  margin: 0 -20px;
+  padding: 14px 20px;
+}
+
+.my-brunch__item {
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0 -20px;
+  padding: 14px 20px;
+}
+
+.my-brunch__chapter {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26px;
+
+  margin-bottom: 8px;
+}
+
+.my-brunch__book {
+  color: #959595;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 9px;
+}
+
+.my-brunch__published-date {
+  color: #959595;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
