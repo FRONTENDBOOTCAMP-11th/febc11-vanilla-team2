@@ -1,4 +1,5 @@
 import axios from "axios";
+import { esbuildVersion } from "vite";
 
 window.onload = function () {
   const loginEmail = document.querySelector("#loginEmail"); // 로그인 인풋
@@ -58,13 +59,19 @@ window.onload = function () {
     const pwValue = loginPassword.value;
 
     // 로그인 및 비밀번호 입력 유효성 검사
-    if (!emailValue || !pwValue) {
+    if (!emailValue && !pwValue) {
+      // 1단계 - 둘 다 비어있으면 입력칸
       alert("이메일과 비밀번호를 입력하세요");
       return;
     }
     // 이메일 유효성 검사
     if (!emailVaild(emailValue)) {
+      //2단계 - 이메일 입력 유효하지 않으면 입력 알림
       alert("유효한 이메일을 입력하세요");
+      return;
+    } else if (pwValue.trim().length === 0) {
+      //3단계 - 이메일 유효하지만 비밀번호 비었을 때 알림
+      alert("비밀번호를 입력해주세요");
       return;
     }
 
