@@ -1,5 +1,4 @@
 import axios from "axios";
-import { esbuildVersion } from "vite";
 
 window.onload = function () {
   const loginEmail = document.querySelector("#loginEmail"); // 로그인 인풋
