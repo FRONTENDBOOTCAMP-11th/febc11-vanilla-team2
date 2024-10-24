@@ -126,6 +126,7 @@ input[type='checkbox'] {
 .login-form_button-loginBtn {
     background-color: var(--color-gray90);
     margin-bottom: 12px;
+    color: var(--color-white)
 }
 
 .login-form_button-accountBtn {
