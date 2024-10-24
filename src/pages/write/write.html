@@ -19,6 +19,7 @@
           src="/src/assets/icons/ic-close.svg"
           id="btnExit"
           onclick="exitClick"
+          alt="취소버튼"
         />
         <h1 class="wrap-header_title">글쓰기</h1>
         <div class="wrap-header-done">
@@ -34,7 +35,7 @@
               class="wrap-header-done_doneON"
               src="/src/assets/icons/ic-done-on.svg"
               id="btnPost"
-              alt="submit"
+              alt="등록버튼"
             />
           </span>
         </div>
@@ -64,7 +65,6 @@
         <div class="wrap-main-contents">
           <textarea
             class="wrap-main-contents_text"
-            type="text"
             id="contents"
             placeholder="내용을 입력하세요"
             cols="29"
@@ -77,20 +77,31 @@
     <footer class="bs-footer">
       <div class="wrap-addBar">
         <div class="wrap-addBar-contents">
+          <input
+            type="file"
+            id="input"
+            name="input"
+            accept="image/*"
+            style="display: none"
+            multiple
+          />
           <img
             class="wrap-addBar-contents_picture"
             src="/src/assets/icons/ic-picture.svg"
+            id="btnFileUpload"
             alt="파일첨부"
-            onclick=""
+            onclick="document.getElementById('input').click();"
           />
           <img
             class="wrap-addBar-contents_align"
             src="/src/assets/icons/ic-align-left.svg"
+            id="btnPostAlign"
             alt="글 정렬"
           />
           <img
             class="wrap-addBar-contents_keyboard"
             src="/src/assets/icons/ic-keyboard.svg"
+            id="btnKeyboard"
             alt="키보드"
           />
         </div>
