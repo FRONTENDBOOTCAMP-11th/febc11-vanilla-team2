@@ -1,249 +1,231 @@
 /*css Variables*/
 :root {
-    --color-gray100: #8E8E8E;
-    --color-gray90: #AAAAAA;
-    --color-gray80: #D7D7D7;
-    --color-grey70: #DDDDDD;
-    --color-black: #111111;
-    --color-green20: #00C6BE;
-    --color-pink100: #FC3B75;
-    --color-white: #FFFFFF;
-    /*fonts*/
+  --color-gray100: #8e8e8e;
+  --color-gray90: #aaaaaa;
+  --color-gray80: #d7d7d7;
+  --color-grey70: #dddddd;
+  --color-black: #111111;
+  --color-green20: #00c6be;
+  --color-pink100: #fc3b75;
+  --color-white: #ffffff;
+  /*fonts*/
 
-    --font-ko: 'Pretendard';
+  --font-ko: "Pretendard";
 }
 
 :root {
-    font-family: var(--font-ko);
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    font-size: 62.5%;
+  font-family: var(--font-ko);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  font-size: 62.5%;
 }
 
 body {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
-
 
 /*layout*/
 .wrapper {
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /*component*/
 
-
-
 .login-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
 .login-header_cover {
-    margin-top: 52px;
-    aspect-ratio: 220/130;
-
+  margin-top: 52px;
+  aspect-ratio: 220/130;
 }
 
 .login-header_cover-src {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .login-header_title {
-    font-size: 2.0rem;
-    font-weight: 500;
-    margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .login-header_content {
-    color: var(--color-gray100);
-    font-size: 1.2rem;
-    max-width: 240px;
-    text-align: center;
-    margin-bottom: 12px;
+  color: var(--color-gray100);
+  font-size: 1.2rem;
+  max-width: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 15px;
 }
 
 /*------------------------------*/
 .login-form_input {
-    display: block;
-    width: 320px;
-    border-bottom: 1px solid var(--color-gray80);
-    padding: 7.75px 0 11.8px 0;
+  display: block;
+  width: 320px;
+  border-bottom: 1px solid var(--color-gray80);
+  padding: 7.75px 0 11.8px 0;
 }
 
 .login-form_input-password {
-    margin-bottom: 22.75px;
+  margin-bottom: 22.75px;
 }
 
-
 .login-form_check-container {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 30px;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 30px;
+  align-items: center;
 }
 
 .login-form_check-container p {
-    position: relative;
-    top: 3px;
-    font-size: 1.3rem;
+
+  position: relative;
+  top: 3px;
+  font-size: 1.3rem;
 }
 
-.login-form_button-checkBtn {
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-grey70);
-    border-radius: 50%;
-}
+
 
 .login-form_button-checkBtn_cover {
-    position: relative;
-    top: 3px;
+  position: relative;
+  top: 3px;
 }
 
-input[type='checkbox'] {
-    width: 20px;
-    height: 20px;
-    background-color: var(--color-gray80);
-    border-radius: 50%;
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-gray80);
+  border-radius: 50%;
 }
 
 .form-btn {
-    width: 320px;
-    width: 100%;
-    padding: 13.75px 0;
-    border-radius: 4px;
-    font-size: 1.4rem;
-    text-align: center;
+  width: 320px;
+  width: 100%;
+  padding: 13.75px 0;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .login-form_button-loginBtn {
-    background-color: var(--color-gray90);
-    margin-bottom: 12px;
-    color: var(--color-white)
+  background-color: var(--color-gray90);
+  margin-bottom: 12px;
+  color: var(--color-white);
 }
 
 .login-form_button-accountBtn {
-    color: var(--color-green20);
-    border: 1px solid var(--color-green20);
+  color: var(--color-green20);
+  border: 1px solid var(--color-green20);
 }
-
 
 /*회원가입*/
 
 .signup-content_title {
-    font-weight: 600;
-    font-size: 1.9rem;
-    text-align: center;
-    margin: 14px 0 44px 0;
+  font-weight: 600;
+  font-size: 1.9rem;
+  text-align: center;
+  margin: 14px 0 44px 0;
 }
-
-
 
 .signup-form_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 43px;
 }
-
 
 /**/
 .signup-form_button-password {
-    display: flex;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    right: 0;
-
-
+  display: flex;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
 }
 
 .signup-form_button-password_cover {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 /* .toogle-password-cover {
-    margin-bottom: -100px;
+  margin-bottom: -100px;
 } */
 
 .signup-form_button-duplication {
-    color: var(--color-green20);
-    position: absolute;
-    right: 0;
-    border-radius: 999px;
-    border: solid 1px var(--color-green20);
-    padding: 0 10px;
-    font-size: 1.3rem;
-    line-height: 29px;
-
+  color: var(--color-green20);
+  position: absolute;
+  right: 0;
+  border-radius: 999px;
+  border: solid 1px var(--color-green20);
+  padding: 0 10px;
+  font-size: 1.3rem;
+  line-height: 29px;
 }
 
-input[type='nickname'] {
-    display: block;
-    width: 320px;
-    border-bottom: 1px solid var(--color-gray80);
-    padding: 7.75px 0 11.8px 0;
+input[type="nickname"] {
+  display: block;
+  width: 320px;
+  border-bottom: 1px solid var(--color-gray80);
+  padding: 7.75px 0 11.8px 0;
 }
 
 .signup-form_container.signup-form_container-email {
-    margin-bottom: 36px;
-
+  margin-bottom: 36px;
 }
 
 .signup-form_container.signup-form_container-nickname {
-    margin-bottom: 36px;
-    position: relative;
+  margin-bottom: 36px;
+  position: relative;
 }
 
 /*error msg*/
 .signup-form_error {
-    position: absolute;
-    margin-top: -30px;
-    font-size: 1.2rem;
-    color: var(--color-green20);
+  position: absolute;
+  margin-top: -30px;
+  font-size: 1.2rem;
+  color: var(--color-green20);
 }
 
 .signup-form_error-password {
-    position: absolute;
-    margin-top: -105px;
-    font-size: 1.2rem;
-    color: var(--color-pink100);
+  position: absolute;
+  margin-top: -105px;
+  font-size: 1.2rem;
+  color: var(--color-pink100);
 }
 
 .sign-form_input-container {
-    display: block;
-    width: 320px;
-    border-bottom: 1px solid var(--color-gray80);
-    padding: 12.5px 0 11.8px 0;
+  display: block;
+  width: 320px;
+  border-bottom: 1px solid var(--color-gray80);
+  padding: 12.5px 0 11.8px 0;
 }
 
 .signup-form_container.signup-form_container-password {
-    margin-bottom: 114px;
-
+  margin-bottom: 114px;
 }
 
 .form-btn.signup-form_button-accountBtn {
-    color: var(--color-white);
-    background-color: var(--color-gray90);
+  color: var(--color-white);
+  background-color: var(--color-gray90);
 }
 
 /*접근성 향상*/
 .visually_hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
