@@ -62,13 +62,14 @@ window.onload = function () {
       // 1단계 - 둘 다 비어있으면 입력칸
       alert("이메일과 비밀번호를 입력하세요");
       return;
-    }
-    // 이메일 유효성 검사
-    if (!emailVaild(emailValue)) {
-      //2단계 - 이메일 입력 유효하지 않으면 입력 알림
+    } else if (emailValue.trim().length === 0 && pwValue.trim().length !== 0) {
+      alert("이메일을 입력해주세요"); //이메일 비어있고 비번만 있을 때
+    } // 이메일 유효성 검사
+    else if (!emailVaild(emailValue)) {
+      //2단계 - 이메일 입력 했는데 유효하지 않을 때
       alert("유효한 이메일을 입력하세요");
       return;
-    } else if (pwValue.trim().length === 0) {
+    } else if (emailVaild(emailValue) && pwValue.trim().length === 0) {
       //3단계 - 이메일 유효하지만 비밀번호 비었을 때 알림
       alert("비밀번호를 입력해주세요");
       return;
@@ -114,7 +115,9 @@ window.onload = function () {
         console.error("로그인 실패:", response.data);
       }
     } catch (error) {
-      console.error("에러 발생", error);
+      alert("가입되지 않은 계정입니다. 회원가입을 진행해주세요.");
+      loginEmail.value = "";
+      loginPassword.value = "";
     }
   });
 
