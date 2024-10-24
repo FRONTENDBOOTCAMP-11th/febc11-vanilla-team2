@@ -15,7 +15,7 @@ async function fetchTodayBrunchPosts() {
       _id: post._id,
       title: post.title,
       author: post.user.name,
-      contents: post.content,
+      contents: post.user.content,
       image: post.image,
       views: post.views,
     }));
