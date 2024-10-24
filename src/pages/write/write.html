@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Brunch Story | 글쓰기</title>
     <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
     <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
     <link rel="stylesheet" href="write.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -25,7 +26,6 @@
             <img
               class="wrap-header-done_doneOff"
               src="/src/assets/icons/done-off.svg"
-              id="btnPost"
             />
           </span>
           <span class="hoverDoneOn">
@@ -33,7 +33,7 @@
               class="wrap-header-done_doneON"
               src="/src/assets/icons/done-on.svg"
               id="btnPost"
-              onclick="postClick"
+              alt="submit"
             />
           </span>
         </div>
@@ -66,7 +66,7 @@
             type="text"
             id="contents"
             placeholder="내용을 입력하세요"
-            cols="27"
+            cols="29"
             rows="20"
           ></textarea>
         </div>
@@ -79,14 +79,18 @@
           <img
             class="wrap-addBar-contents_picture"
             src="/src/assets/icons/picture.svg"
+            alt="파일첨부"
+            onclick=""
           />
           <img
             class="wrap-addBar-contents_align"
             src="/src/assets/icons/align-left.svg"
+            alt="글 정렬"
           />
           <img
             class="wrap-addBar-contents_keyboard"
             src="/src/assets/icons/keyboard.svg"
+            alt="키보드"
           />
         </div>
       </div>
