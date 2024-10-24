@@ -59,9 +59,10 @@ body {
 .login-header_content {
   color: var(--color-gray100);
   font-size: 1.2rem;
-  max-width: 240px;
+  max-width: 200px;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  line-height: 15px;
 }
 
 /*------------------------------*/
@@ -80,20 +81,17 @@ body {
   display: flex;
   gap: 8px;
   margin-bottom: 30px;
+  align-items: center;
 }
 
 .login-form_check-container p {
+
   position: relative;
   top: 3px;
   font-size: 1.3rem;
 }
 
-.login-form_button-checkBtn {
-  width: 20px;
-  height: 20px;
-  background-color: var(--color-grey70);
-  border-radius: 50%;
-}
+
 
 .login-form_button-checkBtn_cover {
   position: relative;
