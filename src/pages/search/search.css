@@ -123,7 +123,7 @@
 
 /* 발견 - 컨텐츠 내부 - JS 작업 시 삭제 예정 */
 .search-contents__no-input {
-  display: none;
+  /* display: none; */
 }
 
 /* 발견 - 추천 작가 키워드 */
