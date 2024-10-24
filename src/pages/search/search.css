@@ -1,16 +1,5 @@
 /* 브런치 스토리 - 내 서랍 CSS */
 
-/* 공통으로 빼야 할 CSS - Brunch Stroy wrapper */
-.wrapper {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 360px;
-  height: 100vh;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 22px 20px 14px;
-}
-
 /* 발견 - 헤더 */
 .search-header {
   margin: 0 -20px;
