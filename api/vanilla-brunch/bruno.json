@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "vanilla-brunch",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
