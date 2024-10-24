@@ -296,7 +296,7 @@ p {
 /* bestseller */
 
 .bestseller {
-  background-image: url("/src/assets/images/bestsellerBackground.svg");
+  background-image: url("/src/assets/images/img-best-seller.svg");
   display: flex;
   flex-direction: column;
 }
