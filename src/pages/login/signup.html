@@ -24,7 +24,12 @@
                   id="signupNickname"
                   placeholder="별명"
                 />
-                <button class="signup-form_button-duplication">중복확인</button>
+                <button
+                  class="signup-form_button-duplication"
+                  id="nameDuplicationBtn"
+                >
+                  중복확인
+                </button>
               </div>
               <div id="nicknameErr" class="signup-form_error"></div>
               <!--닉네임 설명 표시-->
@@ -38,7 +43,12 @@
                   placeholder="이메일"
                   autocomplete="new_password"
                 />
-                <button class="signup-form_button-duplication">중복확인</button>
+                <button
+                  class="signup-form_button-duplication"
+                  id="emailDuplicationBtn"
+                >
+                  중복확인
+                </button>
               </div>
               <div id="emailErr" class="signup-form_error"></div>
               <!--닉네임 설명 표시-->
@@ -79,7 +89,7 @@
                   autocomplete="new_password"
                 />
                 <button
-                  id="confirm_passwordBtn"
+                  id="confirmPasswordBtn"
                   type="button"
                   aria-label="비밀번호 확인 버튼"
                   class="signup-form_button-password"
@@ -106,6 +116,6 @@
       </article>
     </div>
 
-    <script src="login.js"></script>
+    <script type="module" src="signup.js"></script>
   </body>
 </html>
