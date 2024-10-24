@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../../assets/css/base/reset.css" />
     <link rel="stylesheet" href="../../assets/css/base/typography.css" />
     <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="../../components/footer.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -156,39 +158,13 @@
         </section>
       </div>
 
-      <!-- 브런치 스토리 Footer -->
-      <footer class="bs-footer">
-        <ul class="bs-footer__list">
-          <li class="bs-footer__button">
-            <a class="bs-footer__link" href="../../pages/main/main.html">
-              <img src="../../assets/icons/ic-home-off.svg" alt="Home Off" />
-              <h6 class="bs-footer__title">홈</h6>
-            </a>
-          </li>
-          <li class="bs-footer__button">
-            <a class="bs-footer__link" href="../../pages/main/main.html">
-              <img src="../../assets/icons/ic-search-on.svg" alt="Search On" />
-              <h6 class="bs-footer__title">발견</h6>
-            </a>
-          </li>
-          <li class="bs-footer__button">
-            <a class="bs-footer__link" href="../../pages/main/main.html">
-              <img src="../../assets/icons/ic-write-off.svg" alt="Write Off" />
-              <h6 class="bs-footer__title">글쓰기</h6>
-            </a>
-          </li>
-          <li class="bs-footer__button">
-            <a class="bs-footer__link" href="../../pages/main/main.html">
-              <img
-                src="../../assets/icons/ic-mydrawer-off.svg"
-                alt="My Drawer On"
-              />
-              <h6 class="bs-footer__title">내서랍</h6>
-            </a>
-          </li>
-        </ul>
-      </footer>
+      <footer class="footer"></footer>
     </div>
     <script src="./search.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".footer").load("../../components/footer.html");
+      });
+    </script>
   </body>
 </html>

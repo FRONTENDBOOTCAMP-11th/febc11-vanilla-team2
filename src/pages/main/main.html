@@ -5,25 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brunch Story Main</title>
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="../../components/header.css" />
+    <link rel="stylesheet" href="../../components/footer.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
-    <header id="header">
-      <div id="logo-container">
-        <a href="main.html">
-          <img src="/src/assets/logo/logo.svg" alt="로고" id="logo" />
-        </a>
-      </div>
-      <div id="search-container">
-        <img
-          src="/src/assets/icons/ic-search-header.svg"
-          alt="검색"
-          id="search"
-        />
-      </div>
-      <div id="start-container">
-        <a href="/src/pages/login/login.html" class="startbtn">시작하기</a>
-      </div>
-    </header>
+    <header class="header"></header>
 
     <div class="mainpage">
       <nav id="main-nav">
@@ -439,34 +426,12 @@
         />
       </div>
     </div>
-
-    <footer id="footer">
-      <div class="footer-icon">
-        <div class="footer-icon-item">
-          <a href="main.html">
-            <img src="/src/assets/icons/ic-home-on.svg" alt="홈" />
-          </a>
-          <span>홈</span>
-        </div>
-        <div class="footer-icon-item">
-          <a href="/src/pages/search/search.html">
-            <img src="/src/assets/icons/ic-search-off.svg" alt="발견" />
-          </a>
-          <span>발견</span>
-        </div>
-        <div class="footer-icon-item">
-          <a href="/src/pages/write/write.html">
-            <img src="/src/assets/icons/ic-write-off.svg" alt="글쓰기" />
-          </a>
-          <span>글쓰기</span>
-        </div>
-        <div class="footer-icon-item">
-          <a href="/src/pages/myDrawer/myDrawer.html">
-            <img src="/src/assets/icons/ic-mydrawer-off.svg" alt="내 서랍" />
-          </a>
-          <span>내 서랍</span>
-        </div>
-      </div>
-    </footer>
+    <footer class="footer"></footer>
+    <script>
+      $(document).ready(function () {
+        $(".header").load("../../components/header-logged-out.html");
+        $(".footer").load("../../components/footer.html");
+      });
+    </script>
   </body>
 </html>
