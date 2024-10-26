@@ -18,13 +18,27 @@
             class="search-query__input"
             placeholder="검색어 입력"
           />
-          <button type="button" class="search-query__clear-btn">
+          <button
+            type="button"
+            class="search-query__button-clear"
+            style="display: none"
+          >
             <img src="../../assets/icons/ic-clear.svg" alt="Clear Button" />
           </button>
         </div>
-        <div class="search-tab">
-          <button type="button" class="search-tab__item active">글</button>
-          <button type="button" class="search-tab__item">작가</button>
+        <div class="search-tab" style="display: none">
+          <button
+            type="button"
+            class="search-tab__item search-tab__item-article"
+          >
+            글
+          </button>
+          <button
+            type="button"
+            class="search-tab__item search-tab__item-author"
+          >
+            작가
+          </button>
         </div>
       </header>
 

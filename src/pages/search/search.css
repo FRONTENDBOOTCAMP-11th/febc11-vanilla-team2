@@ -53,6 +53,7 @@
 
 /* 발견 - 헤더 */
 .search-header {
+  border-bottom: 1px solid #dddddd;
   margin: 0 -20px;
   text-align: center;
 }
@@ -95,7 +96,6 @@
 }
 
 .search-tab {
-  /* display: none; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,11 +110,26 @@
   color: #666666;
 }
 
+.search-tab__item--active {
+  color: #00c6be;
+  border-bottom-width: 50%;
+  position: relative;
+}
+
+.search-tab__item--active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: -1px;
+  background-color: #00c6be;
+}
+
 /* 발견 - 컨텐츠 */
 .search-contents {
   flex-grow: 1;
   overflow-y: auto;
-  border-top: 1px solid #dddddd;
   background-color: #f8f8f8;
   margin: 0 -20px;
   min-height: 100%;
@@ -146,10 +161,6 @@
   line-height: 29px;
 
   margin-bottom: 10px;
-}
-
-.highlight {
-  color: #00c6be;
 }
 
 .search-keywords__tags {
@@ -396,4 +407,9 @@
   font-weight: 300;
   line-height: 20px;
   color: #959595;
+}
+
+/* 발견 - 공통 사항 */
+.highlight {
+  color: #00c6be;
 }
