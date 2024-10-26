@@ -11,6 +11,9 @@ window.onload = function () {
   const signupBtn = document.querySelector("#signupBtn");
   const passwordErr = document.querySelector("#passwordErr"); // 비밀번호 오류 결과
   const emailErr = document.querySelector("#emailErr"); //이메일 오류 결과
+  const eyeOnImg = document.querySelectorAll(
+    ".signup-form_button-password_cover",
+  );
 
   // 이메일 유효성 검사
   function emailVaild(email) {
@@ -46,6 +49,7 @@ window.onload = function () {
       if (error.response.data.ok === 0) {
         emailErr.innerHTML =
           "이미 사용중인 이메일입니다. 다른 이메일을 입력해주세요.";
+        console.log(error.response.data);
       }
     }
   });
@@ -106,8 +110,10 @@ window.onload = function () {
   passwordBtn.addEventListener("click", () => {
     if (signupPassword.type === "password") {
       signupPassword.type = "text";
+      eyeOnImg[0].src = "/src/assets/icons/ic-eye-on.svg";
     } else {
       signupPassword.type = "password";
+      eyeOnImg[0].src = "/src/assets/icons/ic-eye-off.svg";
     }
   });
 
@@ -115,8 +121,10 @@ window.onload = function () {
   confirmPasswordBtn.addEventListener("click", () => {
     if (confirmPassword.type === "password") {
       confirmPassword.type = "text";
+      eyeOnImg[1].src = "/src/assets/icons/ic-eye-on.svg";
     } else {
       confirmPassword.type = "password";
+      eyeOnImg[1].src = "/src/assets/icons/ic-eye-off.svg";
     }
   });
 };
