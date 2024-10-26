@@ -14,6 +14,7 @@ window.onload = function () {
   const eyeOnImg = document.querySelectorAll(
     ".signup-form_button-password_cover",
   );
+  let duplicationEmail = false;
 
   // 이메일 유효성 검사
   function emailVaild(email) {
@@ -44,12 +45,13 @@ window.onload = function () {
       //db에 이메일이 이미 있음
       if (response.data.ok === 1) {
         emailErr.innerHTML = "사용 가능한 이메일 입니다";
+        duplicationEmail = true;
       }
     } catch (error) {
-      if (error.response.data.ok === 0) {
+      if (error.response && error.response.status === 409) {
         emailErr.innerHTML =
           "이미 사용중인 이메일입니다. 다른 이메일을 입력해주세요.";
-        console.log(error.response.data);
+        duplicationEmail = false;
       }
     }
   });
@@ -78,6 +80,9 @@ window.onload = function () {
     } else if (password !== passwordConfirm) {
       passwordErr.innerHTML = "비밀번호가 일치하지 않습니다";
       return;
+    } else if (!duplicationEmail) {
+      alert("이메일 중복검사를 확인해주세요");
+      return;
     }
 
     //회원가입 요청
@@ -88,6 +93,7 @@ window.onload = function () {
           email: email,
           name: nickname,
           password: password,
+          type: "user",
         },
         {
           headers: {
@@ -96,13 +102,17 @@ window.onload = function () {
           },
         },
       );
+      console.log(response.data.ok);
 
       //회원가입 성공시에  로그인 화면으로 이동
-      if (response.data.ok === 0) {
+      if (response.data.ok === 1) {
+        alert("회원가입에 성공하셨습니다. 로그인 페이지로 이동합니다");
+        console.log(response.data.ok);
         window.location.href = "/src/pages/login/login.html";
       }
     } catch (error) {
       alert("회원가입에 실패하였습니다");
+      console.log(error.response.data);
     }
   });
 
