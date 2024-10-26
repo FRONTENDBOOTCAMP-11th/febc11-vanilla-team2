@@ -48,9 +48,13 @@ window.onload = function () {
         duplicationEmail = true;
       }
     } catch (error) {
-      if (error.response && error.response.status === 409) {
+      if (error.response.status === 409) {
         emailErr.innerHTML =
           "이미 사용중인 이메일입니다. 다른 이메일을 입력해주세요.";
+        duplicationEmail = false;
+      } else if (error.response.status === 422) {
+        emailErr.innerHTML =
+          "잘못된 이메일 형식입니다. 이메일을 올바르게 입력해주세요";
         duplicationEmail = false;
       }
     }
