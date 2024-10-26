@@ -149,6 +149,7 @@ input[type="checkbox"] {
   height: 24px;
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 
 .signup-form_button-password_cover {
@@ -169,6 +170,7 @@ input[type="checkbox"] {
   padding: 0 10px;
   font-size: 1.3rem;
   line-height: 29px;
+  cursor: pointer;
 }
 
 input[type="nickname"] {
@@ -216,6 +218,7 @@ input[type="nickname"] {
 .form-btn.signup-form_button-accountBtn {
   color: var(--color-white);
   background-color: var(--color-gray90);
+  cursor: pointer;
 }
 
 /*접근성 향상*/
