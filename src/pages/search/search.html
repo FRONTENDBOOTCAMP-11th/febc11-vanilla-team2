@@ -160,11 +160,16 @@
 
       <footer class="footer"></footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./search.js"></script>
     <script>
-      $(document).ready(function () {
-        $(".footer").load("../../components/footer.html");
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load footer
+        fetch("../../components/footer.html")
+          .then(response => {
+            if (!response.ok) throw new Error("Footer load failed");
+            return response.text();
+          })
+          .then(data => (document.querySelector(".footer").innerHTML = data));
       });
     </script>
   </body>

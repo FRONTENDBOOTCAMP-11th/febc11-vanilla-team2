@@ -426,11 +426,23 @@
       </div>
     </div>
     <footer class="footer"></footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      $(document).ready(function () {
-        $(".header").load("../../components/header-logged-out.html");
-        $(".footer").load("../../components/footer.html");
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load header
+        fetch("../../components/header-logged-out.html")
+          .then(response => {
+            if (!response.ok) throw new Error("Header load failed");
+            return response.text();
+          })
+          .then(data => (document.querySelector(".header").innerHTML = data));
+
+        // Load footer
+        fetch("../../components/footer.html")
+          .then(response => {
+            if (!response.ok) throw new Error("Footer load failed");
+            return response.text();
+          })
+          .then(data => (document.querySelector(".footer").innerHTML = data));
       });
     </script>
   </body>
