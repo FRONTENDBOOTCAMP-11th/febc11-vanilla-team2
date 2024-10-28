@@ -54,7 +54,7 @@ function displayTodayPosts(posts) {
       // 클릭시 상세페이지으로 이동
       listItem.addEventListener("click", () => {
         const postId = listItem.getAttribute("data-id");
-        window.location.href = `https://11.fesp.shop/posts/${postId}`;
+        window.location.href = `https://11.fesp.shop/posts?no=${postId}`;
       });
     }
   });
