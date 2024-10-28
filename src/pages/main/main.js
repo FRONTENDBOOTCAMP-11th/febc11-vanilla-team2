@@ -37,6 +37,10 @@ function displayTodayPosts(posts) {
     const listItem = top10List[index];
 
     if (listItem) {
+      const postId = post._id;
+
+      listItem.setAttribute("data-id", postId);
+
       listItem.querySelector(".top10-info__header").textContent = post.title;
       listItem.querySelector(".author-name").textContent = post.author;
       listItem.querySelector(".top10-info__text").textContent = post.contents;
@@ -49,7 +53,8 @@ function displayTodayPosts(posts) {
       }
       // 클릭시 상세페이지으로 이동
       listItem.addEventListener("click", () => {
-        window.location.href = `https://11.fesp.shop/posts/${post._id}`;
+        const postId = listItem.getAttribute("data-id");
+        window.location.href = `https://11.fesp.shop/posts/${postId}`;
       });
     }
   });
