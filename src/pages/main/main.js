@@ -2,11 +2,13 @@
 
 import axios from "axios";
 
+const clientId = "vanilla02";
+
 async function fetchTodayBrunchPosts() {
   try {
     const response = await axios.get("https://11.fesp.shop/posts", {
       headers: {
-        "client-id": "vanilla02",
+        "client-id": clientId,
       },
     });
 
