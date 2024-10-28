@@ -168,11 +168,11 @@ body {
     margin-bottom: 28.25px;
 }
 
-/* .detail-content_cover {
+.detail-content_cover {
     aspect-ratio: 320/240;
     overflow: hidden;
     margin-bottom: 8.33px;
-} */
+}
 
 .detail-content_cover-src {
     width: 100%;

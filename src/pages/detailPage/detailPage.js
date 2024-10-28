@@ -5,7 +5,7 @@ const titleNode = document.querySelector(".detail-header_title");
 const authorNode = document.querySelector(".detail-header_author");
 const dateNode = document.querySelector(".detail-header_date");
 const contentNode = document.querySelector(".detail-content_description");
-const contentImageNode = document.querySelector(".detail-content_cover-src");
+// const contentImageNode = document.querySelector(".detail-content_cover-src");
 const subTitle = document.querySelector(".detail-header_title-addition");
 const jobNode = document.querySelector(".detail-profile_job");
 const profileAuthorNode = document.querySelector(".detail-profile_name");
@@ -14,6 +14,7 @@ const profileDescription = document.querySelector(
 );
 const profileSrc = document.querySelector(".detail-profile_src");
 const commentCount = document.querySelector(".detail-comment_count-color");
+const subscribeBtn = document.querySelector(".detail-profile_subscribe-btn"); //구독 버튼 클릭
 
 // URL에서 게시글 ID 추출
 const no = window.location.search.split("=")[1];
@@ -114,13 +115,12 @@ function displayComment(comments) {
 //contentNode의 모든 img태그에서 src경로 있을 때 특정해서 그 경로에 도메인 추가하기..
 function updateImageSrc() {
   const imgTags = contentNode.querySelectorAll("img"); //contentNode의 모든 이미지 불러옴 일단
+  console.log(imgTags);
   imgTags.forEach(img => {
     const src = img.getAttribute("src");
     if (src && !src.startsWith("http")) {
       img.src = `https://11.fesp.shop${src}`;
     }
-    img.classList.add("detail-content_cover-src");
-
     // 부모 div의 style500제거함
     const parentDiv = img.closest(".wrap_img_float"); //가장 가까운 상위요소
     if (parentDiv) {
@@ -138,7 +138,7 @@ async function printPage() {
     authorNode.innerHTML = postData.user.name;
     dateNode.innerHTML = month(postData.createdAt);
     contentNode.innerHTML = postData.content;
-    contentImageNode.src = postData.image || "";
+    // contentImageNode.src = postData.image || "";
     subTitle.innerHTML = postData.extra?.subTitle || "";
     commentCount.innerHTML = postData.replies.length || 0; //댓글 갯수 출력
 
@@ -164,6 +164,8 @@ async function printPage() {
     }
   }
 }
+
+//구독 버튼 클릭
 
 // html이 로드되지 마자 함수 실행
 document.addEventListener("DOMContentLoaded", function () {
