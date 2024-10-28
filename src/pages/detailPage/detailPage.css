@@ -91,7 +91,7 @@ body {
     color: var(--color-black80);
     margin-bottom: 3.75px;
     max-width: 260px;
-    padding-top: 114.75px;
+    padding-top: 100.75px;
     line-height: 34px;
 }
 
@@ -149,7 +149,7 @@ body {
     right: -20px;
     /* 우측 네거티브 마진 */
     bottom: 0;
-    background-image: url();
+    background-image: url(/src/assets/images/img-detail-1.svg);
     background-size: cover;
     background-position: center;
     z-index: -1;

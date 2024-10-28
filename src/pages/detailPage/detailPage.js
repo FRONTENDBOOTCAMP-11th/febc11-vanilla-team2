@@ -166,6 +166,9 @@ async function printPage() {
 }
 
 //구독 버튼 클릭
+subscribeBtn.addEventListener("click", async e => {
+    try
+});
 
 // html이 로드되지 마자 함수 실행
 document.addEventListener("DOMContentLoaded", function () {
