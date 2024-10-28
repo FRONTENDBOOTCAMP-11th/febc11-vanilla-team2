@@ -215,7 +215,7 @@
 }
 
 /* 발견 - 글 검색 결과 및 정확도/최신 버튼 */
-.search-contents__articles-input {
+.search-contents__articles {
   padding: 20px;
 }
 
@@ -309,7 +309,7 @@
 }
 
 /* 발견 - 작가 검색 결과 및 정확도/최신 버튼 */
-.search-contents__authors-input {
+.search-contents__authors {
   padding: 20px;
 }
 
