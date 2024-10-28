@@ -162,7 +162,8 @@
       </section>
       <footer class="footer"></footer>
     </div>
-    <script src="./myDrawer.js"></script>
+    <script type="module" src="../../components/footer.js"></script>
+    <script type="module" src="./myDrawer.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Load header
@@ -172,14 +173,6 @@
             return response.text();
           })
           .then(data => (document.querySelector(".header").innerHTML = data));
-
-        // Load footer
-        fetch("../../components/footer.html")
-          .then(response => {
-            if (!response.ok) throw new Error("Footer load failed");
-            return response.text();
-          })
-          .then(data => (document.querySelector(".footer").innerHTML = data));
       });
     </script>
   </body>
