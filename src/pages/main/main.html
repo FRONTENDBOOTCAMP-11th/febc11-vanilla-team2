@@ -426,18 +426,8 @@
       </div>
     </div>
     <footer class="footer"></footer>
+    <script type="module" src="../../components/header.js"></script>
     <script type="module" src="../../components/footer.js"></script>
     <script type="module" src="main.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Load header
-        fetch("../../components/header-logged-out.html")
-          .then(response => {
-            if (!response.ok) throw new Error("Header load failed");
-            return response.text();
-          })
-          .then(data => (document.querySelector(".header").innerHTML = data));
-      });
-    </script>
   </body>
 </html>
