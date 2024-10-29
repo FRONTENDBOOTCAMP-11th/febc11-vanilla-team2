@@ -14,18 +14,24 @@ async function onChangeFile(e) {
   let imgList = document.querySelector(".add-img-list");
   let imgUl = document.querySelector(".add-img");
 
+  // image 다시 선택하면 화면 비워주고 최신이미지를 프리뷰로 보여줌
+  imgList.innerHTML = "";
+
   if (file && file.type.startsWith("image/")) {
     const reader = new FileReader();
+
     reader.onload = function (event) {
       const img = document.createElement("img");
       img.setAttribute("class", "add-img-list_image");
       img.src = event.target.result;
+
       const fileName = document.createElement("p");
       fileName.setAttribute("class", "add-img-list_fileName");
       fileName.textContent = `File Name : ${file.name}`;
-      console.log(reader.result);
+
       imgList.appendChild(img);
       imgList.appendChild(fileName);
+
       imgUl.appendChild(imgList);
       imgUl.style.display = "inline";
     };
@@ -40,7 +46,7 @@ async function postClick(e) {
   let subTitle = document.querySelector("#subTitle");
   let content = document.querySelector("#contents");
 
-  if (!title || !content) {
+  if (!title.value.trim() || !content.value.trim()) {
     alert("제목 혹은 내용을 입력해주세요.");
     return;
   }
