@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-@import "/src/assets/css/base/reset.css";
-@import "/src/assets/css/base/typography.css";
-
-=======
->>>>>>> develop
 * {
   box-sizing: border-box;
 }
@@ -57,63 +51,6 @@ body {
   margin-top: 50px;
 }
 
-<<<<<<< HEAD
-/* header */
-header {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  width: 360px;
-  height: 50px;
-  z-index: 100;
-  margin-top: -50px;
-  background-color: var(--color-white);
-}
-
-#header img {
-  display: inline-block;
-  cursor: pointer;
-  margin-bottom: -4px;
-  padding: 0;
-}
-
-#logo-container {
-  padding: 14px 0 14px 20px;
-}
-
-#search-container {
-  padding: 10px 0 10px 98px;
-  display: flex;
-  align-items: center;
-}
-#start-container {
-  padding: 13px 20px 13px 10px;
-  display: flex;
-  align-items: center;
-}
-
-#search {
-  width: 30px;
-  height: 30px;
-}
-
-.startbtn {
-  background-color: var(--color-black2);
-  color: var(--color-white);
-  border-radius: 15px;
-  font-size: 10px;
-  line-height: 15px;
-  font-family: "Pretendard";
-  font-weight: 400;
-  padding: 4px 12px 5px 13px;
-  border-style: none;
-  white-space: nowrap;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-=======
->>>>>>> develop
 /* main-nav */
 
 #main-nav {
