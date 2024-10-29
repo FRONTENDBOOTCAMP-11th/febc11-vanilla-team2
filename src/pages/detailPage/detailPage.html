@@ -7,34 +7,12 @@
     <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
     <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
     <link rel="stylesheet" href="detailPage.css" />
+    <link rel="stylesheet" href="../../components/header.css" />
   </head>
   <body>
     <div class="wrapper">
       <article class="article">
-        <!-----브런치 스토리 공통 헤더------------>
-        <header class="brunch-story-header">
-          <a class="brunch-story-header__logo">
-            <img src="../../assets/logo/logo.svg" alt="Brunch Story Logo" />
-          </a>
-          <div class="brunch-story-header__icons">
-            <span class="brunch-story-header__icon">
-              <img src="../../assets/icons/ic-notice.svg" alt="Notice Icon" />
-            </span>
-            <span class="brunch-story-header__icon">
-              <img
-                src="../../assets/icons/ic-search-header.svg"
-                alt="Notice Icon"
-              />
-            </span>
-            <span class="brunch-story-header__profile">
-              <img
-                src="../../assets/images/img-author-3.svg"
-                alt="Notice Icon"
-              />
-            </span>
-          </div>
-        </header>
-        <!---haeder------->
+        <header class="header"></header>
         <section class="detail-header">
           <h1 class="detail-header_title">
             우여곡절 끝에 도착한 첫번째 목적지
@@ -203,6 +181,7 @@
         </section>
       </article>
     </div>
+    <script type="module" src="../../components/header.js"></script>
     <script src="detailPage.js"></script>
   </body>
 </html>
