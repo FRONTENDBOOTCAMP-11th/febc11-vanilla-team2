@@ -337,11 +337,16 @@ body {
 
 .detail-profile_subscribe-btn {
     margin-left: auto;
+    cursor: pointer;
 }
 
 .detail-footer {
     border-top: 1px solid var(--color-gray30);
     padding: 14.5px 0;
+}
+
+.detail-footer_like-btn {
+    cursor: pointer;
 }
 
 .detail-footer_like-btn span {
