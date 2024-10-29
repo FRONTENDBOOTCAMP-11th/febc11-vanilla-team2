@@ -38,8 +38,8 @@
   height: 30px;
 }
 .startbtn {
-  background-color: var(--color-black2);
-  color: var(--color-white);
+  background-color: #231f20;
+  color: white;
   border-radius: 15px;
   font-size: 10px;
   line-height: 15px;
