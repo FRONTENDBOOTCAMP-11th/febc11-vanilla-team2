@@ -1,91 +1,57 @@
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 img {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 textarea {
-    all: unset;
-    display: block;
+  all: unset;
+  display: block;
 }
 
 /*css Variables*/
 :root {
-    --color-black100: #111;
-    --color-black90: #1B1B1B;
-    --color-black80: #333;
-    --color-gray80: #666;
-    --color-gray75: #838383;
-    --color-gray70: #959595;
-    --color-gray65: #BBB;
-    --color-gray60: rgba(149, 149, 149, 0.5);
-    --color-gray50: #DDD;
-    --color-gray30: #EEE;
-    --color-gray20: #E0E0E0;
-    --color-white: #FFF;
-    --color-green20: #00C6BE;
-    /*fonts*/
-    --font-ko: 'Pretendard';
+  --color-black100: #111;
+  --color-black90: #1b1b1b;
+  --color-black80: #333;
+  --color-gray80: #666;
+  --color-gray75: #838383;
+  --color-gray70: #959595;
+  --color-gray65: #bbb;
+  --color-gray60: rgba(149, 149, 149, 0.5);
+  --color-gray50: #ddd;
+  --color-gray30: #eee;
+  --color-gray20: #e0e0e0;
+  --color-white: #fff;
+  --color-green20: #00c6be;
+  /*fonts*/
+  --font-ko: "Pretendard";
 }
-
-/*공통header*/
-.brunch-story-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--color-gray60);
-    margin: 0 auto;
-    padding: 0 20px;
-    position: fixed;
-    width: 100%;
-    max-width: 360px;
-    top: 0;
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
-    background-color: var(--color-white);
-    z-index: 1
-}
-
-/*마이페이지*/
-.brunch-story-header__icons span {
-    margin-left: 10px;
-}
-
-.brunch-story-header__profile img {
-    width: 30px;
-    height: 30px;
-}
-
-.brunch-story-header__logo {
-    padding: 14px 0;
-}
-
 
 :root {
-    font-family: var(--font-ko);
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    font-size: 62.5%;
+  font-family: var(--font-ko);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  font-size: 62.5%;
 }
 
 body {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
-
 
 /*layout*/
 .wrapper {
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /*----------header-----------*/
 .detail-header_title {
+<<<<<<< HEAD
     font-size: 2.8rem;
     font-weight: 300;
     color: var(--color-black80);
@@ -93,54 +59,64 @@ body {
     max-width: 260px;
     padding-top: 100.75px;
     line-height: 34px;
+=======
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--color-black80);
+  margin-bottom: 3.75px;
+  max-width: 260px;
+  padding-top: 114.75px;
+  line-height: 34px;
+>>>>>>> 75d54f7734f7d741a8234cf83610f11ba851e217
 }
 
 .detail-header_title-addition {
-    font-weight: 300;
-    color: var(--color-gray80);
-    margin-bottom: 31.5px;
+  font-weight: 300;
+  color: var(--color-gray80);
+  margin-bottom: 31.5px;
 }
 
 .detail-header_author {
-    font-weight: 300;
-    color: var(--color-gray80);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4.5px;
-    font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-gray80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5px;
+  font-size: 1.2rem;
 }
 
 .detail-header_author::after {
-    content: "";
-    display: block;
-    width: 2px;
-    height: 2px;
-    background-color: var(--color-gray60);
-    border-radius: 50%;
+  content: "";
+  display: block;
+  width: 2px;
+  height: 2px;
+  background-color: var(--color-gray60);
+  border-radius: 50%;
 }
 
 .detail-header_information {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
-    align-items: end;
-    align-content: end;
-    margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  align-items: end;
+  align-content: end;
+  margin-bottom: 16px;
 }
 
 .detail-header_date {
-    font-size: 1.2rem;
-    color: var(--color-gray60);
+  font-size: 1.2rem;
+  color: var(--color-gray60);
 }
 
 .detail-header {
-    border-bottom: 1px solid var(--color-gray30);
-    margin-bottom: 70.75px;
-    position: relative;
+  border-bottom: 1px solid var(--color-gray30);
+  margin-bottom: 70.75px;
+  position: relative;
 }
 
 .detail-header::before {
+<<<<<<< HEAD
     content: "";
     position: absolute;
     top: 0;
@@ -157,268 +133,285 @@ body {
     width: 360px;
     height: 100%;
     /* 가상 요소를 부모 요소 뒤로 배치 */
+=======
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  /* 좌측 네거티브 마진 */
+  right: -20px;
+  /* 우측 네거티브 마진 */
+  bottom: 0;
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  border-bottom: 1px solid var(--color-gray30);
+  width: 360px;
+  height: 100%;
+  /* 가상 요소를 부모 요소 뒤로 배치 */
+>>>>>>> 75d54f7734f7d741a8234cf83610f11ba851e217
 }
 
 /*------content-----*/
 .detail-content_description {
-    font-size: 1.73rem;
-    font-weight: 300;
-    color: var(--color-black90);
-    line-height: 28px;
-    margin-bottom: 28.25px;
+  font-size: 1.73rem;
+  font-weight: 300;
+  color: var(--color-black90);
+  line-height: 28px;
+  margin-bottom: 28.25px;
 }
 
 .detail-content_cover {
-    aspect-ratio: 320/240;
-    overflow: hidden;
-    margin-bottom: 8.33px;
+  aspect-ratio: 320/240;
+  overflow: hidden;
+  margin-bottom: 8.33px;
 }
 
 .detail-content_cover-src {
+<<<<<<< HEAD
     width: 100%;
     height: 100%;
     aspect-ratio: 320/240;
     overflow: hidden;
     margin-bottom: 8.33px;
+=======
+  width: 100%;
+  height: 100%;
+>>>>>>> 75d54f7734f7d741a8234cf83610f11ba851e217
 }
 
 .detail-content_description-addition {
-    text-align: center;
-    margin-bottom: 28.34px;
-    color: var(--color-gray75);
+  text-align: center;
+  margin-bottom: 28.34px;
+  color: var(--color-gray75);
 }
 
 .detail-content_information {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    row-gap: 10px;
-
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  row-gap: 10px;
 }
 
 .detail-content_tag {
-    color: var(--color-gray80);
-    padding: 0 10px;
-    border-radius: 30px;
-    border: 1px solid var(--color-gray30);
-    min-height: 30px;
-    line-height: 30px;
-    max-width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+  color: var(--color-gray80);
+  padding: 0 10px;
+  border-radius: 30px;
+  border: 1px solid var(--color-gray30);
+  min-height: 30px;
+  line-height: 30px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /*섹션 코맨트*/
 .detail-content {
-    margin-bottom: 29px;
+  margin-bottom: 29px;
 }
 
 .detail-comment {
-    margin-bottom: 65px;
+  margin-bottom: 65px;
 }
 
 .detail-comment_count {
-    margin-bottom: 56.73px;
+  margin-bottom: 56.73px;
 }
 
 .detail-comment_count-color {
-    color: var(--color-green20);
+  color: var(--color-green20);
 }
 
 .detail-comment_information-header {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 11.75px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 11.75px;
 }
 
 .detail-comment_information {
-    margin-bottom: 31.25px;
+  margin-bottom: 31.25px;
 }
 
 .detail-comment_header-btn {
-    width: 2px;
-
+  width: 2px;
 }
 
 .detail-comment_header-profile_src {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .detail-comment_header-profile_name {
-    margin-bottom: 2.25px;
-    color: var(--color-black100);
-    font-size: 1.4rem;
-    height: 21px;
+  margin-bottom: 2.25px;
+  color: var(--color-black100);
+  font-size: 1.4rem;
+  height: 21px;
 }
 
 .detail-comment_header_date {
-    color: var(--color-gray70);
-    font-size: 1.2rem;
-    font-weight: 300;
-    height: 18px;
+  color: var(--color-gray70);
+  font-size: 1.2rem;
+  font-weight: 300;
+  height: 18px;
 }
 
 .detail-comment_header-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-basis: 0;
-    min-width: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
 }
 
 .detail-comment_information-description {
-    padding-left: 40px;
-    color: var(--color-black100);
-    line-height: 24px;
-    margin-bottom: 14.25px;
+  padding-left: 40px;
+  color: var(--color-black100);
+  line-height: 24px;
+  margin-bottom: 14.25px;
 }
 
-
 .detail-comment_header-container_btn {
-    padding-right: 13px;
+  padding-right: 13px;
 }
 
 .detail-comment_information-btn {
-    padding-left: 40px;
-    color: var(--color-gray70);
-    font-size: 1.3rem;
+  padding-left: 40px;
+  color: var(--color-gray70);
+  font-size: 1.3rem;
 }
 
 .detail-comment_writing {
-    border: 1px solid var(--color-gray50);
-    min-height: 205px;
+  border: 1px solid var(--color-gray50);
+  min-height: 205px;
 }
 
 .detail-comment_writing-container {
-    padding: 16px 21px 0 21px;
-    min-height: 155px;
-
+  padding: 16px 21px 0 21px;
+  min-height: 155px;
 }
 
 .detail-comment_writing-container_profile {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 13px;
 }
 
 .detail-comment_writing-src {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }
 
 .detail-comment_writing-input {
-    width: 100%;
-    height: 110px;
+  width: 100%;
+  height: 110px;
 }
 
 .detail-comment_writing-input::placeholder {
-    color: var(--color-gray65);
+  color: var(--color-gray65);
 }
 
 .detail-comment_writing_container-btn {
-    border-top: 1px solid var(--color-gray50);
-    padding: 10px 20px 9px 0;
+  border-top: 1px solid var(--color-gray50);
+  padding: 10px 20px 9px 0;
 }
 
 .detail-comment_writing-btn {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .detail-profile_information {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
 .detail-profile_src {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .detail-profile_container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .detail-profile_name {
-    font-size: 2.2rem;
-    color: var(--color-black80);
-    font-weight: 300;
-    margin-bottom: 4.25px;
+  font-size: 2.2rem;
+  color: var(--color-black80);
+  font-weight: 300;
+  margin-bottom: 4.25px;
 }
 
 .detail-profile_job {
-    font-size: 1.2rem;
-    color: var(--color-gray70);
+  font-size: 1.2rem;
+  color: var(--color-gray70);
 }
 
 .detail-profile_description {
-    font-size: 1.2rem;
-    color: var(--color-gray70);
-    line-height: 20px;
-    margin-bottom: 22.25px;
+  font-size: 1.2rem;
+  color: var(--color-gray70);
+  line-height: 20px;
+  margin-bottom: 22.25px;
 }
 
 .detail-profile_subcribe-information {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
 .detail-profile_subscribe-information_container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-
 .detail-profile_subscribe-btn {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .detail-footer {
-    border-top: 1px solid var(--color-gray30);
-    padding: 14.5px 0;
+  border-top: 1px solid var(--color-gray30);
+  padding: 14.5px 0;
 }
 
 .detail-footer_like-btn span {
-    vertical-align: middle;
-    margin-right: 17.8px;
+  vertical-align: middle;
+  margin-right: 17.8px;
 }
 
 .detail-footer_message_btn span {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .detail-footer_container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.5px;
-    align-content: end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5px;
+  align-content: end;
 }
 
 .detail-footer_message_btn {
-    margin-left: auto;
-
+  margin-left: auto;
 }
 
 /*좋아요 등록/취소(필수) 구독 등록/취소(필수)*/
 
 /*접근성*/
 .visually_hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
