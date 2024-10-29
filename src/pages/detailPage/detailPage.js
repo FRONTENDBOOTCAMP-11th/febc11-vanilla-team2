@@ -110,7 +110,7 @@ function displayComment(comments) {
   });
 }
 
-// 이미지 src 경로에 도메인 추가하기
+// 샘플 이미지 스타일 변화
 function updateImageSrc() {
   const imgTags = contentNode.querySelectorAll("img");
   imgTags.forEach(img => {
@@ -172,7 +172,7 @@ async function getBookmarks() {
     });
     return response.data.item;
   } catch (error) {
-    if (error.response && error.response.status === 401) {
+    if (error.response.status === 401) {
       alert("accessToken이 만료되었습니다. 다시 로그인해주세요");
       window.location.href = "src/pages/login/login.html";
     } else {
