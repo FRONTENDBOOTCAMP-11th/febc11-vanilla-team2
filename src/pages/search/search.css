@@ -324,6 +324,7 @@
   margin: 0 -20px;
   padding: 20px;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
 .result-authors__list {
