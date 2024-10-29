@@ -14,7 +14,7 @@ const profileDescription = document.querySelector(
 const profileSrc = document.querySelector(".detail-profile_src");
 const commentCount = document.querySelector(".detail-comment_count-color");
 const subscribeBtn = document.querySelector(".detail-profile_subscribe-btn");
-const likeBtn = document.querySelector(".detail-footer_like-btn");
+const likeData = document.querySelector(".detail-footer_like-btn");
 let likeCount = document.querySelector(".detail-footer_like");
 const footerCommentCount = document.querySelector(
   ".detail-footer_message_count",
@@ -56,12 +56,14 @@ async function getPost() {
       },
     });
     postData = response.data.item;
+    console.log(postData);
     return postData;
   } catch (error) {
     console.error("게시글 정보 가져오기 실패:", error);
   }
 }
 
+getPost();
 // 작가 정보 가져오기
 async function getAuthor(authorId) {
   try {
@@ -160,7 +162,7 @@ async function printPage() {
   }
 }
 
-// 내 북마크 목록 얻어오기
+// 내 게시글 북마크 목록 얻어오기
 async function getBookmarks() {
   try {
     const response = await axios.get("https://11.fesp.shop/bookmarks/post", {
@@ -183,7 +185,7 @@ async function getBookmarks() {
 
 // 좋아요 토글 함수
 async function toggleBookmark() {
-  likeBtn.disabled = true; // 버튼 일시적으로 비활성화
+  likeData.disabled = true; // 버튼 일시적으로 비활성화
 
   try {
     let bookmarks = await getBookmarks();
@@ -224,9 +226,83 @@ async function toggleBookmark() {
       window.location.href = "src/pages/login/login.html";
     }
   } finally {
-    likeBtn.disabled = false; // 작업 완료 후 버튼 다시 활성화
+    likeData.disabled = false; // 작업 완료 후 버튼 다시 활성화
   }
 }
+
+//구독 추가 기능
+
+// 내 구독 북마크 목록 얻어오기
+async function getSubscribe() {
+  try {
+    const response = await axios.get("https://11.fesp.shop/bookmarks/user", {
+      headers: {
+        "Content-Type": "application/json",
+        "client-id": "vanilla02",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    console.log(response.data.item);
+    return response.data.item;
+  } catch (error) {
+    if (error.response.status === 401) {
+      alert("인증 실패 하였습니다. 다시 로그인해주세요");
+      window.location.href = "src/pages/login/login.html";
+    } else {
+      console.error("북마크 목록 가져오는 중 에러 발생:", error);
+    }
+  }
+}
+getSubscribe();
+
+// 게시글 db에
+subscribeBtn.addEventListener("click", async e => {
+  try {
+    let subscribeData = await getSubscribe();
+    console.log("내가 이미 구독한 작가들", subscribeData);
+    console.log("내가 상세페이지에서 구독하려고 하는 작가", postData);
+    console.log(
+      "내가 상세페이지에서 구독하려고 하는 작가 ID",
+      postData.user._id,
+    );
+    //이미 구독한 상태인지 확인함
+    const hasSubcribe = subscribeData.some(
+      item => item.user._id === postData.user._id,
+    );
+
+    if (!hasSubcribe) {
+      // 구독 추가
+      await axios.post(
+        "https://11.fesp.shop/bookmarks/post",
+        { target_id: postData.user._id }, //보고있는 게시글 작가(상세페이지) 전달
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "client-id": "vanilla02",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      );
+      console.log("구독 추가됨");
+    } else {
+      // 구독 삭제
+      const subscribeId = subscribeData.find(
+        item => item.user._id === postData.user._id,
+      )._id;
+      await axios.delete(`https://11.fesp.shop/bookmarks/${subscribeId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "client-id": "vanilla02",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      console.log("구독취소됨");
+    }
+    subscribeData = await getSubscribe();
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 // HTML이 로드된 후 함수 실행
 document.addEventListener("DOMContentLoaded", async () => {
@@ -235,5 +311,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (bookmarks) likeCount.innerHTML = postData.bookmarks;
 
   // 좋아요 버튼 클릭 이벤트 리스너 추가
-  likeBtn.addEventListener("click", toggleBookmark);
+  likeData.addEventListener("click", toggleBookmark);
 });
