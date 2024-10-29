@@ -173,7 +173,7 @@ async function getBookmarks() {
     return response.data.item;
   } catch (error) {
     if (error.response.status === 401) {
-      alert("accessToken이 만료되었습니다. 다시 로그인해주세요");
+      alert("인증 실패 하였습니다. 다시 로그인해주세요");
       window.location.href = "src/pages/login/login.html";
     } else {
       console.error("북마크 목록 가져오는 중 에러 발생:", error);
@@ -219,7 +219,10 @@ async function toggleBookmark() {
     postData = await getPost(); // 북마크 갱신 후 최신 데이터 가져오기
     likeCount.innerHTML = postData.bookmarks;
   } catch (error) {
-    console.error("좋아요 토글 중 에러:", error);
+    if (error.response.status === 401) {
+      alert("인증 실패 하였습니다. 다시 로그인해주세요");
+      window.location.href = "src/pages/login/login.html";
+    }
   } finally {
     likeBtn.disabled = false; // 작업 완료 후 버튼 다시 활성화
   }
