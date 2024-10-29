@@ -24,9 +24,8 @@
                   id="signupNickname"
                   placeholder="별명"
                 />
-                <button class="signup-form_button-duplication">중복확인</button>
               </div>
-              <div id="nicknameErr" class="signup-form_error"></div>
+
               <!--닉네임 설명 표시-->
 
               <div class="signup-form_container signup-form_container-email">
@@ -38,10 +37,15 @@
                   placeholder="이메일"
                   autocomplete="new_password"
                 />
-                <button class="signup-form_button-duplication">중복확인</button>
+                <button
+                  class="signup-form_button-duplication"
+                  id="emailDuplicationBtn"
+                >
+                  중복확인
+                </button>
               </div>
               <div id="emailErr" class="signup-form_error"></div>
-              <!--닉네임 설명 표시-->
+              <!--이메일 설명 표시-->
               <div class="signup-form_container">
                 <label for="signupPassword" class="visually_hidden"
                   >비밀번호</label
@@ -62,7 +66,7 @@
                 >
                   <img
                     class="signup-form_button-password_cover"
-                    src="/src/assets/icons/eye-off.svg"
+                    src="/src/assets/icons/ic-eye-off.svg"
                     alt=""
                   />
                 </button>
@@ -79,14 +83,14 @@
                   autocomplete="new_password"
                 />
                 <button
-                  id="confirm_passwordBtn"
+                  id="confirmPasswordBtn"
                   type="button"
                   aria-label="비밀번호 확인 버튼"
                   class="signup-form_button-password"
                 >
                   <img
                     class="signup-form_button-password_cover"
-                    src="/src/assets/icons/eye-off.svg"
+                    src="/src/assets/icons/ic-eye-off.svg"
                     alt="버튼 확인"
                   />
                 </button>
@@ -106,6 +110,6 @@
       </article>
     </div>
 
-    <script src="login.js"></script>
+    <script type="module" src="signup.js"></script>
   </body>
 </html>

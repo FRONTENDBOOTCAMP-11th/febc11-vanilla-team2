@@ -31,14 +31,16 @@ window.onload = function () {
     // localStorage.setItem("refreshToken", refreshToken);
     // loginSave = true;
     console.log("로컬 저장 true 여부", loginSave);
-    const checkBtnColor = document.querySelector(".login-form_button-checkBtn");
+    const checkBtnColor = document.querySelector(
+      ".login-form_button-checkBtn_cover",
+    );
     if (loginSave) {
-      checkBtnColor.style.backgroundColor = "var(--color-green20)";
+      checkBtnColor.src = "/src/assets/icons/ic-check-on.svg";
       signupBtn.classList.add("visually_hidden"); //회원가입 버튼 숨김
       loginBtn.style.backgroundColor = "var(--color-green20)"; //로그인 버튼 색 변화
       loginBtn.style.color = "var(--color-white)";
     } else {
-      checkBtnColor.style.backgroundColor = ""; //원래 기본 값
+      checkBtnColor.src = "/src/assets/icons/ic-check-off.svg"; //원래 기본 값
       signupBtn.classList.remove("visually_hidden");
       loginBtn.style.backgroundColor = "";
       loginBtn.style.color = "";

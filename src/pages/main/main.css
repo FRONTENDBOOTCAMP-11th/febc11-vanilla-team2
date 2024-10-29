@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 @import "/src/assets/css/base/reset.css";
 @import "/src/assets/css/base/typography.css";
 
+=======
+>>>>>>> develop
 * {
   box-sizing: border-box;
 }
@@ -54,6 +57,7 @@ body {
   margin-top: 50px;
 }
 
+<<<<<<< HEAD
 /* header */
 header {
   display: flex;
@@ -108,6 +112,8 @@ header {
   text-decoration: none;
 }
 
+=======
+>>>>>>> develop
 /* main-nav */
 
 #main-nav {

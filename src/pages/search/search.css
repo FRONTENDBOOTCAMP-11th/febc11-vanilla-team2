@@ -1,58 +1,8 @@
 /* 브런치 스토리 - 내 서랍 CSS */
 
-/* 공통으로 빼야 할 CSS - Brunch Stroy wrapper */
-.wrapper {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 360px;
-  height: 100vh;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 22px 20px 14px;
-}
-
-/* 공통으로 빼야 할 CSS - Brunch Stroy Footer */
-.bs-footer {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  box-sizing: border-box;
-}
-
-.bs-footer__list {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  margin: 0;
-}
-
-.bs-footer__button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.bs-footer__button a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.bs-footer__title {
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 27px;
-  margin-top: 5px;
-  text-align: center;
-}
-
 /* 발견 - 헤더 */
 .search-header {
+  border-bottom: 1px solid #dddddd;
   margin: 0 -20px;
   text-align: center;
 }
@@ -95,7 +45,6 @@
 }
 
 .search-tab {
-  /* display: none; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,11 +59,26 @@
   color: #666666;
 }
 
+.search-tab__item--active {
+  color: #00c6be;
+  border-bottom-width: 50%;
+  position: relative;
+}
+
+.search-tab__item--active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: -1px;
+  background-color: #00c6be;
+}
+
 /* 발견 - 컨텐츠 */
 .search-contents {
   flex-grow: 1;
   overflow-y: auto;
-  border-top: 1px solid #dddddd;
   background-color: #f8f8f8;
   margin: 0 -20px;
   min-height: 100%;
@@ -146,10 +110,6 @@
   line-height: 29px;
 
   margin-bottom: 10px;
-}
-
-.highlight {
-  color: #00c6be;
 }
 
 .search-keywords__tags {
@@ -204,7 +164,7 @@
 }
 
 /* 발견 - 글 검색 결과 및 정확도/최신 버튼 */
-.search-contents__articles-input {
+.search-contents__articles {
   padding: 20px;
 }
 
@@ -227,13 +187,15 @@
 .search-results__sort-relevance {
   font-size: 13px;
   font-weight: 300;
-  color: #333333;
+  color: #959595;
+  cursor: pointer;
 }
 
 .search-results__sort-latest {
   font-size: 13px;
   font-weight: 300;
   color: #959595;
+  cursor: pointer;
 }
 
 /* 발견 - 글 검색 결과 리스트 */
@@ -243,6 +205,7 @@
 
 .result-articles__lists {
   margin: 30px 0;
+  cursor: pointer;
 }
 
 .result-articles__title {
@@ -298,7 +261,7 @@
 }
 
 /* 발견 - 작가 검색 결과 및 정확도/최신 버튼 */
-.search-contents__authors-input {
+.search-contents__authors {
   padding: 20px;
 }
 
@@ -310,12 +273,12 @@
   margin: 0 -20px;
   padding: 20px;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
 .result-authors__list {
   display: flex;
-  justify-content: space-between;
-  align-items: start;
+  align-items: center;
 }
 
 .result-authors__image {
@@ -333,43 +296,10 @@
   display: block;
 }
 
-.result-authors__title {
+.result-authors__name {
   font-size: 16px;
   font-weight: 300;
   color: #333;
-  margin-bottom: 5px;
-}
-
-.result-authors__excerpt {
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 20px;
-  color: #959595;
-  margin-bottom: 12px;
-}
-
-.result-authors__tags {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  white-space: nowrap;
-  max-width: 360px;
-}
-
-.result-authors__tags::-webkit-scrollbar {
-  /* 스크롤바 안보이게 하기 위한 설정 */
-  display: none;
-}
-
-.result-authors__tag {
-  display: inline-block;
-  background-color: #fff;
-  font-size: 14px;
-  font-weight: 300;
-  padding: 10px 15px;
-  border: 1px solid #eee;
-  border-radius: 30px;
-  white-space: nowrap;
 }
 
 /* 발견 - 작가 검색 결과 및 정확도/최신 버튼 */
@@ -396,4 +326,9 @@
   font-weight: 300;
   line-height: 20px;
   color: #959595;
+}
+
+/* 발견 - 공통 사항 */
+.highlight {
+  color: #00c6be;
 }
