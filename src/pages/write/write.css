@@ -44,6 +44,26 @@ hr {
   margin: 14px 20px;
 }
 
+.wrap-header img {
+  cursor: pointer;
+}
+
+.wrap-header-done {
+  position: relative;
+  float: left;
+}
+
+.wrap-header-done .hoverDoneOn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.wrap-header-done:hover .hoverDoneOn {
+  display: block;
+}
+
 .wrap-header_title {
   margin: auto;
   font-size: 19px;
@@ -85,9 +105,9 @@ hr {
   white-space: pre-wrap;
 }
 
+/* footer */
+/* addBar,addImage */
 .wrap-addBar-contents {
-  position: fixed;
-  bottom: 0px;
   padding: 22px 25px;
   width: 360px;
   box-sizing: border-box;
@@ -95,8 +115,29 @@ hr {
   display: flex;
 }
 
+.add-img {
+  padding: 22px 25px;
+  width: 360px;
+  box-sizing: border-box;
+  display: none;
+}
+
+.add-img img {
+  width: 40px;
+  padding-left: 10px;
+}
+
+.add-img-list {
+  display: flex;
+}
+
+.add-img-list_fileName {
+  padding: 10px;
+}
+
 .wrap-addBar-contents img {
   width: 40px;
+  cursor: pointer;
 }
 
 .wrap-addBar-contents_picture {
@@ -109,4 +150,45 @@ hr {
 
 .wrap-addBar-contents_keyboard {
   margin-left: auto;
+}
+
+/* 공통으로 빼야 할 CSS - Brunch Stroy Footer */
+.bs-footer {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.bs-footer__list {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.bs-footer__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bs-footer__button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bs-footer__title {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 27px;
+  margin-top: 5px;
+  text-align: center;
 }

@@ -1,0 +1,49 @@
+meta {
+  name: 게시물 등록
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/posts?type=info&title=게시물 등록 테스트&content=내용입니다.&createdAt=2024.10.23 12:34:23&email=abcd@market.com&name=abcd
+  body: json
+  auth: none
+}
+
+params:query {
+  type: info
+  title: 게시물 등록 테스트
+  content: 내용입니다.
+  createdAt: 2024.10.23 12:34:23
+  email: abcd@market.com
+  name: abcd
+}
+
+headers {
+  client-id: vanilla02
+}
+
+body:json {
+  {
+        "_id": 4,
+        "type": "info",
+        "title": "AI 거버넌스가 뭐예요?",
+        "extra": {
+          "subTitle": "AI 안전을 위한 총체적 노력"
+        },
+        "views": 20,
+        "user": {
+          "_id": 3,
+          "name": "르삭",
+          "image": "/files/vanilla02/o_shooni.jpg"
+        },
+        "content": "AI 개발 경쟁이 과열되는 양상을 브레이크 없이 질주하는 자동차로 자주 비유하곤 한다. AI가 도구로서 인류에 큰 편익을 제공하면서도 악용 및 부작용 때문에 초래되는 피해도 만만치 않는 속성을 자동차와 공유하기 때문이다.  AI 거버넌스도 자동차에 대한 비유를 통해 서문을 열어볼까 한다. AI도 난해한데 거버넌스도 난해한 개념이기 때문이다. 거버넌스는 심지",
+        "createdAt": "2024.10.23 15:00:40",
+        "updatedAt": "2024.10.23 15:18:21",
+        "bookmarks": 0,
+        "repliesCount": 1,
+        "product": {
+          "image": null
+        }
+  }
+}
