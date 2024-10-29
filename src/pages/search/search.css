@@ -238,13 +238,15 @@
 .search-results__sort-relevance {
   font-size: 13px;
   font-weight: 300;
-  color: #333333;
+  color: #959595;
+  cursor: pointer;
 }
 
 .search-results__sort-latest {
   font-size: 13px;
   font-weight: 300;
   color: #959595;
+  cursor: pointer;
 }
 
 /* 발견 - 글 검색 결과 리스트 */
@@ -254,6 +256,7 @@
 
 .result-articles__lists {
   margin: 30px 0;
+  cursor: pointer;
 }
 
 .result-articles__title {
@@ -325,8 +328,7 @@
 
 .result-authors__list {
   display: flex;
-  justify-content: space-between;
-  align-items: start;
+  align-items: center;
 }
 
 .result-authors__image {
@@ -344,43 +346,10 @@
   display: block;
 }
 
-.result-authors__title {
+.result-authors__name {
   font-size: 16px;
   font-weight: 300;
   color: #333;
-  margin-bottom: 5px;
-}
-
-.result-authors__excerpt {
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 20px;
-  color: #959595;
-  margin-bottom: 12px;
-}
-
-.result-authors__tags {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  white-space: nowrap;
-  max-width: 360px;
-}
-
-.result-authors__tags::-webkit-scrollbar {
-  /* 스크롤바 안보이게 하기 위한 설정 */
-  display: none;
-}
-
-.result-authors__tag {
-  display: inline-block;
-  background-color: #fff;
-  font-size: 14px;
-  font-weight: 300;
-  padding: 10px 15px;
-  border: 1px solid #eee;
-  border-radius: 30px;
-  white-space: nowrap;
 }
 
 /* 발견 - 작가 검색 결과 및 정확도/최신 버튼 */

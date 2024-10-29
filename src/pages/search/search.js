@@ -1,15 +1,5 @@
 import axios from "axios";
 
-/* 발견 페이지 기능 정리
-  1. 검색어 입력 처리
-    1.1 검색어 입력 시 "x" 버튼 동적 생성
-    1.2 검색어 입력 시 "글 / 작가" 탭 생성
-    1.3. 입력된 검색어로 API 호출
-  3. 글 탭 클릭 시 입력된 검색어 기반으로 결과 뿌려주기
-  4. 작가 탭 클릭 시 입력된 검색어 기반ㅇ로 작가 뿌려주기
-  5. 입력된 검색어에 일치하는 글/작가 없을 시 결과 없음 페이지 뿌려주기
-*/
-
 const clientId = "vanilla02";
 
 // DOM Node Reference
@@ -19,60 +9,59 @@ const $noInputSection = document.querySelector(".search-contents__no-input");
 const $searchTab = document.querySelector(".search-tab");
 const $searchTabArticle = document.querySelector(".search-tab__item-article");
 const $searchTabAuthor = document.querySelector(".search-tab__item-author");
-
 const $resultArticles = document.querySelector(".result-articles");
-
+const $resultAuthors = document.querySelector(".result-authors");
 const $sectionDismatch = document.querySelector(".search-contents__dismatch");
 
-// Callback Function
-// 검색어 입력 처리 함수
 const handleSearchInput = () => {
   const query = $searchInput.value.trim();
-
-  // "x" 버튼 처리
   $btnClear.style.display = query ? "block" : "none";
-
   $noInputSection.style.display = query ? "none" : "block";
 
-  // 글 & 작가 탭 토글 처리
-  toggleSearchTab(query);
-
   if (!query) {
-    $noInputSection.style.display = "block";
+    $resultArticles.innerHTML = "";
+    $resultAuthors.innerHTML = "";
     hideNoResults();
   } else {
     $noInputSection.style.display = "none";
     toggleSearchTab(query);
+    activateTab(currentTab);
   }
 };
 
-// "x" 버튼 처리 함수
 const handleBtnClear = () => {
   $searchInput.value = "";
-  renderArticlesResults([]); // 검색 결과 지우기
-  handleSearchInput();
+  $btnClear.style.display = "none";
+  $searchTab.style.display = "none";
+  $noInputSection.style.display = "block";
+  $resultArticles.innerHTML = "";
+  $resultAuthors.innerHTML = "";
+  hideNoResults();
 };
 
-// 글 탭 클릭 시 처리 함수
 const handleArticleTabClick = () => {
+  $resultAuthors.innerHTML = "";
   activateTab("article");
 };
 
-// 작가 탭 클릭 시 처리 함수
 const handleAuthorTabClick = () => {
+  $resultArticles.innerHTML = "";
   activateTab("author");
 };
 
-// 글 & 작가 탭 토글 처리 함수
-const toggleSearchTab = query => {
-  $searchTab.style.display = query ? "flex" : "none";
-  if (query) {
-    activateTab("article");
-  }
+const handleArticlesListClick = event => {
+  const articlesListId = event.currentTarget.getAttribute("data-id");
+  window.location.href = `/src/pages/detailPage/detailPage.html?id=${articlesListId}`;
 };
 
-// 탭 활성화 처리 함수
+const handleAuthorsListClick = event => {
+  const authorsListId = event.currentTarget.getAttribute("data-id");
+  window.location.href = `/src/pages/author/author.html?id=${authorsListId}`;
+};
+
+let currentTab = "article";
 const activateTab = tab => {
+  currentTab = tab;
   if (tab === "article") {
     $searchTabArticle.classList.add("search-tab__item--active");
     $searchTabAuthor.classList.remove("search-tab__item--active");
@@ -84,45 +73,111 @@ const activateTab = tab => {
   }
 };
 
+const toggleSearchTab = query => {
+  $searchTab.style.display = query ? "flex" : "none";
+  if (query && currentTab !== "author") {
+    activateTab("article");
+  }
+};
+
 const formatDate = dateStr => {
   const date = new Date(dateStr);
   const options = { year: "numeric", month: "short", day: "numeric" };
   return date.toLocaleDateString("en-US", options);
 };
 
+const highlightQuery = (text, query) => {
+  if (!query.trim()) return text;
+  const regex = new RegExp(`\\b${query}\\b`, "gi");
+  return text.replace(regex, `<span class="highlight">${query}</span>`);
+};
+
 const renderArticlesResults = articles => {
-  $resultArticles.innerHTML = articles
-    .map(
-      article =>
-        `
-      <div class="result-articles__lists">
-        <h3 class="result-articles__title">
-          ${article.title}
-        </h3>
-        <div class="result-articles__list">
-          <div class="result-articles__description">
-            <p class="result-articles__excerpt">
-              ${article.content}
-            </p>
-            <span class="result-articles__date">${formatDate(article.createdAt)}</span>
-            <span class="result-articles__author">by ${article.user.name}</span>
-          </div>
-          <div class="result-articles__image">
-            <img src="https://11.fesp.shop/files/${clientId}/user-muzi.webp" alt="${article.user.name}의 이미지" />
+  if (articles.length > 0) {
+    $resultArticles.innerHTML = articles
+      .map(
+        article =>
+          `
+        <div class="search-results">
+          <div class="search-results__meta">글 검색 결과 ${articles.length}건</div>
+          <div class="search-results__sort">
+            <button type="button" class="search-results__sort-relevance">
+              정확도
+            </button>
+            <button type="button" class="search-results__sort-latest">
+              최신
+            </button>
           </div>
         </div>
-      </div>
-    `,
-    )
-    .join("");
+        <div class="result-articles__lists" data-id="${article._id}">
+          <h3 class="result-articles__title">
+            ${highlightQuery(article.title, $searchInput.value.trim())}
+          </h3>
+          <div class="result-articles__list">
+            <div class="result-articles__description">
+              <p class="result-articles__excerpt">
+              ${highlightQuery(article.content, $searchInput.value.trim())}
+              </p>
+              <span class="result-articles__date">${formatDate(article.createdAt)}</span>
+              <span class="result-articles__author">by ${article.user.name}</span>
+            </div>
+            <div class="result-articles__image">
+              <img src="${article.user.image}" alt="${article.user.name}의 이미지" />
+            </div>
+          </div>
+        </div>
+      `,
+      )
+      .join("");
+    $resultArticles.style.display = "block";
+    $sectionDismatch.style.display = "none";
+
+    document
+      .querySelectorAll(".result-articles__lists")
+      .forEach(articlesList => {
+        articlesList.addEventListener("click", handleArticlesListClick);
+      });
+  } else {
+    $resultArticles.innerHTML = "";
+    $resultArticles.style.display = "none";
+    renderNoResults();
+  }
 };
 
 const renderAuthorsResults = authors => {
-  $resultArticles.innerHTML = ``;
+  console.log(authors);
+  if (authors.length > 0) {
+    $resultAuthors.innerHTML = authors
+      .map(
+        author =>
+          `
+          <div class="search-results__meta">작가 검색 결과 ${authors.length}건</div>
+          <div class="result-authors__lists" data-id=${author._id}>
+            <div class="result-authors__list">
+              <div class="result-authors__image">
+                <img src="https://11.fesp.shop/files/${clientId}/user-muzi.webp" alt="${author.name}의 이미지" />
+              </div>
+              <h3 class="result-authors__name">${highlightQuery(author.name, $searchInput.value.trim())}</h3>
+            </div>
+          </div>
+      `,
+      )
+      .join("");
+    $resultAuthors.style.display = "block";
+    document.querySelector(".search-contents__articles").style.display = "none";
+    $sectionDismatch.style.display = "none";
+
+    document.querySelectorAll(".result-authors__lists").forEach(authorsList => {
+      authorsList.addEventListener("click", handleAuthorsListClick);
+    });
+  } else {
+    $resultAuthors.innerHTML = "";
+    $resultAuthors.style.display = "none";
+    renderNoResults();
+  }
 };
 
-// 검색 결과가 없습니다 화면 그려주는 함수
-const renderNoResults = hasResult => {
+const renderNoResults = () => {
   $sectionDismatch.innerHTML = `
     <div class="result-dismatch">
       <div class="result-dismatch__image">
@@ -132,15 +187,15 @@ const renderNoResults = hasResult => {
     </div>
   `;
   $sectionDismatch.style.display = "block";
+  $resultArticles.style.display = "none";
+  $resultAuthors.style.display = "none";
 };
 
-// 검색 결과 없음 내용 지우기 및 섹션 숨기기
 const hideNoResults = () => {
   $sectionDismatch.innerHTML = "";
   $sectionDismatch.style.display = "none";
 };
 
-// 검색 결과에 따라 "결과 없음" 섹션 표시 여부 결정 함수
 const toggleNoResults = hasResult => {
   if (hasResult) {
     hideNoResults();
@@ -149,7 +204,6 @@ const toggleNoResults = hasResult => {
   }
 };
 
-// 글 검색 API 호출 함수
 const getArticles = async keyword => {
   try {
     const response = await axios.get(
@@ -163,10 +217,10 @@ const getArticles = async keyword => {
     );
     const articles = response.data.item;
     if (articles.length > 0) {
-      console.log(articles);
       renderArticlesResults(articles);
       toggleNoResults(true);
     } else {
+      renderArticlesResults([]);
       toggleNoResults(false);
     }
   } catch (error) {
@@ -174,11 +228,10 @@ const getArticles = async keyword => {
   }
 };
 
-// 작가 검색 API 호출 함수
-const getAuthors = async keyword => {
+const getAuthors = async name => {
   try {
     const response = await axios.get(
-      `https://11.fesp.shop/posts?keyword=${keyword}`,
+      `https://11.fesp.shop/users?name=${name}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -188,9 +241,10 @@ const getAuthors = async keyword => {
     );
     const authors = response.data.item;
     if (authors.length > 0) {
-      renderArticlesResults(authors);
+      renderAuthorsResults(authors);
       toggleNoResults(true);
     } else {
+      renderAuthorsResults([]);
       toggleNoResults(false);
     }
   } catch (error) {
@@ -198,8 +252,13 @@ const getAuthors = async keyword => {
   }
 };
 
-// Event Listener
 $searchInput.addEventListener("input", handleSearchInput);
 $btnClear.addEventListener("click", handleBtnClear);
 $searchTabArticle.addEventListener("click", handleArticleTabClick);
 $searchTabAuthor.addEventListener("click", handleAuthorTabClick);
+
+window.addEventListener("pageshow", () => {
+  $searchInput.value = "";
+  $searchInput.focus();
+  $btnClear.style.display = "none";
+});
