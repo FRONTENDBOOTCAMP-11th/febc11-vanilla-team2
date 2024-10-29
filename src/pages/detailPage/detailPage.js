@@ -14,17 +14,18 @@ const profileDescription = document.querySelector(
 );
 const profileSrc = document.querySelector(".detail-profile_src");
 const commentCount = document.querySelector(".detail-comment_count-color");
-const subscribeBtn = document.querySelector(".detail-profile_subscribe-btn"); //구독 버튼 클릭
+const subscribeBtn = document.querySelector(".detail-profile_subscribe-btn"); // 구독 버튼 클릭
+const likeBtn = document.querySelector(".detail-footer_like-btn"); // 좋아요 버튼
+let likeCount = document.querySelector(".detail-footer_like"); //좋아요 갯수
+let postData; // 전역 변수로 설정
 
 // URL에서 게시글 ID 추출
 const no = window.location.search.split("=")[1];
 
-//월+일+년 단위 출력하기
+// 월+일+년 단위 출력하기
 function month(createdAt) {
   const day = createdAt.split(" ")[0];
   const splitDay = day.split(".");
-  //   console.log(splitDay);
-  //   console.log(day);
   const months = [
     "Jan",
     "Feb",
@@ -41,7 +42,6 @@ function month(createdAt) {
   ];
   return `${months[parseInt(splitDay[1]) - 1]} ${splitDay[2]} ${splitDay[0]}`;
 }
-// console.log(month("2024.10.22 18:29:06"));
 
 // 게시글 데이터 가져오기
 async function getPost() {
@@ -79,10 +79,7 @@ async function getAuthor(authorId) {
 // 댓글 출력 함수
 function displayComment(comments) {
   const commentContainer = document.querySelector(".detail-comment_container");
-  console.log(comments);
   comments.forEach(comment => {
-    console.log(comment);
-    //댓글 유저 이미지 경로 없을 때 기본 이미지 어피치로 지정
     const imageUrl = comment.user.image
       ? `https://11.fesp.shop${comment.user.image}`
       : `https://11.fesp.shop/files/vanilla02/user-apeach.webp`;
@@ -112,17 +109,15 @@ function displayComment(comments) {
   });
 }
 
-//contentNode의 모든 img태그에서 src경로 있을 때 특정해서 그 경로에 도메인 추가하기..
+// contentNode의 모든 img 태그에서 src 경로에 도메인 추가하기
 function updateImageSrc() {
-  const imgTags = contentNode.querySelectorAll("img"); //contentNode의 모든 이미지 불러옴 일단
-  console.log(imgTags);
+  const imgTags = contentNode.querySelectorAll("img");
   imgTags.forEach(img => {
     const src = img.getAttribute("src");
     if (src && !src.startsWith("http")) {
       img.src = `https://11.fesp.shop${src}`;
     }
-    // 부모 div의 style500제거함
-    const parentDiv = img.closest(".wrap_img_float"); //가장 가까운 상위요소
+    const parentDiv = img.closest(".wrap_img_float");
     if (parentDiv) {
       parentDiv.removeAttribute("style");
     }
@@ -131,32 +126,30 @@ function updateImageSrc() {
 
 // 게시글과 작가 정보를 DOM에 렌더링하기
 async function printPage() {
-  const postData = await getPost();
+  postData = await getPost(); // getPost()의 결과를 postData에 할당하고 기다림
   if (postData) {
     // 게시글 데이터 DOM에 렌더링
     titleNode.innerHTML = postData.title;
     authorNode.innerHTML = postData.user.name;
     dateNode.innerHTML = month(postData.createdAt);
     contentNode.innerHTML = postData.content;
-    // contentImageNode.src = postData.image || "";
     subTitle.innerHTML = postData.extra?.subTitle || "";
-    commentCount.innerHTML = postData.replies.length || 0; //댓글 갯수 출력
+    commentCount.innerHTML = Array.isArray(postData.replies)
+      ? postData.replies.length
+      : 0;
 
-    updateImageSrc(); //content이미지 업데이트
+    updateImageSrc();
 
-    // 작가 데이터 가져오기 및 렌더링
     const authorData = await getAuthor(postData.user._id);
-    console.log(authorData);
     if (authorData) {
-      jobNode.innerHTML = authorData.extra.job || "직업 정보 없음"; //작가 직업
-      profileAuthorNode.innerHTML = authorData.name; //작가 이름
-      profileDescription.innerHTML = authorData.extra.biography || "설명 없음"; //직업 설명
+      jobNode.innerHTML = authorData.extra.job || "직업 정보 없음";
+      profileAuthorNode.innerHTML = authorData.name;
+      profileDescription.innerHTML = authorData.extra.biography || "설명 없음";
       profileSrc.src = authorData.image
         ? `https://11.fesp.shop${authorData.image}`
         : "https://11.fesp.shop/files/vanilla02/user-apeach.webp";
     }
 
-    // 댓글 데이터 렌더링
     if (postData.replies) {
       displayComment(postData.replies);
     } else {
@@ -165,12 +158,97 @@ async function printPage() {
   }
 }
 
-//구독 버튼 클릭
-subscribeBtn.addEventListener("click", async e => {
-    try
+// 내 북마크 목록 얻어오기
+const accessToken = sessionStorage.getItem("accessToken");
+async function getbookMarks() {
+  try {
+    const response = await axios.get("https://11.fesp.shop/bookmarks/post", {
+      headers: {
+        "Content-Type": "application/json",
+        "client-id": "vanilla02",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const bookMarks = response.data.item;
+    console.log("Bookmarks:", bookMarks);
+    return bookMarks;
+  } catch (error) {
+    if (error.response && error.response.status === 401) {
+      alert("accessToken이 만료되었습니다. 다시 로그인해주세요");
+      window.location.href = "src/pages/login/login.html";
+    } else {
+      console.log("북마크 목록 가져오는 중 에러 발생:", error);
+    }
+  }
+}
+
+// HTML이 로드된 후 함수 실행
+document.addEventListener("DOMContentLoaded", async function () {
+  await printPage(); // postData를 할당하는 함수 호출
+  let bookMarks = (await getbookMarks()) || [];
+  if (bookMarks) {
+    likeCount.innerHTML = bookMarks.length; //초기 북마크 html
+  }
+  console.log("Post Data:", postData); // postData 확인용
+
+  // 좋아요 버튼 클릭 이벤트 리스너 추가
+  likeBtn.addEventListener("click", async e => {
+    console.log("Post Data in likeBtn:", postData); // 확인용
+    console.log(bookMarks); // 내 목록 북마크
+    bookMarks = (await getbookMarks()) || []; //최신 북마크 가져옴
+    const hasBookMarks = bookMarks.find(item => item.post._id === postData._id);
+    try {
+      //북마크 추가
+      if (!hasBookMarks) {
+        const response = await axios.post(
+          "https://11.fesp.shop/bookmarks/post",
+          {
+            target_id: postData._id,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "client-id": "vanilla02",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          },
+        );
+        console.log(response.data.item);
+        // 북마크 갱신 후 카운트 업데이트
+        bookMarks = await getbookMarks();
+        likeCount.innerHTML = bookMarks.length; // 북마크 개수 업데이트
+      } else {
+        await deleteBookmarks(hasBookMarks._id);
+        console.log("북마크 삭제함 :", hasBookMarks._id);
+        // 북마크 갱신 후 카운트 업데이트
+        bookMarks = await getbookMarks();
+        likeCount.innerHTML = bookMarks.length; // 북마크 개수 업데이트
+      }
+    } catch (error) {
+      if (error.response.status === 409) {
+        alert("이미 추가된 북마크입니다");
+      } else {
+        console.log(error);
+      }
+    }
+  });
 });
 
-// html이 로드되지 마자 함수 실행
-document.addEventListener("DOMContentLoaded", function () {
-  printPage();
-});
+// 북마크 삭제
+async function deleteBookmarks(bookmarkID) {
+  try {
+    const response = await axios.delete(
+      `https://11.fesp.shop/bookmarks/${bookmarkID}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "client-id": "vanilla02",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      },
+    );
+    console.log("삭제된 북마크", response.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
