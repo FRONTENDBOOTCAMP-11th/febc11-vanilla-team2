@@ -17,6 +17,9 @@ const commentCount = document.querySelector(".detail-comment_count-color");
 const subscribeBtn = document.querySelector(".detail-profile_subscribe-btn"); // 구독 버튼 클릭
 const likeBtn = document.querySelector(".detail-footer_like-btn"); // 좋아요 버튼
 let likeCount = document.querySelector(".detail-footer_like"); //좋아요 갯수
+const footerCommentCount = document.querySelector(
+  ".detail-footer_message_count",
+);
 let postData; // 전역 변수로 설정
 
 // URL에서 게시글 ID 추출
@@ -135,6 +138,9 @@ async function printPage() {
     contentNode.innerHTML = postData.content;
     subTitle.innerHTML = postData.extra?.subTitle || "";
     commentCount.innerHTML = Array.isArray(postData.replies)
+      ? postData.replies.length
+      : 0;
+    footerCommentCount.innerHTML = Array.isArray(postData.replies)
       ? postData.replies.length
       : 0;
 
