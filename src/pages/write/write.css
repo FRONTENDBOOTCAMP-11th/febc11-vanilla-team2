@@ -106,6 +106,10 @@ hr {
 }
 
 /* footer */
+/* addImage */
+.add-img {
+  display: none;
+}
 /* addBar */
 .wrap-addBar-contents {
   padding: 22px 25px;
