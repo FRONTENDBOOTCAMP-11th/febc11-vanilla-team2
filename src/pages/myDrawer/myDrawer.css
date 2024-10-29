@@ -28,17 +28,17 @@
 }
 
 /* 내 서랍 - 관심 작가 - Favorite Author List CSS */
-.fav-authors__list {
+.fav-authors__lists {
   display: flex;
   overflow-x: auto; /* 가로 스크롤. 가로로 넘칠 경우에만 스크롤바 나타나게 설정 */
 }
 
-.fav-authors__list::-webkit-scrollbar {
+.fav-authors__lists::-webkit-scrollbar {
   /* 스크롤바 안보이게 하기 위한 설정 */
   display: none;
 }
 
-.fav-authors__item {
+.fav-authors__list {
   text-align: center;
   margin-right: 26px;
   flex: none;
