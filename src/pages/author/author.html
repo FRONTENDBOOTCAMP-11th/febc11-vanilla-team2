@@ -23,19 +23,21 @@
               alt="프로필 이미지"
             />
             <div class="wrap-profile-thumb-info">
-              <strong class="wrap-profile-thumb-info_authorName">AB</strong>
-              <pre class="desc_bloger">기획자</pre>
+              <strong class="wrap-profile-thumb-info_authorName" id="authorName"
+                >AB</strong
+              >
+              <pre class="desc_bloger" id="job">기획자</pre>
               <dl class="blog_count">
                 <dd class="follower">
-                  <a href="/@/follower" class="link_count">
+                  <a href="" class="link_count">
                     <em class="txt_g">구독자</em>
-                    <span class="num_count">30</span>
+                    <span class="num_count" id="bookmarkedBy">30</span>
                   </a>
                 </dd>
                 <dd class="following">
-                  <a href="/@/following" class="link_count">
+                  <a href="" class="link_count">
                     <em class="txt_g">관심작가</em>
-                    <span class="num_count">16</span>
+                    <span class="num_count" id="bookmarked">16</span>
                   </a>
                 </dd>
               </dl>
@@ -132,9 +134,9 @@
                       >
                     </div>
                     <span class="post-append">
-                      <span>댓글</span>
+                      <!-- <span>댓글</span>
                       <span class="num-txt">0</span>
-                      <span class="ico-dot"></span>
+                      <span class="ico-dot"></span> -->
                       <span class="publish-time">Oct 07. 2024</span>
                     </span>
                   </div>
@@ -190,7 +192,7 @@
         </div>
       </main>
     </div>
-    <script src="author.js"></script>
+    <script type="module" src="author.js"></script>
     <script type="module" src="../../components/header.js"></script>
   </body>
 </html>
