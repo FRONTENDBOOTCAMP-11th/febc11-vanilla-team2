@@ -9,19 +9,29 @@ const url = "https://11.fesp.shop";
 
 /* 파일 업로드 함수 */
 async function onChangeFile(e) {
-  const files = Array.from(e.target.files);
+  const fileInput = e.target;
+  const file = fileInput.files[0];
   let imgList = document.querySelector(".add-img-list");
-  files.forEach(function (file, index) {
+  let imgUl = document.querySelector(".add-img");
+
+  if (file && file.type.startsWith("image/")) {
     const reader = new FileReader();
-    reader.onloadend = function () {
+    reader.onload = function (event) {
       const img = document.createElement("img");
       img.setAttribute("class", "add-img-list_image");
-      img.src = reader.result;
+      img.src = event.target.result;
+      const fileName = document.createElement("p");
+      fileName.setAttribute("class", "add-img-list_fileName");
+      fileName.textContent = `File Name : ${file.name}`;
+      console.log(reader.result);
       imgList.appendChild(img);
+      imgList.appendChild(fileName);
+      imgUl.appendChild(imgList);
+      imgUl.style.display = "inline";
     };
+
     reader.readAsDataURL(file);
-  });
-  console.log("파일 : ", files);
+  }
 }
 
 /* 게시물 등록 함수 */
