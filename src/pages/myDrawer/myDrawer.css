@@ -42,6 +42,7 @@
   text-align: center;
   margin-right: 26px;
   flex: none;
+  cursor: pointer;
 }
 
 .fav-author__avatar {

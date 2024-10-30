@@ -18,7 +18,7 @@ window.addEventListener("load", async () => {
 });
 
 // DOM Node
-const $favAuthorList = document.querySelector(".fav-author__list");
+const $favAuthorList = document.querySelector(".fav-author__lists");
 const $recentViewList = document.querySelector(".recent-view__list");
 const $favArticleList = document.querySelector(".fav-article__list");
 const $myBrunchList = document.querySelector(".my-brunch__lists");
@@ -26,7 +26,51 @@ const $myBrunchList = document.querySelector(".my-brunch__lists");
 // Render Function
 // 관심 작가
 const rednerFavAuthor = async () => {
-  console.log(sessionStorage.getItem("userId"));
+  try {
+    const response = await axios.get(`${apiUrl}/bookmarks/user`, {
+      headers: {
+        "Content-Type": "application/json",
+        "client-id": clientId,
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const favAuthors = response.data.item;
+    console.log(favAuthors);
+    $favAuthorList.innerHTML = favAuthors
+      .map(favAuthor => {
+        return `
+        <li class="fav-author__list" data-id="${favAuthor._id}">
+          <img class="fav-author__avatar" src="../../assets/images/img-author-1.svg" alt="Grace" />
+          <h4 class="fav-author__name">${favAuthor.user.name}</h4>
+        </li>
+      `;
+      })
+      .join("");
+
+    document.querySelectorAll(".fav-author__list").forEach(favAuthorList => {
+      favAuthorList.addEventListener("click", handleFavAuthor);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 최근 본
+const renderRecentView = async () => {};
+
+// 관심 글
+const renderFavArticle = async () => {
+  try {
+    const response = await axios.get(`${apiUrl}/bookmars/post`, {
+      headers: {
+        "Content-Type": "application/json",
+        "client-id": clientId,
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // 내 브런치
@@ -40,7 +84,6 @@ const rednerMyBrunch = async () => {
       },
     });
     const myBrunches = response.data.item;
-    console.log(myBrunches);
     $myBrunchList.innerHTML = myBrunches
       .map(myBrunch => {
         return `
@@ -63,7 +106,10 @@ const rednerMyBrunch = async () => {
 
 // Callback Function
 // 관심 작가 페이지 이동
-const handleFavAuthor = () => {};
+const handleFavAuthor = event => {
+  const favAuthorId = event.currentTarget.getAttribute("data-id");
+  window.location.href = `/src/pages/author/author.html?id=${favAuthorId}`;
+};
 
 // 최근 본 브런치 상세페이지로 이동
 const handleRecentView = () => {};
