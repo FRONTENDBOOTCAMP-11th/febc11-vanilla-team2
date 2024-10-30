@@ -216,6 +216,7 @@ async function initializeButtonStates() {
 }
 //로그인 함수//좋아요랑 구독버튼 클릭시에만 로그인 여부를 확인함
 function checkLogin() {
+  const accessToken = sessionStorage.getItem("accessToken"); //호출갱신
   if (!accessToken) {
     alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
     window.location.href = "src/pages/login/login.html";
