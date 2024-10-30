@@ -19,6 +19,9 @@ let likeCount = document.querySelector(".detail-footer_like");
 const footerCommentCount = document.querySelector(
   ".detail-footer_message_count",
 );
+const subcribeBtnSrc = document.querySelector(
+  ".detail-profile_subscribe-btn_src",
+);
 let postData;
 
 // URL에서 게시글 ID 추출
@@ -175,7 +178,7 @@ async function getBookmarks() {
     return response.data.item;
   } catch (error) {
     if (error.response.status === 401) {
-      alert("인증 실패 하였습니다. 다시 로그인해주세요");
+      alert("인증 실패. 로그인 페이지로 이동합니다");
       window.location.href = "src/pages/login/login.html";
     } else {
       console.error("북마크 목록 가져오는 중 에러 발생:", error);
@@ -222,7 +225,7 @@ async function toggleBookmark() {
     likeCount.innerHTML = postData.bookmarks;
   } catch (error) {
     if (error.response.status === 401) {
-      alert("인증 실패 하였습니다. 다시 로그인해주세요");
+      alert("인증 실패. 로그인 페이지로 이동합니다");
       window.location.href = "src/pages/login/login.html";
     }
   } finally {
@@ -246,7 +249,7 @@ async function getSubscribe() {
     return response.data.item;
   } catch (error) {
     if (error.response.status === 401) {
-      alert("인증 실패 하였습니다. 다시 로그인해주세요");
+      alert("인증 실패. 로그인 페이지로 이동합니다");
       window.location.href = "src/pages/login/login.html";
     } else {
       console.error("북마크 목록 가져오는 중 에러 발생:", error);
@@ -273,7 +276,7 @@ subscribeBtn.addEventListener("click", async e => {
     if (!hasSubcribe) {
       // 구독 추가
       await axios.post(
-        "https://11.fesp.shop/bookmarks/post",
+        "https://11.fesp.shop/bookmarks/user",
         { target_id: postData.user._id }, //보고있는 게시글 작가(상세페이지) 전달
         {
           headers: {
@@ -284,6 +287,10 @@ subscribeBtn.addEventListener("click", async e => {
         },
       );
       console.log("구독 추가됨");
+      console.log(postData.user._id);
+      console.log(hasSubcribe); //false나옴
+      console.log(subscribeData);
+      subcribeBtnSrc.src = "/src/assets/icons/ic-subscribe-on.svg";
     } else {
       // 구독 삭제
       const subscribeId = subscribeData.find(
@@ -297,10 +304,17 @@ subscribeBtn.addEventListener("click", async e => {
         },
       });
       console.log("구독취소됨");
+      console.log(subscribeId);
+      subcribeBtnSrc.src = "/src/assets/icons/ic-subscribe-off.svg";
     }
     subscribeData = await getSubscribe();
   } catch (error) {
-    console.log(error);
+    if (error.response && error.response.status === 401) {
+      alert("인증 실패. 로그인 페이지로 이동합니다.");
+      window.location.href = "src/pages/login/login.html";
+    } else {
+      console.error("구독 처리 중 오류 발생:", error);
+    }
   }
 });
 
