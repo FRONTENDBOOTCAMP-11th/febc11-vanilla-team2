@@ -115,6 +115,11 @@ function displayAuthors(authors) {
       <p class="subjump-grid-item__text">${author.biography}</p>
     `;
 
+    // 클릭 시 작가 홈으로 이동
+    authorItem.addEventListener("click", () => {
+      window.location.href = `/src/pages/author/author.html?id=${author.id}`; // 작가 홈 페이지 URL
+    });
+
     authorList.appendChild(authorItem);
   });
 }

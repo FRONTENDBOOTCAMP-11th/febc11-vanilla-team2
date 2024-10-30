@@ -628,6 +628,7 @@ p {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
   padding: 0 25px 40px 25px;
+  cursor: pointer;
 }
 
 .subjump-grid-item {
