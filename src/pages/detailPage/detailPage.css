@@ -366,6 +366,18 @@ body {
     align-content: end;
 }
 
+.detail-profile_subscribe-information_subscriber {
+    color: var(--color-gray70);
+    font-size: 1.4rem;
+}
+
+.detail-profile_subscribe-information_count {
+    color: var(--color-gray80);
+    font-size: 1.4rem;
+}
+
+
+
 .detail-footer_message_btn {
     margin-left: auto;
 }
