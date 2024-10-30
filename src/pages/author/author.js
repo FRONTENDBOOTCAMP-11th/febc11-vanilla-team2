@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const url = "https://11.fesp.shop";
+const clientId = "vanilla02";
 
 // 현재 위치를 쿼리 문자열로.. 쿼리 문자열을 파싱해서 저장..
 // 특정 쿼리 매개변수의 값을 get으로 가져와서 저장..
@@ -21,8 +22,8 @@ async function getAuthorInfo() {
     const items = response.data.item;
 
     document.getElementById("authorName").textContent = items.name;
-    document.getElementById("profilImage").src = `${items.image}`;
-    // console.log(items.image);
+    let img = document.getElementById("profilImage");
+    img.src = `https://11.fesp.shop/files/${clientId}/user-muzi.webp`;
     document.getElementById("job").textContent = items.extra.job;
     document.getElementById("bookmarkedBy").textContent = items.bookmark.users;
     document.getElementById("bookmarked").textContent =
@@ -35,7 +36,7 @@ async function getAuthorInfo() {
 }
 getAuthorInfo();
 
-/* 작가의 글 목록 가져오기 */
+/* 작가 글 목록 가져오기 */
 async function getPosts() {
   // 테스트용도로 ?type=info 설정함, 나중에 제거 or ?type=post로 바꾸기
   const response = await axios.get(`${url}/posts/users/${authorId}?type=info`, {
