@@ -144,7 +144,7 @@ async function printPage() {
     authorNode.innerHTML = postData.user.name;
     dateNode.innerHTML = month(postData.createdAt);
     contentNode.innerHTML = postData.content;
-    subTitle.innerHTML = postData.extra?.subTitle || "";
+    subTitle.innerHTML = postData.extra?.subTitle || "부제목 없음";
     commentCount.innerHTML = Array.isArray(postData.replies)
       ? postData.replies.length
       : 0;
@@ -155,13 +155,14 @@ async function printPage() {
     likeCount.innerHTML = postData.bookmarks;
 
     const authorData = await getAuthor(postData.user._id);
+    console.log(authorData);
     if (authorData) {
-      jobNode.innerHTML = authorData.extra.job || "직업 정보 없음";
+      jobNode.innerHTML = authorData.extra?.job || "직업 정보 없음";
       profileAuthorNode.innerHTML = authorData.name;
-      profileDescription.innerHTML = authorData.extra.biography || "설명 없음";
+      profileDescription.innerHTML = authorData.extra?.biography || "설명 없음";
       profileSrc.src = authorData.image
         ? `https://11.fesp.shop${authorData.image}`
-        : "https://11.fesp.shop/files/vanilla02/user-apeach.webp";
+        : `https://11.fesp.shop/files/vanilla02/user-apeach.webp`;
     }
 
     if (postData.replies) {
