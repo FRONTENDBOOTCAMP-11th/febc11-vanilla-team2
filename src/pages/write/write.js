@@ -113,6 +113,6 @@ async function postClick(e) {
 function exitClick() {
   const exit = confirm("글쓰기를 취소하시겠습니까?");
   if (exit) {
-    window.open("main.html");
+    window.location.href = "/src/pages/main/main.html";
   }
 }
