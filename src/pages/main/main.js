@@ -82,7 +82,7 @@ async function fetchSubTopAuthors() {
           name: author.name,
           job: author.extra?.job || "직업 정보 없음",
           biography: author.extra?.biography || "소개 정보 없음",
-          image: author.image ? `/src/assets/images${author.image}` : null,
+          image: author.image ? `https://11.fesp.shop${author.image}` : null,
           subscribers: author.bookmarkedBy?.users || 0,
         };
       });
