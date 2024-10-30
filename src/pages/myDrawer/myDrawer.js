@@ -12,20 +12,21 @@ window.addEventListener("load", async () => {
     window.location.href = "/src/pages/login/login.html";
   } else {
     // 로그인 되어있을 때 페이지 그려주기
-    await rednerFavAuthor();
-    await rednerMyBrunch();
+    await renderFavAuthor();
+    await renderFavArticle();
+    await renderMyBrunch();
   }
 });
 
 // DOM Node
 const $favAuthorList = document.querySelector(".fav-author__lists");
 const $recentViewList = document.querySelector(".recent-view__list");
-const $favArticleList = document.querySelector(".fav-article__list");
+const $favArticleList = document.querySelector(".fav-article__lists");
 const $myBrunchList = document.querySelector(".my-brunch__lists");
 
 // Render Function
 // 관심 작가
-const rednerFavAuthor = async () => {
+const renderFavAuthor = async () => {
   try {
     const response = await axios.get(`${apiUrl}/bookmarks/user`, {
       headers: {
@@ -35,7 +36,6 @@ const rednerFavAuthor = async () => {
       },
     });
     const favAuthors = response.data.item;
-    console.log(favAuthors);
     $favAuthorList.innerHTML = favAuthors
       .map(favAuthor => {
         return `
@@ -61,12 +61,29 @@ const renderRecentView = async () => {};
 // 관심 글
 const renderFavArticle = async () => {
   try {
-    const response = await axios.get(`${apiUrl}/bookmars/post`, {
+    const response = await axios.get(`${apiUrl}/bookmarks/post`, {
       headers: {
         "Content-Type": "application/json",
         "client-id": clientId,
         Authorization: `Bearer ${accessToken}`,
       },
+    });
+    console.log(response.data);
+    const favArticles = response.data.item;
+    $favArticleList.innerHTML = favArticles
+      .map(favArticle => {
+        return `
+        <li class="fav-article__list" data-id="${favArticle._id}">
+          <img class="fav-article__book-thumbnail" src="../../assets/images/img-book-9.svg" alt="book-1.svg" />
+          <h3 class="fav-article__title">${favArticle.post.title}</h3>
+          <p class="fav-article__author"><em>by</em> ${favArticle.post.user.name}</p>
+        </li>
+        `;
+      })
+      .join("");
+
+    document.querySelectorAll(".fav-article__list").forEach(favArticleList => {
+      favArticleList.addEventListener("click", handleFavArticle);
     });
   } catch (error) {
     console.log(error);
@@ -74,7 +91,7 @@ const renderFavArticle = async () => {
 };
 
 // 내 브런치
-const rednerMyBrunch = async () => {
+const renderMyBrunch = async () => {
   try {
     const response = await axios.get(`${apiUrl}/posts/users`, {
       headers: {
@@ -86,9 +103,10 @@ const rednerMyBrunch = async () => {
     const myBrunches = response.data.item;
     $myBrunchList.innerHTML = myBrunches
       .map(myBrunch => {
+        console.log("myBrunch", myBrunch);
         return `
         <li class="my-brunch__list" data-id="${myBrunch._id}">
-          <h3 class="my-brunch__subTitle">${myBrunch.subTitle}</h3>
+          <h3 class="my-brunch__subTitle">${myBrunch.extra.subTitle}</h3>
           <p class="my-brunch__title">${myBrunch.title}</p>
           <p class="my-brunch__createdAt">${formatDate(myBrunch.createdAt)}</p>
         </li>
@@ -115,7 +133,10 @@ const handleFavAuthor = event => {
 const handleRecentView = () => {};
 
 // 관심 글 브런치 상세페이지로 이동
-const handleFavArticle = () => {};
+const handleFavArticle = event => {
+  const favArticleListId = event.currentTarget.getAttribute("data-id");
+  window.location.href = `/src/pages/detailPage/detailPage.html?id=${favArticleListId}`;
+};
 
 // 내 브런치 상세페이지로 이동
 const handleMyBrunch = event => {
