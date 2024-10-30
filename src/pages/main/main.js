@@ -64,5 +64,48 @@ function displayTodayPosts(posts) {
   });
 }
 
+async function fetchAuthors() {
+  try {
+    const response = await axios.get("https://11.fesp.shop/users", {
+      headers: {
+        "client-id": clientId,
+      },
+    });
+
+    if (response.data.ok) {
+      const authors = response.data.item; // 여러명의 작가가 있을 경우 배열로 가정
+      const authorList = document.getElementById("author-list");
+
+      // authorList가 null인지 확인
+      if (!authorList) {
+        console.error("author-list 요소를 찾을 수 없습니다.");
+        return; // 함수 종료
+      }
+
+      // 최대 4명의 작가만 표시
+      const limitedAuthors = authors.slice(0, 4);
+
+      limitedAuthors.forEach(author => {
+        const authorItem = document.createElement("div");
+        authorItem.className = "subjump-grid-item";
+
+        authorItem.innerHTML = `
+          <img src="/src/assets/images/${author.image}" class="subjump-author" />
+          <h2 class="subjump-grid-item__name">${author.name}</h2>
+          <p class="subjump-grid-item__job">${author.type}</p>
+          <p class="subjump-grid-item__text">${author.description || ""}</p>
+        `;
+
+        authorList.appendChild(authorItem);
+      });
+    }
+  } catch (error) {
+    console.error("Error fetching authors:", error);
+  }
+}
+
 // 페이지 로드시 표시
-window.onload = fetchTodayBrunchPosts;
+window.addEventListener("load", () => {
+  fetchTodayBrunchPosts();
+  fetchAuthors();
+});
