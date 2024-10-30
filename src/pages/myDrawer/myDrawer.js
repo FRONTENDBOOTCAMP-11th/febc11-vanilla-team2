@@ -11,6 +11,8 @@ window.addEventListener("load", async () => {
     alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
     window.location.href = "/src/pages/login/login.html";
   } else {
+    // 로그인 되어있을 때 페이지 그려주기
+    await rednerFavAuthor();
     await rednerMyBrunch();
   }
 });
@@ -23,7 +25,9 @@ const $myBrunchList = document.querySelector(".my-brunch__lists");
 
 // Render Function
 // 관심 작가
-const rednerFavAuthor = async () => {};
+const rednerFavAuthor = async () => {
+  console.log(sessionStorage.getItem("userId"));
+};
 
 // 내 브런치
 const rednerMyBrunch = async () => {
@@ -40,7 +44,7 @@ const rednerMyBrunch = async () => {
     $myBrunchList.innerHTML = myBrunches
       .map(myBrunch => {
         return `
-        <li class="my-brunch__list">
+        <li class="my-brunch__list" data-id="${myBrunch._id}">
           <h3 class="my-brunch__subTitle">${myBrunch.subTitle}</h3>
           <p class="my-brunch__title">${myBrunch.title}</p>
           <p class="my-brunch__createdAt">${formatDate(myBrunch.createdAt)}</p>
@@ -48,6 +52,10 @@ const rednerMyBrunch = async () => {
       `;
       })
       .join("");
+
+    document.querySelectorAll(".my-brunch__list").forEach(myBrunchList => {
+      myBrunchList.addEventListener("click", handleMyBrunch);
+    });
   } catch (error) {
     console.log(error);
   }
@@ -64,20 +72,10 @@ const handleRecentView = () => {};
 const handleFavArticle = () => {};
 
 // 내 브런치 상세페이지로 이동
-const handleMyBrunch = async () => {};
-
-// Event Listener
-// 관심 작가 클릭 시 작가 페이지로 이동
-$favAuthorList.addEventListener("click", handleFavAuthor);
-
-// 최근 본 브런치 클릭 시 상세페이지로 이동
-$recentViewList.addEventListener("click", handleRecentView);
-
-// 관심 글 브런치 클릭 시 상세페이지로 이동
-$favArticleList.addEventListener("click", handleFavArticle);
-
-// 내 브런치 클릭 시 상세페이지로 이동
-$myBrunchList.addEventListener("click", handleMyBrunch);
+const handleMyBrunch = event => {
+  const myBrunchListId = event.currentTarget.getAttribute("data-id");
+  window.location.href = `/src/pages/detailPage/detailPage.html?id=${myBrunchListId}`;
+};
 
 // Formatting Function
 // 날짜 형식 변환 함수
