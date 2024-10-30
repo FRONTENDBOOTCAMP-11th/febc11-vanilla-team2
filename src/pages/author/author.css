@@ -39,6 +39,8 @@ a {
   left: 220px;
   width: 80px;
   height: 80px;
+  border-radius: 100%;
+  object-fit: cover;
 }
 
 .wrap-profile-thumb-info_authorName {
