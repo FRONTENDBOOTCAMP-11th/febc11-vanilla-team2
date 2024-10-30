@@ -107,6 +107,26 @@ hr {
 
 /* footer */
 /* addBar,addImage */
+.wrap-extra-footer {
+  position: fixed;
+  bottom: 1;
+  box-sizing: border-box;
+}
+
+/* .bs-footer {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 1;
+  left: 1;
+  right: 1;
+  box-sizing: content-box;
+} */
+
+.wrap-addBar {
+}
+
 .wrap-addBar-contents {
   padding: 22px 25px;
   width: 360px;
@@ -150,45 +170,4 @@ hr {
 
 .wrap-addBar-contents_keyboard {
   margin-left: auto;
-}
-
-/* 공통으로 빼야 할 CSS - Brunch Stroy Footer */
-.bs-footer {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  box-sizing: border-box;
-  z-index: 2;
-}
-
-.bs-footer__list {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  margin: 0;
-}
-
-.bs-footer__button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.bs-footer__button a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.bs-footer__title {
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 27px;
-  margin-top: 5px;
-  text-align: center;
 }

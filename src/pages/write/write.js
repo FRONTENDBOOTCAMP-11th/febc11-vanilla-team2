@@ -84,7 +84,9 @@ async function postClick(e) {
   /* 게시물 db 저장 */
   const postData = {
     title: title.value,
-    subTitle: subTitle.value,
+    extra: {
+      subTitle: subTitle.value,
+    },
     content: content.value,
     images: arrayImages,
   };
