@@ -22,11 +22,13 @@ const footerCommentCount = document.querySelector(
 const subcribeBtnSrc = document.querySelector(
   ".detail-profile_subscribe-btn_src",
 );
+const ubscribeCounts = document.querySelector("#subscribeCount"); //구독 추가갯수
 let postData;
 
 // URL에서 게시글 ID 추출
 const no = window.location.search.split("=")[1];
 const accessToken = sessionStorage.getItem("accessToken");
+console.log(accessToken);
 
 // 월+일+년 단위 출력하기
 function month(createdAt) {
@@ -148,6 +150,7 @@ async function printPage() {
     updateImageSrc();
 
     const authorData = await getAuthor(postData.user._id);
+    console.log(authorData.bookmarkedBy.users);
     if (authorData) {
       jobNode.innerHTML = authorData.extra.job || "직업 정보 없음";
       profileAuthorNode.innerHTML = authorData.name;
@@ -233,7 +236,17 @@ async function toggleBookmark() {
   }
 }
 
-//구독 추가 기능
+// 구독자 수를 사용자 기준이 아닌 작가 기준으로 가져오기
+async function updateSubscribeCount() {
+  try {
+    // 작가 정보를 다시 가져옴
+    const authorData = await getAuthor(postData.user._id);
+    const subscriberCount = authorData.bookmarkedBy.users; // 작가 기준 구독자 수
+    ubscribeCounts.innerHTML = subscriberCount; // 구독자 수를 업데이트
+  } catch (error) {
+    console.error("구독자 수 업데이트 실패:", error);
+  }
+}
 
 // 내 구독 북마크 목록 얻어오기
 async function getSubscribe() {
@@ -307,6 +320,7 @@ subscribeBtn.addEventListener("click", async e => {
       console.log(subscribeId);
       subcribeBtnSrc.src = "/src/assets/icons/ic-subscribe-off.svg";
     }
+    await updateSubscribeCount();
     subscribeData = await getSubscribe();
   } catch (error) {
     if (error.response && error.response.status === 401) {
@@ -321,6 +335,7 @@ subscribeBtn.addEventListener("click", async e => {
 // HTML이 로드된 후 함수 실행
 document.addEventListener("DOMContentLoaded", async () => {
   await printPage();
+  await updateSubscribeCount();
   let bookmarks = (await getBookmarks()) || [];
   if (bookmarks) likeCount.innerHTML = postData.bookmarks;
 
