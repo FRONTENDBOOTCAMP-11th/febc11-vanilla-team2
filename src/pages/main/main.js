@@ -108,8 +108,14 @@ function displayAuthors(authors) {
     const authorItem = document.createElement("div");
     authorItem.className = "subjump-grid-item";
 
+    const authorImageHTML = author.image
+      ? `<div class="subjump-author-container">
+           <img src="${author.image}" class="subjump-author" alt="이미지" />
+         </div>`
+      : "";
+
     authorItem.innerHTML = `
-      <img src="${author.image}" class="subjump-author" />
+      ${authorImageHTML}
       <h2 class="subjump-grid-item__name">${author.name}</h2>
       <p class="subjump-grid-item__job">${author.job}</p>
       <p class="subjump-grid-item__text">${author.biography}</p>

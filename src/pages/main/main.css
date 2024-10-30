@@ -665,6 +665,10 @@ p {
 
 .subjump-author {
   margin-bottom: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; /* 이미지 비율 유지하며 잘림 */
 }
 
 .subjump-grid-item__name {
