@@ -2,47 +2,51 @@ import axios from "axios";
 
 const url = "https://11.fesp.shop";
 
+// 현재 위치를 쿼리 문자열로.. 쿼리 문자열을 파싱해서 저장..
+// 특정 쿼리 매개변수의 값을 get으로 가져와서 저장..
+const params = new URLSearchParams(window.location.search);
+const authorId = params.get("_id");
+
 /* 작가 정보 가져오기 */
 async function getAuthorInfo() {
   try {
-    // 현재 위치를 쿼리 문자열로.. 쿼리 문자열을 파싱해서 저장..
-    // 특정 쿼리 매개변수의 값을 get으로 가져와서 저장..
-    const params = new URLSearchParams(window.location.search);
-    const userId = params.get("userId");
-    console.log(userId);
-
-    const authorName = document.querySelector("#authorName");
-    const authorJob = document.querySelector("#job");
-    const bookmarkedBy = document.querySelector("#bookmarkedBy");
-    const bookmarked = document.querySelector("#bookmarked");
-
-    const response = await axios.get(`${url}/users/${userId}`, {
+    console.log("authorId :", authorId);
+    const response = await axios.get(`${url}/users/${authorId}`, {
       headers: {
         "client-id": "vanilla02",
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
-    authorName.innerHTML = response.data.item.name;
-    authorJob.innerHTML = response.data.item.extra.job;
-    bookmarkedBy.innerHTML = response.data.item.bookmarkedBy.users;
-    bookmarked.innerHTML = response.data.item.bookmark.users;
+    console.log("작가 정보 response.data.item:", response.data.item);
+    const items = response.data.item;
+
+    document.getElementById("authorName").textContent = items.name;
+    document.getElementById("profilImage").src = `${items.image}`;
+    // console.log(items.image);
+    document.getElementById("job").textContent = items.extra.job;
+    document.getElementById("bookmarkedBy").textContent = items.bookmark.users;
+    document.getElementById("bookmarked").textContent =
+      items.bookmarkedBy.users;
   } catch (error) {
     console.log("error", error);
-    document.querySelector(".wrap-article-list").innerHTML =
+    document.querySelector(".wrap-article-list").textContent =
       "<p>Failed to load posts.</p>";
   }
 }
+getAuthorInfo();
 
 /* 작가의 글 목록 가져오기 */
-async function getPosts(userId) {
-  const response = await axios.get(`${url}/posts/users/${userId}`, {
+async function getPosts() {
+  // 테스트용도로 ?type=info 설정함, 나중에 제거 or ?type=post로 바꾸기
+  const response = await axios.get(`${url}/posts/users/${authorId}?type=info`, {
     headers: {
       "client-id": "vanilla02",
       "Content-Type": "application/json",
     },
   });
+  console.log("작가 글 목록 response.data.item:", response.data.item);
   let posts = response.data.item;
+
   const postsContainer = document.querySelector(
     ".wrap-article-list_listArticle",
   );
@@ -53,6 +57,16 @@ async function getPosts(userId) {
     const postElement = document.createElement("li");
     postElement.classList.add("wrap-article-list_post");
 
+    //.toLocaleDateString()으로 날짜 형식 바꾸기
+    const postDate = new Date(post.createdAt);
+    const formattedDate = postDate
+      .toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+      .replace(",", "");
+
     postElement.innerHTML = `
             <a class="linkCategory" href="">
                 <em class="titCategory">${post.category}</em>
@@ -62,12 +76,12 @@ async function getPosts(userId) {
                     <strong class="post-title_subject">${post.title}</strong>
                     <div class="wrap-title-contents">
                         <div class="post-content">
-                            <em class="titleSub">${post.subtitle}</em>
+                            <em class="titleSub">${post.extra.subTitle}</em>
                             <span class="ico-bar">|</span>
                             <span class="article-content">${post.content}</span>
                         </div>
                         <span class="post-append">
-                            <span class="publish-time">${post.createdAt}</span>
+                            <span class="publish-time">${formattedDate}</span>
                         </span>
                     </div>
                 </div>
@@ -77,6 +91,4 @@ async function getPosts(userId) {
     postsContainer.appendChild(postElement);
   });
 }
-
-getAuthorInfo(); //author id 넣어야함
 getPosts();
