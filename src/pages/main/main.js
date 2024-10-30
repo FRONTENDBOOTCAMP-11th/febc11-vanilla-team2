@@ -18,11 +18,12 @@ async function fetchTodayBrunchPosts() {
       title: post.title,
       author: post.user.name,
       contents: post.content,
-      image: post.image ? `https://11.fesp.shop${post.image}` : null,
-      views: post.views,
+      image:
+        typeof post.image === "string" && post.image.trim() !== ""
+          ? `https://11.fesp.shop${post.image}`
+          : "", // 이미지가 없는 경우 빈 문자열      views: post.views,
     }));
 
-    // 작가 데이터 표시
     displayPosts(todayBrunchPosts); // 전체 게시물 목록을 displayPosts로 전달
   } catch (error) {
     console.error("게시글을 가져오는 중 오류 발생:", error);
