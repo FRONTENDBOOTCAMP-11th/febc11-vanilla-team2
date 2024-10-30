@@ -106,25 +106,15 @@ hr {
 }
 
 /* footer */
-/* addBar,addImage */
 .wrap-extra-footer {
-  position: fixed;
-  bottom: 1;
-  box-sizing: border-box;
-}
-
-/* .bs-footer {
   width: 100%;
   max-width: 360px;
   margin: 0 auto;
-  position: relative;
-  bottom: 1;
-  left: 1;
-  right: 1;
-  box-sizing: content-box;
-} */
-
-.wrap-addBar {
+  position: fixed;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
 }
 
 .wrap-addBar-contents {
