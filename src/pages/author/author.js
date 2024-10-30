@@ -57,7 +57,7 @@ async function getPosts() {
     const postElement = document.createElement("li");
     postElement.classList.add("wrap-article-list_post");
 
-    //.toLocaleDateString()으로 날짜 형식 바꾸기
+    // .toLocaleDateString()으로 날짜 형식 바꾸기
     const postDate = new Date(post.createdAt);
     const formattedDate = postDate
       .toLocaleDateString("en-US", {
@@ -67,11 +67,12 @@ async function getPosts() {
       })
       .replace(",", "");
 
+    // 카테고리 기능 없음으로 기본값 지정
     postElement.innerHTML = `
             <a class="linkCategory" href="">
-                <em class="titCategory">${post.category}</em>
+                <em class="titCategory">카테고리입니다</em>
             </a>
-            <a class="link-post #post-listview" href="">
+            <div class="link-post #post-listview" id="linkPost" href="" data-id=${post._id}>
                 <div class="post-title">
                     <strong class="post-title_subject">${post.title}</strong>
                     <div class="wrap-title-contents">
@@ -85,10 +86,20 @@ async function getPosts() {
                         </span>
                     </div>
                 </div>
-            </a>
+            </div>
         `;
 
     postsContainer.appendChild(postElement);
+    console.log("post._id :", post._id);
+    document.querySelectorAll("#linkPost").forEach(detailPageList => {
+      detailPageList.addEventListener("click", detailPageClick);
+    });
   });
 }
 getPosts();
+
+/* 상세페이지로 넘어가기 */
+const detailPageClick = e => {
+  const detailPageId = e.currentTarget.getAttribute("data-id");
+  window.location.href = `/src/pages/detailPage/detailPage.html?id=${detailPageId}`;
+};
