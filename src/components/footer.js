@@ -36,7 +36,7 @@ function init() {
   writeButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+    const isLoggedIn = sessionStorage.getItem("accessToken");
     if (isLoggedIn) {
       // 로그인 된 경우 글쓰기 페이지로 이동
       window.location.href = "../../pages/write/write.html";
