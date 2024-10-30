@@ -214,7 +214,7 @@ async function initializeButtonStates() {
     ? "/src/assets/icons/ic-subscribe-on.svg"
     : "/src/assets/icons/ic-subscribe-off.svg";
 }
-//로그인 함수
+//로그인 함수//좋아요랑 구독버튼 클릭시에만 로그인 여부를 확인함
 function checkLogin() {
   if (!accessToken) {
     alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
@@ -322,10 +322,17 @@ async function toggleSubscribe() {
   }
 }
 
+function isLoggedIn() {
+  //API호출시에만 initializeButtonStates를 활성화 할지 말지 결정하게함 . 즉 로그인 상태에따라 api호출 결정함(t,f로), 이후에 로그인 페이지로 보내지는 않음
+  return Boolean(accessToken);
+}
+
 // HTML 로드 후 함수 실행
 document.addEventListener("DOMContentLoaded", async () => {
   await printPage();
-  await initializeButtonStates();
+  if (isLoggedIn()) {
+    await initializeButtonStates(); //구독과 좋아요 한 상태를 로그인한 상태에서 페이지 로드하면 바로 보여지게함
+  }
 
   // 좋아요 버튼 클릭 시 상태 업데이트
   likeBtn.addEventListener("click", async () => {
