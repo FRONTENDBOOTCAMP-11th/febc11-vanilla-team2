@@ -30,4 +30,19 @@ function init() {
       img.alt = img.alt.replace("on", "off");
     }
   });
+
+  // 글쓰기 버튼 클릭 이벤트 추가
+  const writeButton = document.getElementById("write-button");
+  writeButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const isLoggedIn = sessionStorage.getItem("accessToken");
+    if (isLoggedIn) {
+      // 로그인 된 경우 글쓰기 페이지로 이동
+      window.location.href = "../../pages/write/write.html";
+    } else {
+      // 로그인 안 된 경우 로그인 페이지로 이동
+      window.location.href = "../../pages/login/login.html";
+    }
+  });
 }

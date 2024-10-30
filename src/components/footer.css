@@ -30,6 +30,10 @@
   text-decoration: none;
 }
 
+.bs-footer__link {
+  cursor: pointer;
+}
+
 .bs-footer__title {
   font-size: 12px;
   font-weight: 300;
