@@ -17,12 +17,12 @@ async function fetchTodayBrunchPosts() {
       _id: post._id,
       title: post.title,
       author: post.user.name,
-      contents: post.user.content,
-      image: post.image,
+      contents: post.content,
+      image: post.image ? `https://11.fesp.shop${post.image}` : null,
       views: post.views,
     }));
 
-    //조회수 기준
+    // 조회수 기준으로 정렬
     todayBrunchPosts.sort((a, b) => b.views - a.views);
 
     // 최대 10개 게시물만 표시
@@ -52,7 +52,7 @@ function displayTodayPosts(posts) {
         </p>
         <p class="top10-info__text">${post.contents}</p>
       </div>
-      <img src="${post.image || ""}" class="top10-img" />
+      ${post.image ? `<img src="${post.image}" class="top10-img" alt="이미지" />` : ""}
     `;
 
     // 클릭 시 상세페이지로 이동

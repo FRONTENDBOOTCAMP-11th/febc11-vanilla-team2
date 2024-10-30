@@ -205,6 +205,7 @@ p {
 
 .top10-info {
   padding-left: 34px;
+  overflow: hidden;
 }
 
 .top10-info__header {
@@ -214,6 +215,12 @@ p {
   line-height: 23px;
   margin: 0;
   margin-bottom: 4px;
+  overflow-wrap: break-word; /* 단어가 길어져서 줄바꿈이 필요할 때 자동으로 줄바꿈 */
+  white-space: normal; /* 기본적으로 줄바꿈이 가능하도록 설정 */
+  overflow: hidden; /* 내용이 넘치는 경우 숨기기 */
+  display: -webkit-box; /* 크로스 브라우저 호환성 */
+  -webkit-line-clamp: 3; /* 표시할 줄 수 */
+  -webkit-box-orient: vertical; /* 수직 방향으로 나열 */
 }
 
 .top10-info__author {
@@ -231,10 +238,18 @@ p {
   font-weight: 300;
   line-height: 19px;
   text-align: left;
+  overflow-wrap: break-word; /* 단어가 길어져서 줄바꿈이 필요할 때 자동으로 줄바꿈 */
+  white-space: normal; /* 기본적으로 줄바꿈이 가능하도록 설정 */
+  overflow: hidden; /* 내용이 넘치는 경우 숨기기 */
+  display: -webkit-box; /* 크로스 브라우저 호환성 */
+  -webkit-line-clamp: 3; /* 표시할 줄 수 */
+  -webkit-box-orient: vertical; /* 수직 방향으로 나열 */
 }
 
 .top10-img {
   margin-left: 15px;
+  max-width: 100%;
+  height: auto;
 }
 
 /* bestseller */
