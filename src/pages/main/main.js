@@ -22,28 +22,29 @@ async function fetchTodayBrunchPosts() {
       views: post.views,
     }));
 
-    // 조회수 기준으로 정렬
-    todayBrunchPosts.sort((a, b) => b.views - a.views);
-
-    // 최대 10개 게시물만 표시
-    const topPosts = todayBrunchPosts.slice(0, 10);
-
-    displayTodayPosts(topPosts);
+    // 작가 데이터 표시
+    displayPosts(todayBrunchPosts); // 전체 게시물 목록을 displayPosts로 전달
   } catch (error) {
     console.error("게시글을 가져오는 중 오류 발생:", error);
   }
 }
 
-function displayTodayPosts(posts) {
-  const top10List = document.getElementById("top10-list");
-  top10List.innerHTML = ""; // 기존 내용 지우기
+function displayPosts(posts) {
+  const postList = document.getElementById("top10-list");
+  postList.innerHTML = ""; // 기존 내용 지우기
 
-  posts.forEach((post, index) => {
-    const listItem = document.createElement("li");
-    listItem.className = "top10";
-    listItem.setAttribute("data-id", post._id);
+  // 조회수 기준으로 정렬
+  posts.sort((a, b) => b.views - a.views);
 
-    listItem.innerHTML = `
+  // 최대 10개 게시물만 표시
+  const limitedPosts = posts.slice(0, 10);
+
+  limitedPosts.forEach((post, index) => {
+    const postItem = document.createElement("li");
+    postItem.className = "top10";
+    postItem.setAttribute("data-id", post._id);
+
+    postItem.innerHTML = `
       <span class="rank" data-rank="${index + 1}">${index + 1}</span>
       <div class="top10-info">
         <h1 class="top10-info__header">${post.title}</h1>
@@ -56,15 +57,15 @@ function displayTodayPosts(posts) {
     `;
 
     // 클릭 시 상세페이지로 이동
-    listItem.addEventListener("click", () => {
+    postItem.addEventListener("click", () => {
       window.location.href = `/src/pages/detailPage/detailPage.html?id=${post._id}`; // 상세 페이지 URL
     });
 
-    top10List.appendChild(listItem);
+    postList.appendChild(postItem);
   });
 }
 
-async function fetchAuthors() {
+async function fetchSubTopAuthors() {
   try {
     const response = await axios.get("https://11.fesp.shop/users", {
       headers: {
@@ -73,39 +74,53 @@ async function fetchAuthors() {
     });
 
     if (response.data.ok) {
-      const authors = response.data.item; // 여러명의 작가가 있을 경우 배열로 가정
-      const authorList = document.getElementById("author-list");
+      // API 응답에서 item 배열 추출
+      const authors = response.data.item;
+      const subTopAuthors = authors.map(author => {
+        return {
+          id: author._id,
+          name: author.name,
+          job: author.extra?.job || "직업 정보 없음",
+          biography: author.extra?.biography || "소개 정보 없음",
+          image: author.image ? `/src/assets/images${author.image}` : null,
+          subscribers: author.bookmarkedBy?.users || 0,
+        };
+      });
 
-      // authorList가 null인지 확인
-      if (!authorList) {
-        console.error("author-list 요소를 찾을 수 없습니다.");
-        return; // 함수 종료
-      }
+      // 구독자 많은순 정렬
+      subTopAuthors.sort((a, b) => b.subscribers - a.subscribers);
 
       // 최대 4명의 작가만 표시
-      const limitedAuthors = authors.slice(0, 4);
-
-      limitedAuthors.forEach(author => {
-        const authorItem = document.createElement("div");
-        authorItem.className = "subjump-grid-item";
-
-        authorItem.innerHTML = `
-          <img src="/src/assets/images/${author.image}" class="subjump-author" />
-          <h2 class="subjump-grid-item__name">${author.name}</h2>
-          <p class="subjump-grid-item__job">${author.type}</p>
-          <p class="subjump-grid-item__text">${author.description || ""}</p>
-        `;
-
-        authorList.appendChild(authorItem);
-      });
+      displayAuthors(subTopAuthors.slice(0, 4));
     }
   } catch (error) {
-    console.error("Error fetching authors:", error);
+    console.error("구독자 TOP 작가 가져오는 중 오류 발생:", error);
   }
+}
+
+function displayAuthors(authors) {
+  const authorList = document.getElementById("author-list");
+
+  // 최대 4명의 작가만 표시
+  const limitedAuthors = authors.slice(0, 4);
+
+  limitedAuthors.forEach(author => {
+    const authorItem = document.createElement("div");
+    authorItem.className = "subjump-grid-item";
+
+    authorItem.innerHTML = `
+      <img src="${author.image}" class="subjump-author" />
+      <h2 class="subjump-grid-item__name">${author.name}</h2>
+      <p class="subjump-grid-item__job">${author.job}</p>
+      <p class="subjump-grid-item__text">${author.biography}</p>
+    `;
+
+    authorList.appendChild(authorItem);
+  });
 }
 
 // 페이지 로드시 표시
 window.addEventListener("load", () => {
   fetchTodayBrunchPosts();
-  fetchAuthors();
+  fetchSubTopAuthors();
 });
