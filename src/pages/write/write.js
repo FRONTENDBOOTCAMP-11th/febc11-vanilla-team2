@@ -88,7 +88,7 @@ async function postClick(e) {
       subTitle: subTitle.value,
     },
     content: content.value,
-    images: arrayImages,
+    image: arrayImages,
   };
 
   try {
