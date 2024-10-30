@@ -79,12 +79,7 @@ async function getAuthor(authorId) {
     });
     return response.data.item;
   } catch (error) {
-    if (error.response.status === 401 || !accessToken) {
-      alert("인증 실패. 로그인 페이지로 이동합니다");
-      window.location.href = "src/pages/login/login.html";
-    } else {
-      console.error("작가 정보 가져오기 실패", error);
-    }
+    console.error("게시글 정보 불러오기 실패", error);
   }
 }
 
@@ -185,12 +180,7 @@ async function getBookmarks() {
     });
     return response.data.item;
   } catch (error) {
-    if (error.response.status === 401 || !accessToken) {
-      alert("인증 실패. 로그인 페이지로 이동합니다");
-      window.location.href = "src/pages/login/login.html";
-    } else {
-      console.error("북마크 목록 가져오는 중 에러 발생:", error);
-    }
+    console.error("게시글 북마크 목록 얻어오기 실패", error);
   }
 }
 
@@ -265,12 +255,7 @@ async function getSubscribe() {
     });
     return response.data.item;
   } catch (error) {
-    if (error.response.status === 401 || !accessToken) {
-      alert("인증 실패. 로그인 페이지로 이동합니다");
-      window.location.href = "src/pages/login/login.html";
-    } else {
-      console.error("북마크 목록 가져오는 중 에러 발생:", error);
-    }
+    console.error("구독 북마크 목록 얻어오기 실패", error);
   }
 }
 

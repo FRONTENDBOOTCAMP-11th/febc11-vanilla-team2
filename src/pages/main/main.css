@@ -162,6 +162,7 @@ p {
   margin: 0;
   padding: 0;
   margin-bottom: 45px;
+  cursor: pointer;
 }
 
 .top10 {
@@ -204,6 +205,7 @@ p {
 
 .top10-info {
   padding-left: 34px;
+  overflow: hidden;
 }
 
 .top10-info__header {
@@ -213,6 +215,12 @@ p {
   line-height: 23px;
   margin: 0;
   margin-bottom: 4px;
+  overflow-wrap: break-word; /* 자동으로 줄바꿈 */
+  white-space: normal; /* 기본적으로 줄바꿈이 가능하도록 설정 */
+  overflow: hidden;
+  display: -webkit-box; /* 크로스 브라우저 호환성 */
+  -webkit-line-clamp: 3; /* 표시할 줄 수 */
+  -webkit-box-orient: vertical;
 }
 
 .top10-info__author {
@@ -230,10 +238,18 @@ p {
   font-weight: 300;
   line-height: 19px;
   text-align: left;
+  overflow-wrap: break-word; /* 자동으로 줄바꿈 */
+  white-space: normal; /* 기본적으로 줄바꿈이 가능하도록 설정 */
+  overflow: hidden;
+  display: -webkit-box; /* 크로스 브라우저 호환성 */
+  -webkit-line-clamp: 3; /* 표시할 줄 수 */
+  -webkit-box-orient: vertical;
 }
 
 .top10-img {
   margin-left: 15px;
+  max-width: 120px;
+  height: auto;
 }
 
 /* bestseller */
@@ -612,6 +628,7 @@ p {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
   padding: 0 25px 40px 25px;
+  cursor: pointer;
 }
 
 .subjump-grid-item {
@@ -648,6 +665,10 @@ p {
 
 .subjump-author {
   margin-bottom: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; /* 이미지 비율 유지하며 잘림 */
 }
 
 .subjump-grid-item__name {
@@ -668,6 +689,7 @@ p {
   font-weight: 300;
   margin: 0;
   margin-top: 2.75px;
+  white-space: nowrap;
 }
 
 .subjump-grid-item__text {
@@ -678,6 +700,12 @@ p {
   font-weight: 300;
   margin: 0;
   margin-top: 15px;
+  overflow-wrap: break-word; /* 자동으로 줄바꿈 */
+  white-space: normal; /* 기본적으로 줄바꿈이 가능하도록 설정 */
+  overflow: hidden;
+  display: -webkit-box; /* 크로스 브라우저 호환성 */
+  -webkit-line-clamp: 2; /* 표시할 줄 수 */
+  -webkit-box-orient: vertical;
 }
 
 /* newauthor */
