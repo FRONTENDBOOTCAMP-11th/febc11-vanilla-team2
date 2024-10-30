@@ -84,9 +84,11 @@ async function postClick(e) {
   /* 게시물 db 저장 */
   const postData = {
     title: title.value,
-    subTitle: subTitle.value,
+    extra: {
+      subTitle: subTitle.value,
+    },
     content: content.value,
-    images: arrayImages,
+    image: arrayImages,
   };
 
   try {
@@ -111,6 +113,6 @@ async function postClick(e) {
 function exitClick() {
   const exit = confirm("글쓰기를 취소하시겠습니까?");
   if (exit) {
-    window.open("main.html");
+    window.location.href = "/src/pages/main/main.html";
   }
 }
