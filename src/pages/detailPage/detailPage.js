@@ -178,7 +178,11 @@ async function getSubscribe() {
     });
     return response.data.item;
   } catch (error) {
-    console.error("구독 북마크 목록 얻어오기 실패", error);
+    if (error.response.status === 401) {
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
+    }
   }
 }
 
@@ -194,7 +198,15 @@ async function getBookmarks() {
     });
     return response.data.item;
   } catch (error) {
-    console.error("게시글 북마크 목록 얻어오기 실패", error);
+    if (error.response.status === 401) {
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      if (error.response.status === 401) {
+        window.location.href = "/src/pages/login/login.html";
+      } else {
+        console.error("게시글 북마크 목록 얻어오기 실패", error);
+      }
+    }
   }
 }
 
@@ -278,7 +290,11 @@ async function toggleBookmark() {
     postData = await getPost();
     likeCount.innerHTML = postData.bookmarks;
   } catch (error) {
-    console.error("북마크 토글 실패", error);
+    if (error.response.status === 401) {
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
+    }
   }
 }
 
@@ -319,7 +335,11 @@ async function toggleSubscribe() {
     }
     await updateSubscribeCount(); //구독자 수 업뎃
   } catch (error) {
-    console.error("구독 토글 실패", error);
+    if (error.response.status === 401) {
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
+    }
   }
 }
 
@@ -332,13 +352,12 @@ function isLoggedIn() {
 document.addEventListener("DOMContentLoaded", async () => {
   await printPage();
   if (isLoggedIn()) {
-    await initializeButtonStates(); //구독과 좋아요 한 상태를 로그인한 상태에서 페이지 로드하면 바로 보여지게함
+    await initializeButtonStates(); //구독과 좋아요 한 상태를 로그인한 상태에서 페이지 로드하면 바로 보여지게함(상태를 한번에 가져옴->불필요한 api줄임)
   }
 
   // 좋아요 버튼 클릭 시 상태 업데이트
   likeBtn.addEventListener("click", async () => {
     await toggleBookmark();
-    await initializeButtonStates(); // 변경된 좋아요 상태 반영
   });
 
   // 구독 버튼 클릭 시 상태 업데이트
