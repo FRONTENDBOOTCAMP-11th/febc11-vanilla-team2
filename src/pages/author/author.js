@@ -11,18 +11,24 @@ const token = sessionStorage.getItem("accessToken");
 let postData;
 
 const params = new URLSearchParams(window.location.search);
-const authorId = params.get("_id");
+const authorId = Number(params.get("id"));
+console.log(typeof authorId, authorId);
 
 /* 작가 정보 가져오기 */
 async function getAuthorInfo() {
   try {
     const response = await api.get(`/users/${authorId}`);
     const items = response.data.item;
+    // console.log(items.extra.job);
 
     document.getElementById("authorName").textContent = items.name;
     let img = document.getElementById("profilImage");
-    img.src = `https://11.fesp.shop/${items.image}`;
-    document.getElementById("job").textContent = items.extra.job;
+    img.src = items.image
+      ? `https://11.fesp.shop/${items.image}`
+      : "https://11.fesp.shop/files/vanilla02/user-apeach.webp";
+    document.getElementById("job").textContent =
+      items.extra?.job || "직업 정보 없음";
+
     document.getElementById("bookmarkedBy").textContent =
       items.bookmarkedBy.users;
     document.getElementById("bookmark").textContent = items.bookmark.users;
