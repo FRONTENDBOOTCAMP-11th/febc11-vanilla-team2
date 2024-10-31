@@ -42,6 +42,7 @@ function init() {
       window.location.href = "../../pages/write/write.html";
     } else {
       // 로그인 안 된 경우 로그인 페이지로 이동
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다");
       window.location.href = "../../pages/login/login.html";
     }
   });

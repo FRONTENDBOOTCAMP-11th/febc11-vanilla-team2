@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const accessToken = sessionStorage.getItem("accessToken");
-  const headerUrl = accessToken
-    ? "../../components/header-logged-in.html" // 로그인 상태
-    : "../../components/header-logged-out.html"; // 비로그인 상태
+  const headerUrl = "../../components/header-logged";
 
   // Load header
   fetch(headerUrl)
