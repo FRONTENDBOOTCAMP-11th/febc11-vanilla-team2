@@ -60,7 +60,6 @@ const renderFavAuthor = async () => {
 const renderRecentView = () => {
   const recentPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
 
-  console.log(recentPosts);
   $recentViewList.innerHTML = recentPosts
     .map(recentPost => {
       return `
@@ -88,12 +87,11 @@ const renderFavArticle = async () => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    console.log(response.data);
     const favArticles = response.data.item;
     $favArticleList.innerHTML = favArticles
       .map(favArticle => {
         return `
-        <li class="fav-article__list" data-id="${favArticle._id}">
+        <li class="fav-article__list" data-id="${favArticle.post._id}">
           <img class="fav-article__book-thumbnail" src="../../assets/images/img-book-9.svg" alt="book-1.svg" />
           <h3 class="fav-article__title">${favArticle.post.title}</h3>
           <p class="fav-article__author"><em>by</em> ${favArticle.post.user.name}</p>
@@ -123,7 +121,6 @@ const renderMyBrunch = async () => {
     const myBrunches = response.data.item;
     $myBrunchList.innerHTML = myBrunches
       .map(myBrunch => {
-        console.log("myBrunch", myBrunch);
         return `
         <li class="my-brunch__list" data-id="${myBrunch._id}">
           <h3 class="my-brunch__subTitle">${myBrunch.extra.subTitle}</h3>
