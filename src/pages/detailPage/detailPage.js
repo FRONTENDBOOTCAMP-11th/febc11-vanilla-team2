@@ -1,154 +1,119 @@
-//좋아요 구독 구성
-"use strict";
+import axios from "axios";
 
-const jsonData = {
-  ok: 1,
-  item: [
-    {
-      _id: 1,
-      type: "community",
-      user: {
-        _id: 4,
-        name: "Sunny",
-        job: "회사원",
-        introduction:
-          "12년 차 국내 항공사 승무원의 겨울 산티아고 순례길 이야기 연재 중. 커피 한 잔을 벗 삼아 편하게 읽을 수 있는 글쓰기에 꽤나 진심인 편입니다. 후후.",
-        subscribers: 108,
-        profileImage: "/src/assets/images/author-3.svg",
-      },
-      title: "우여곡절 끝에 도착한 첫번째 목적지",
-      subTitle: "Val carlos",
-      content: [
-        {
-          type: "paragraph",
-          text: "그래 지난 화를 요약해 보면 생장에 도착한 나는 도착 당일 바로 첫 여정을 시작하기로 마음먹었고 추천받은 목적지인 Val carlos까지 구글맵으로 걸어서 2시간 30분 거리를 확인했다. 그러나 걸어도 걸어도 줄지 않는 시간과 거리에 괴로워했었지.",
-        },
-        {
-          type: "image",
-          src: "/path/to/image.jpg",
-          alt: "국경 사진",
-        },
-        {
-          type: "paragraph",
-          text: "여기가 바로 국경이다! 좌-프랑스, 우-스페인",
-        },
-        {
-          type: "paragraph",
-          text: "오후 5시 36분. 세상에 인터넷에서 사진으로만 보다가 직접 내 눈으로 처음 목격한 정식적인(?) 까미노 표식! 아주 반갑기 그지없었다. 왠지 목적지가 가까워진 것만 같은 느낌적인 느낌! 하지만 구글맵의 내 위치는 전혀 그렇지 못했다.",
-        },
-      ],
-      tag: ["산티아고 순례길", "트레킹"],
-      likes: 81,
-      bookmarks: 23,
-      image: "robot.png",
-      createdAt: "2024-07-23T00:00:00",
-      updatedAt: "2024-07-23T21:08:10",
-      comments: [
-        {
-          _id: 1,
-          user: {
-            id: 2,
-            name: "이상욱",
-            profileImage: "/src/assets/images/author-1.svg",
-          },
-          content:
-            "유럽은 국경이 희미해서 좋아요. 옛추억에 점심은 프랑스에서 저녁은 스위스에서 먹던 기억이 나네요. 홀로 산티아고 길을, 마치 행군 하듯이 걷는 그 고통이 기쁨으로 충만하길 바라며 읽고 있습니다. ^^",
-          createdAt: "2024-07-23",
-        },
-        {
-          _id: 2,
-          user: {
-            id: 3,
-            name: "주정",
-            profileImage: "/src/assets/images/author-2.svg",
-          },
-          content: "화이팅!^^",
-          createdAt: "2024-07-25",
-        },
-      ],
-      myBookmarkId: 23,
-      repliesCount: 7,
-    },
-  ],
-  pagination: {
-    page: 1,
-    limit: 0,
-    total: 3,
-    totalPages: 1,
-  },
-};
-
+// DOM 요소 가져오기
 const titleNode = document.querySelector(".detail-header_title");
 const authorNode = document.querySelector(".detail-header_author");
 const dateNode = document.querySelector(".detail-header_date");
 const contentNode = document.querySelector(".detail-content_description");
-const contentImageNode = document.querySelector(".detail-content_cover-src");
 const subTitle = document.querySelector(".detail-header_title-addition");
-const likeNode = document.querySelector(".detail-footer_like");
 const jobNode = document.querySelector(".detail-profile_job");
 const profileAuthorNode = document.querySelector(".detail-profile_name");
 const profileDescription = document.querySelector(
   ".detail-profile_description",
 );
 const profileSrc = document.querySelector(".detail-profile_src");
-const commentCountNode = document.querySelector(".detail-comment_count-color");
-
-const subscribeCount = document.querySelector(
-  ".detail-profile_subscribe-information_count",
+const commentCount = document.querySelector(".detail-comment_count-color");
+const subscribeBtn = document.querySelector(".detail-profile_subscribe-btn");
+const likeBtn = document.querySelector(".detail-footer_like-btn");
+let likeCount = document.querySelector(".detail-footer_like");
+const footerCommentCount = document.querySelector(
+  ".detail-footer_message_count",
 );
+const subcribeBtnSrc = document.querySelector(
+  ".detail-profile_subscribe-btn_src",
+);
+const subscribeCounts = document.querySelector("#subscribeCount");
+const likeBtnSrc = document.querySelector(".detail-footer_like-btn_src");
+let postData;
 
-//태그 출력 함수
-function displayTags(tag) {
-  const tagContainNode = document.querySelector(".detail-content_information");
-  tag.forEach(tag => {
-    let tagNode = document.createElement("a");
+// URL에서 게시글 ID 추출
+const no = window.location.search.split("=")[1];
+const accessToken = sessionStorage.getItem("accessToken");
 
-    tagNode.setAttribute("class", "detail-content_tag");
-    tagNode.setAttribute("href", "#");
-
-    let tagText = document.createTextNode(tag);
-    tagNode.appendChild(tagText);
-    tagContainNode.appendChild(tagNode);
-  });
+// 날짜 형식 변환
+function month(createdAt) {
+  const day = createdAt.split(" ")[0];
+  const splitDay = day.split(".");
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return `${months[parseInt(splitDay[1]) - 1]} ${splitDay[2]} ${splitDay[0]}`;
 }
 
-//댓글 출력 함수
+// 게시글 데이터 가져오기
+async function getPost() {
+  try {
+    const response = await axios.get(`https://11.fesp.shop/posts/${no}`, {
+      headers: { "Content-Type": "application/json", "client-id": "vanilla02" },
+    });
+    postData = response.data.item;
+    console.log(postData);
+    return postData;
+  } catch (error) {
+    console.error("게시글 정보 가져오기 실패:", error);
+  }
+}
+
+getPost();
+
+// 작가 정보 가져오기
+async function getAuthor(authorId) {
+  try {
+    const response = await axios.get(`https://11.fesp.shop/users/${authorId}`, {
+      headers: { "Content-Type": "application/json", "client-id": "vanilla02" },
+    });
+    return response.data.item;
+  } catch (error) {
+    console.error("작가 정보 불러오기 실패", error);
+  }
+}
+
+//작가와 로그인한 게시글ID 같으면 구독버튼 숨기기
+const userId = sessionStorage.getItem("userId");
+function hideSubscribeButton() {
+  if (postData.user._id === Number(userId)) {
+    subscribeBtn.style.display = "none";
+  } else {
+    subscribeBtn.style.display = "block";
+  }
+}
+// 댓글 출력 함수
 function displayComment(comments) {
+  const commentContainer = document.querySelector(".detail-comment_container");
   comments.forEach(comment => {
+    const imageUrl = comment.user.image
+      ? `https://11.fesp.shop${comment.user.image}`
+      : `https://11.fesp.shop/files/vanilla02/user-apeach.webp`;
     const commentDiv = document.createElement("div");
-    const commentContainer = document.querySelector(
-      ".detail-comment_container",
-    );
-
-    commentDiv.innerHTML += `
-    <div class="detail-comment_information">
-            <div class="detail-comment_information-header">
-              <img
-                class="detail-comment_header-profile_src"
-                src="${comment.user.profileImage}"
-                alt=""
-              />
-              <div class="detail-comment_header-container">
-                <p class="detail-comment_header-profile_name">${comment.user.name}</p>
-                <p class="detail-comment_header_date">${comment.createdAt}</p>
-              </div>
-              <div class="detail-comment_header-container_btn">
-                <button class="detail-comment_header-btn">
-                  <img
-                    src="/src/assets/icons/detail-btn.svg"
-                    alt="답글 추가 보기"
-                  />
-                </button>
-              </div>
-            </div>
-
-            <p class="detail-comment_information-description">
-             ${comment.content}
-            </p>
-            <button class="detail-comment_information-btn">답글달기</button>
+    commentDiv.innerHTML = `
+      <div class="detail-comment_information">
+        <div class="detail-comment_information-header">
+          <img class="detail-comment_header-profile_src" src="${imageUrl}" alt="${comment.user.name}" />
+          <div class="detail-comment_header-container">
+            <p class="detail-comment_header-profile_name">${comment.user.name}</p>
+            <p class="detail-comment_header_date">${month(comment.createdAt)}</p>
           </div>
-            </div> 
-          `;
+          <div class="detail-comment_header-container_btn">
+            <button class="detail-comment_header-btn">
+              <img src="/src/assets/icons/ic-option.svg" alt="답글 추가 보기" />
+            </button>
+          </div>
+        </div>
+        <p class="detail-comment_information-description">${comment.content}</p>
+        <button class="detail-comment_information-btn">답글달기</button>
+      </div>
+    `;
     commentContainer.insertBefore(
       commentDiv,
       commentContainer.querySelector(".detail-comment_writing"),
@@ -156,35 +121,292 @@ function displayComment(comments) {
   });
 }
 
-//json출력 함수
-function displayPost(data) {
-  const post = data.item[0]; //첫번째 item
-  //상세 페이지 헤더 출력
-  titleNode.innerHTML = post.title;
-  authorNode.innerHTML = post.user.name;
-  dateNode.innerHTML = post.createdAt;
-  contentImageNode.setAttribute("src", post.content.src);
-  subTitle.innerHTML = post.subTitle;
-
-  //콘텐츠 출력
-  contentNode.innerHTML = post.content; //보류,,
-
-  //푸터 프로필 출력
-  likeNode.innerHTML = post.likes;
-  jobNode.innerHTML = post.user.job;
-  profileAuthorNode.innerHTML = post.user.name;
-  profileDescription.innerHTML = post.user.introduction;
-  profileSrc.setAttribute("src", post.user.profileImage);
-  subscribeCount.innerHTML = post.user.subscribers;
-
-  //댓글-comment 개수 출력
-  commentCountNode.innerHTML = post.repliesCount;
-  //태그 출력
-  displayTags(post.tag);
-  //댓글 출력
-  displayComment(post.comments);
+// 이미지 소스 업데이트
+function updateImageSrc() {
+  const imgTags = contentNode.querySelectorAll("img");
+  imgTags.forEach(img => {
+    const src = img.getAttribute("src");
+    if (src && !src.startsWith("http")) {
+      img.src = `https://11.fesp.shop${src}`;
+    }
+    const parentDiv = img.closest(".wrap_img_float");
+    if (parentDiv) {
+      parentDiv.removeAttribute("style");
+    }
+  });
 }
 
-window.onload = function () {
-  displayPost(jsonData);
+// 게시글과 작가 정보를 DOM에 렌더링하기
+async function printPage() {
+  postData = await getPost();
+  if (postData) {
+    titleNode.innerHTML = postData.title;
+    authorNode.innerHTML = postData.user.name;
+    dateNode.innerHTML = month(postData.createdAt);
+    contentNode.innerHTML = postData.content;
+    subTitle.innerHTML = postData.extra?.subTitle || "부제목 없음";
+    commentCount.innerHTML = Array.isArray(postData.replies)
+      ? postData.replies.length
+      : 0;
+    footerCommentCount.innerHTML = Array.isArray(postData.replies)
+      ? postData.replies.length
+      : 0;
+    updateImageSrc();
+    likeCount.innerHTML = postData.bookmarks;
+
+    const authorData = await getAuthor(postData.user._id);
+    console.log(authorData.bookmarkedBy.users);
+    if (authorData) {
+      jobNode.innerHTML = authorData.extra?.job || "직업 정보 없음";
+      profileAuthorNode.innerHTML = authorData.name;
+      profileDescription.innerHTML = authorData.extra?.biography || "설명 없음";
+      profileSrc.src = authorData.image
+        ? `https://11.fesp.shop${authorData.image}`
+        : `https://11.fesp.shop/files/vanilla02/user-apeach.webp`;
+      console.log("printPage authorData:", authorData.bookmarkedBy.users);
+    }
+    hideSubscribeButton(); //작가가 사용자와 같으면 구독버튼 숨김
+    if (postData.replies) {
+      displayComment(postData.replies);
+    } else {
+      console.log("댓글이 없습니다.");
+    }
+  }
+  await updateSubscribeCount(); //페이지 로드될때 구독자수 가져옴
+}
+
+// 구독 북마크 목록 얻어오기
+async function getSubscribe() {
+  try {
+    const response = await axios.get("https://11.fesp.shop/bookmarks/user", {
+      headers: {
+        "Content-Type": "application/json",
+        "client-id": "vanilla02",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return response.data.item;
+  } catch (error) {
+    if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
+    }
+  }
+}
+
+// 게시글 북마크 목록 얻어오기
+async function getBookmarks() {
+  try {
+    const response = await axios.get("https://11.fesp.shop/bookmarks/post", {
+      headers: {
+        "Content-Type": "application/json",
+        "client-id": "vanilla02",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return response.data.item;
+  } catch (error) {
+    if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
+    }
+  }
+}
+
+// 초기 좋아요 및 구독 상태 설정
+async function initializeButtonStates() {
+  let bookmarks = await getBookmarks();
+  const isLike = bookmarks?.some(item => item.post._id === postData._id);
+  likeBtnSrc.src = isLike
+    ? "/src/assets/icons/ic-like-on.svg"
+    : "/src/assets/icons/ic-like-off.svg";
+
+  let subscribeData = await getSubscribe();
+  const isSubscribed = subscribeData?.some(
+    item => item.user._id === postData.user._id,
+  );
+  subcribeBtnSrc.src = isSubscribed
+    ? "/src/assets/icons/ic-subscribe-on.svg"
+    : "/src/assets/icons/ic-subscribe-off.svg";
+}
+//로그인 함수//좋아요랑 구독버튼 클릭시에만 로그인 여부를 확인함
+function checkLogin() {
+  const accessToken = sessionStorage.getItem("accessToken"); //호출갱신
+  if (!accessToken) {
+    alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+    window.location.href = "/src/pages/login/login.html";
+    return false;
+  }
+  return true;
+}
+
+// 구독자 수 업데이트 함수
+async function updateSubscribeCount() {
+  try {
+    const authorData = await getAuthor(postData.user._id);
+    const subscriberCount = authorData.bookmarkedBy.users;
+    console.log("구독자 수:", subscriberCount);
+
+    if (subscribeCounts) {
+      subscribeCounts.innerHTML = subscriberCount;
+    } else {
+      console.error("subscribeCounts 요소를 찾을 수 없습니다.");
+    }
+  } catch (error) {
+    console.error("구독자 수 업데이트 실패:", error);
+  }
+}
+// 좋아요 토글 함수
+async function toggleBookmark() {
+  if (!checkLogin()) return;
+  try {
+    let bookmarks = await getBookmarks();
+    const hasBookmark = bookmarks.some(item => item.post._id === postData._id);
+
+    if (!hasBookmark) {
+      await axios.post(
+        "https://11.fesp.shop/bookmarks/post",
+        { target_id: postData._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "client-id": "vanilla02",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      );
+      likeBtnSrc.src = "/src/assets/icons/ic-like-on.svg";
+    } else {
+      const bookmarkId = bookmarks.find(
+        item => item.post._id === postData._id,
+      )._id;
+      await axios.delete(`https://11.fesp.shop/bookmarks/${bookmarkId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "client-id": "vanilla02",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      likeBtnSrc.src = "/src/assets/icons/ic-like-off.svg";
+    }
+
+    postData = await getPost();
+    likeCount.innerHTML = postData.bookmarks;
+  } catch (error) {
+    if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
+    }
+  }
+}
+
+// 구독 토글 함수
+async function toggleSubscribe() {
+  if (!checkLogin()) return;
+  try {
+    let subscribeData = await getSubscribe();
+    const isSubscribed = subscribeData?.some(
+      item => item.user._id === postData.user._id,
+    );
+
+    if (!isSubscribed) {
+      await axios.post(
+        "https://11.fesp.shop/bookmarks/user",
+        { target_id: postData.user._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "client-id": "vanilla02",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      );
+      subcribeBtnSrc.src = "/src/assets/icons/ic-subscribe-on.svg";
+    } else {
+      const subscribeId = subscribeData.find(
+        item => item.user._id === postData.user._id,
+      )._id;
+      await axios.delete(`https://11.fesp.shop/bookmarks/${subscribeId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "client-id": "vanilla02",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      subcribeBtnSrc.src = "/src/assets/icons/ic-subscribe-off.svg";
+    }
+    await updateSubscribeCount(); //구독자 수 업뎃
+  } catch (error) {
+    if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "/src/pages/login/login.html";
+    } else {
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
+    }
+  }
+}
+
+function isLoggedIn() {
+  //API호출시에만 initializeButtonStates를 활성화 할지 말지 결정하게함 . 즉 로그인 상태에따라 api호출 결정함(t,f로), 이후에 로그인 페이지로 보내지는 않음
+  return Boolean(accessToken);
+}
+
+// HTML 로드 후 함수 실행
+document.addEventListener("DOMContentLoaded", async () => {
+  await printPage();
+  if (isLoggedIn()) {
+    await initializeButtonStates(); //구독과 좋아요 한 상태를 로그인한 상태에서 페이지 로드하면 바로 보여지게함(상태를 한번에 가져옴->불필요한 api줄임)
+  }
+
+  // 좋아요 버튼 클릭 시 상태 업데이트
+  likeBtn.addEventListener("click", async () => {
+    await toggleBookmark();
+  });
+
+  // 구독 버튼 클릭 시 상태 업데이트
+  subscribeBtn.addEventListener("click", async () => {
+    await toggleSubscribe();
+  });
+});
+
+// 내 서랍 - 관심 글 로직
+// 특정 페이지에서 현재 게시글 정보를 sessionStorage에 저장하는 함수
+const saveCurrentPostToSessionStorage = post => {
+  const accessToken = sessionStorage.getItem("accessToken");
+  if (!accessToken) return;
+  const savedPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
+  const newPost = {
+    id: post.id,
+    title: post.title,
+    author: post.author,
+    image: post.image,
+  };
+
+  const isPostSaved = savedPosts.some(savedPost => savedPost.id === newPost.id);
+  if (!isPostSaved) {
+    if (savedPosts.length >= 4) {
+      savedPosts.shift();
+    }
+    savedPosts.push(newPost);
+    sessionStorage.setItem("savedPosts", JSON.stringify(savedPosts));
+  }
 };
+
+// 특정 페이지 접근 시, 해당 게시글의 정보를 sessionStorage에 저장
+window.addEventListener("load", async () => {
+  const posts = await getPost();
+  const post = {
+    id: posts._id,
+    title: posts.title,
+    author: posts.user.name,
+    image: posts.image && posts.image.length > 0 ? posts.image[0] : "",
+  };
+
+  saveCurrentPostToSessionStorage(post);
+});

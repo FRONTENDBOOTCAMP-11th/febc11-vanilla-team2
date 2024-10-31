@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
+    <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
+    <link rel="stylesheet" href="author.css" />
+    <link rel="stylesheet" href="../../components/header.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="header"></header>
+
+      <div class="wrap-profile">
+        <div class="wrap-profile coverImage"></div>
+        <div class="wrap-profile-layout">
+          <div class="wrap-profile-thumb">
+            <img
+              class="wrap-profile-thumb authorImage"
+              id="profilImage"
+              src=""
+              alt="프로필 이미지"
+            />
+            <div class="wrap-profile-thumb-info">
+              <strong
+                class="wrap-profile-thumb-info_authorName"
+                id="authorName"
+              ></strong>
+              <pre class="desc_bloger" id="job">작가</pre>
+              <dl class="blog_count">
+                <dd class="follower">
+                  <a href="" class="link_count">
+                    <em class="txt_g">구독자</em>
+                    <span class="num_count" id="bookmarkedBy"></span>
+                  </a>
+                </dd>
+                <dd class="following">
+                  <a href="" class="link_count">
+                    <em class="txt_g">관심작가</em>
+                    <span class="num_count" id="bookmark"></span>
+                  </a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="wrap-profile-btn">
+            <button type="button" class="btn_subscribe">
+              <span class="txt_default">
+                <img
+                  class="ico_check"
+                  src="/src/assets/icons/ic-subscribe-off.svg"
+                  alt="구독중"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <main class="main">
+        <div class="wrap-article-list">
+          <ul class="wrap-article-list_listArticle">
+            <li class="wrap-article-list_post">
+              <a class="linkCategory" href="">
+                <em class="titCategory"></em>
+              </a>
+              <div
+                class="link-post #post-listview"
+                id="linkPost"
+                onclick="clickContents"
+                href=""
+                data-id=""
+              >
+                <div class="post-title" href="">
+                  <strong class="post-title_subject"></strong>
+                  <div class="wrap-title-contents">
+                    <div class="post-content">
+                      <em class="titleSub"></em>
+                      <span class="ico-bar">|</span>
+                      <span class="article-content"></span>
+                    </div>
+                    <span class="post-append">
+                      <span class="publish-time"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <hr />
+          </ul>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="author.js"></script>
+    <script type="module" src="../../components/header.js"></script>
+  </body>
+</html>

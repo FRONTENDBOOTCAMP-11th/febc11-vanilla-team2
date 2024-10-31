@@ -3,21 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Brunch Story | 글쓰기</title>
     <link rel="stylesheet" href="/src/assets/css/base/reset.css" />
     <link rel="stylesheet" href="/src/assets/css/base/typography.css" />
     <link rel="stylesheet" href="write.css" />
+    <link rel="stylesheet" href="../../components/footer.css" />
   </head>
 
   <body>
     <div class="wrap">
+      <!-- header -->
       <header class="wrap-header">
-        <img class="wrap-header_doneOff" src="/src/assets/icons/exit.svg" />
+        <img
+          class="wrap-header_exit"
+          src="/src/assets/icons/ic-close.svg"
+          id="btnExit"
+          onclick="exitClick"
+          alt="취소버튼"
+        />
         <h1 class="wrap-header_title">글쓰기</h1>
-        <img class="wrap-header_exit" src="/src/assets/icons/done-off.svg" />
+        <div class="wrap-header-done">
+          <span class="hoverDoneOff">
+            <img
+              class="wrap-header-done_doneOff"
+              src="/src/assets/icons/ic-done-off.svg"
+            />
+          </span>
+          <span class="hoverDoneOn">
+            <img
+              class="wrap-header-done_doneON"
+              src="/src/assets/icons/ic-done-on.svg"
+              id="btnPost"
+              alt="등록버튼"
+            />
+          </span>
+        </div>
       </header>
       <hr />
-
+      <!-- main -->
       <div class="wrap-main">
         <div class="wrap-main-subject">
           <input
@@ -37,37 +60,57 @@
           />
           <hr />
         </div>
-
         <div class="wrap-main-contents">
           <textarea
             class="wrap-main-contents_text"
-            type="text"
-            id="textContents"
+            id="contents"
             placeholder="내용을 입력하세요"
-            cols="27"
-            rows="20"
+            cols="29"
+            rows="14"
           ></textarea>
         </div>
       </div>
+    </div>
+
+    <!-- footer -->
+    <div class="wrap-extra-footer">
+      <ul class="add-img">
+        <li class="add-img-list"></li>
+      </ul>
       <div class="wrap-addBar">
         <div class="wrap-addBar-contents">
+          <input
+            type="file"
+            id="input"
+            accept="image/*"
+            style="display: none"
+            multiple
+          />
           <img
             class="wrap-addBar-contents_picture"
-            src="/src/assets/icons/picture.svg"
+            src="/src/assets/icons/ic-picture.svg"
+            id="btnFileUpload"
+            alt="파일첨부"
+            onclick="document.getElementById('input').click();"
           />
           <img
             class="wrap-addBar-contents_align"
-            src="/src/assets/icons/align-left.svg"
+            src="/src/assets/icons/ic-align-left.svg"
+            id="btnPostAlign"
+            alt="글 정렬"
           />
           <img
             class="wrap-addBar-contents_keyboard"
-            src="/src/assets/icons/keyboard.svg"
+            src="/src/assets/icons/ic-keyboard.svg"
+            id="btnKeyboard"
+            alt="키보드"
           />
         </div>
       </div>
     </div>
-    <footer></footer>
+    <footer class="footer"></footer>
 
-    <script src="write.js"></script>
+    <script type="module" src="../../components/footer.js"></script>
+    <script type="module" src="write.js"></script>
   </body>
 </html>

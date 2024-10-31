@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brunch Story | 발견</title>
+    <link rel="stylesheet" href="../../assets/css/base/reset.css" />
+    <link rel="stylesheet" href="../../assets/css/base/typography.css" />
+    <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="../../components/footer.css" />
+    <link rel="stylesheet" href="../../components/wrapper.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="search-header">
+        <div class="search-query">
+          <input
+            type="text"
+            class="search-query__input"
+            placeholder="검색어 입력"
+          />
+          <button
+            type="button"
+            class="search-query__button-clear"
+            style="display: none"
+          >
+            <img src="../../assets/icons/ic-clear.svg" alt="Clear Button" />
+          </button>
+        </div>
+        <div class="search-tab" style="display: none">
+          <button
+            type="button"
+            class="search-tab__item search-tab__item-article"
+          >
+            글
+          </button>
+          <button
+            type="button"
+            class="search-tab__item search-tab__item-author"
+          >
+            작가
+          </button>
+        </div>
+      </header>
+
+      <div class="search-contents">
+        <section class="search-contents__no-input">
+          <div class="search-keywords">
+            <h3 class="search-keywords__title">추천 작가 키워드</h3>
+            <p class="search-keywords__description">
+              일상의 따뜻한 위로,
+              <span class="highlight">그림</span> 작가를 만나요
+            </p>
+            <div class="search-keywords__tags">
+              <button type="button" class="search-keywords__tag">한의사</button>
+              <button type="button" class="search-keywords__tag">
+                출간작가
+              </button>
+              <button type="button" class="search-keywords__tag">
+                에세이스트
+              </button>
+            </div>
+          </div>
+
+          <div class="search-recent">
+            <h3 class="search-recent__title">최근 검색어</h3>
+            <div class="search-recent__keywords">
+              <span class="search-recent__keyword">사진꿀</span>
+              <button type="button" class="search-recent__button-delete">
+                <img
+                  src="../../assets/icons/ic-delete.svg"
+                  alt="Delete Button"
+                />
+              </button>
+            </div>
+            <div class="search-recent__keywords">
+              <span class="search-recent__keyword">꿀</span>
+              <button type="button" class="search-recent__button-delete">
+                <img
+                  src="../../assets/icons/ic-delete.svg"
+                  alt="Delete Button"
+                />
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="search-contents__articles">
+          <div class="result-articles"></div>
+        </section>
+
+        <section class="search-contents__authors">
+          <div class="result-authors"></div>
+        </section>
+
+        <section class="search-contents__dismatch"></section>
+      </div>
+
+      <footer class="footer"></footer>
+    </div>
+    <script type="module" src="../../components/footer.js"></script>
+    <script type="module" src="./search.js"></script>
+  </body>
+</html>

@@ -14,55 +14,21 @@ textarea {
 /*css Variables*/
 :root {
     --color-black100: #111;
-    --color-black90: #1B1B1B;
+    --color-black90: #1b1b1b;
     --color-black80: #333;
     --color-gray80: #666;
     --color-gray75: #838383;
     --color-gray70: #959595;
-    --color-gray65: #BBB;
+    --color-gray65: #bbb;
     --color-gray60: rgba(149, 149, 149, 0.5);
-    --color-gray50: #DDD;
-    --color-gray30: #EEE;
-    --color-gray20: #E0E0E0;
-    --color-white: #FFF;
-    --color-green20: #00C6BE;
+    --color-gray50: #ddd;
+    --color-gray30: #eee;
+    --color-gray20: #e0e0e0;
+    --color-white: #fff;
+    --color-green20: #00c6be;
     /*fonts*/
-    --font-ko: 'Pretendard';
+    --font-ko: "Pretendard";
 }
-
-/*공통header*/
-.brunch-story-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--color-gray60);
-    margin: 0 auto;
-    padding: 0 20px;
-    position: fixed;
-    width: 100%;
-    max-width: 360px;
-    top: 0;
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
-    background-color: var(--color-white);
-    z-index: 1
-}
-
-/*마이페이지*/
-.brunch-story-header__icons span {
-    margin-left: 10px;
-}
-
-.brunch-story-header__profile img {
-    width: 30px;
-    height: 30px;
-}
-
-.brunch-story-header__logo {
-    padding: 14px 0;
-}
-
 
 :root {
     font-family: var(--font-ko);
@@ -74,7 +40,6 @@ textarea {
 body {
     font-size: 1.6rem;
 }
-
 
 /*layout*/
 .wrapper {
@@ -91,7 +56,7 @@ body {
     color: var(--color-black80);
     padding-bottom: 3.75px;
     max-width: 260px;
-    padding-top: 114.75px;
+    padding-top: 100.75px;
     line-height: 34px;
 }
 
@@ -149,7 +114,7 @@ body {
     right: -20px;
     /* 우측 네거티브 마진 */
     bottom: 0;
-    background-image: url();
+    background-image: url(/src/assets/images/img-detail-1.svg);
     background-size: cover;
     background-position: center;
     z-index: -1;
@@ -190,7 +155,6 @@ body {
     flex-wrap: wrap;
     gap: 6px;
     row-gap: 10px;
-
 }
 
 .detail-content_tag {
@@ -236,7 +200,6 @@ body {
 
 .detail-comment_header-btn {
     width: 2px;
-
 }
 
 .detail-comment_header-profile_src {
@@ -273,7 +236,6 @@ body {
     margin-bottom: 14.25px;
 }
 
-
 .detail-comment_header-container_btn {
     padding-right: 13px;
 }
@@ -292,7 +254,6 @@ body {
 .detail-comment_writing-container {
     padding: 16px 21px 0 21px;
     min-height: 155px;
-
 }
 
 .detail-comment_writing-container_profile {
@@ -374,14 +335,18 @@ body {
     justify-content: center;
 }
 
-
 .detail-profile_subscribe-btn {
     margin-left: auto;
+    cursor: pointer;
 }
 
 .detail-footer {
     border-top: 1px solid var(--color-gray30);
     padding: 14.5px 0;
+}
+
+.detail-footer_like-btn {
+    cursor: pointer;
 }
 
 .detail-footer_like-btn span {
@@ -401,9 +366,20 @@ body {
     align-content: end;
 }
 
+.detail-profile_subscribe-information_subscriber {
+    color: var(--color-gray70);
+    font-size: 1.4rem;
+}
+
+.detail-profile_subscribe-information_count {
+    color: var(--color-gray80);
+    font-size: 1.4rem;
+}
+
+
+
 .detail-footer_message_btn {
     margin-left: auto;
-
 }
 
 /*좋아요 등록/취소(필수) 구독 등록/취소(필수)*/
