@@ -46,6 +46,8 @@
 }
 
 .fav-author__avatar {
+  width: 80px;
+  height: 80px;
   margin-bottom: 16px;
 }
 

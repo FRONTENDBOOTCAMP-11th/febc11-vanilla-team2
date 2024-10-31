@@ -39,10 +39,12 @@ const renderFavAuthor = async () => {
     const favAuthors = response.data.item;
     $favAuthorList.innerHTML = favAuthors
       .map(favAuthor => {
-        console.log(favAuthor);
+        const favAuthorsImage = favAuthor.user.image
+          ? `${apiUrl}/${favAuthor.user.image}`
+          : `${apiUrl}/${clientId}/user-muzi.webp`;
         return `
         <li class="fav-author__list" data-id="${favAuthor.user._id}">
-          <img class="fav-author__avatar" src="../../assets/images/img-author-1.svg" alt="Grace" />
+          <img class="fav-author__avatar" src="${favAuthorsImage}" alt="Grace" />
           <h4 class="fav-author__name">${favAuthor.user.name}</h4>
         </li>
       `;
@@ -63,6 +65,7 @@ const renderRecentView = () => {
 
   $recentViewList.innerHTML = recentPosts
     .map(recentPost => {
+      console.log(recentPost);
       return `
       <li class="recent-view__list" data-id="${recentPost.id}">
         <img class="recent-view__book-thumbnail" src="../../assets/images/img-book-9.svg" alt="book-1.svg" />
