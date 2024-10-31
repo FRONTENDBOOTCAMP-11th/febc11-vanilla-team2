@@ -126,6 +126,7 @@
   flex-direction: column;
   align-items: center;
   flex: none;
+  cursor: pointer;
 }
 
 .fav-article__book-thumbnail {
