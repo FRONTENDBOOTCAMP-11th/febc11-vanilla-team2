@@ -39,9 +39,12 @@ const renderFavAuthor = async () => {
     const favAuthors = response.data.item;
     $favAuthorList.innerHTML = favAuthors
       .map(favAuthor => {
+        const favAuthorsImage = favAuthor.user.image
+          ? `${apiUrl}/${favAuthor.user.image}`
+          : `${apiUrl}/${clientId}/user-muzi.webp`;
         return `
-        <li class="fav-author__list" data-id="${favAuthor._id}">
-          <img class="fav-author__avatar" src="../../assets/images/img-author-1.svg" alt="Grace" />
+        <li class="fav-author__list" data-id="${favAuthor.user._id}">
+          <img class="fav-author__avatar" src="${favAuthorsImage}" alt="Grace" />
           <h4 class="fav-author__name">${favAuthor.user.name}</h4>
         </li>
       `;
@@ -59,22 +62,28 @@ const renderFavAuthor = async () => {
 // 최근 본 렌더링
 const renderRecentView = () => {
   const recentPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
-
-  $recentViewList.innerHTML = recentPosts
-    .map(recentPost => {
-      return `
+  try {
+    $recentViewList.innerHTML = recentPosts
+      .map(recentPost => {
+        const recentPostImage = recentPost.image
+          ? `${apiUrl}/${recentPost.image}`
+          : `${apiUrl}/files/${clientId}/user-jayg.webp`;
+        return `
       <li class="recent-view__list" data-id="${recentPost.id}">
-        <img class="recent-view__book-thumbnail" src="../../assets/images/img-book-9.svg" alt="book-1.svg" />
+        <img class="recent-view__book-thumbnail" src="${recentPostImage}" alt="" />
           <h3 class="recent-view__title">${recentPost.title}</h3>
           <p class="recent-view__author"><em>by</em> ${recentPost.author}</p>
       </li>
       `;
-    })
-    .join("");
+      })
+      .join("");
 
-  document.querySelectorAll(".recent-view__list").forEach(favArticleList => {
-    favArticleList.addEventListener("click", handleRecentView);
-  });
+    document.querySelectorAll(".recent-view__list").forEach(favArticleList => {
+      favArticleList.addEventListener("click", handleRecentView);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // 관심 글 렌더링

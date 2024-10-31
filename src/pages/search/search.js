@@ -97,10 +97,11 @@ const renderArticlesResults = articles => {
   if (articles.length > 0) {
     $resultArticles.innerHTML = articles
       .map(article => {
-        const articleImage = article.image
-          ? `https://11.fesp.shop/${article.image}`
-          : null;
-        console.log(articleImage);
+        const articleImage =
+          article.image && article.image.length > 0
+            ? `https://11.fesp.shop/${article.image[0]}`
+            : null;
+
         return `
         <div class="search-results">
           <div class="search-results__meta">글 검색 결과 ${articles.length}건</div>
@@ -149,23 +150,21 @@ const renderArticlesResults = articles => {
 };
 
 const renderAuthorsResults = authors => {
-  console.log(authors);
   if (authors.length > 0) {
     $resultAuthors.innerHTML = authors
-      .map(
-        author =>
-          `
+      .map(author => {
+        return `
           <div class="search-results__meta">작가 검색 결과 ${authors.length}건</div>
           <div class="result-authors__lists" data-id=${author._id}>
             <div class="result-authors__list">
               <div class="result-authors__image">
-                <img src="https://11.fesp.shop/files/${clientId}/user-muzi.webp" alt="${author.name}의 이미지" />
+                <img src="https://11.fesp.shop/files/${clientId}/user-apeach.webp" alt="${author.name}의 이미지" />
               </div>
               <h3 class="result-authors__name">${highlightQuery(author.name, $searchInput.value.trim())}</h3>
             </div>
           </div>
-      `,
-      )
+      `;
+      })
       .join("");
     $resultAuthors.style.display = "block";
     document.querySelector(".search-contents__articles").style.display = "none";
