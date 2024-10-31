@@ -82,16 +82,14 @@ body {
   gap: 8px;
   margin-bottom: 30px;
   align-items: center;
+  cursor: pointer;
 }
 
 .login-form_check-container p {
-
   position: relative;
   top: 3px;
   font-size: 1.3rem;
 }
-
-
 
 .login-form_button-checkBtn_cover {
   position: relative;
@@ -112,6 +110,7 @@ input[type="checkbox"] {
   border-radius: 4px;
   font-size: 1.4rem;
   text-align: center;
+  cursor: pointer;
 }
 
 .login-form_button-loginBtn {
