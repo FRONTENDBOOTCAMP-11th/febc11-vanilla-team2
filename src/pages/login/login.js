@@ -98,14 +98,14 @@ window.onload = function () {
         const refreshToken = response.data.item.token.refreshToken; //토큰 접근
         sessionStorage.setItem("accessToken", accessToken); //토큰 세션 스토리지에 저장함
         sessionStorage.setItem("refreshToken", refreshToken);
-        sessionStorage.setItem("userID", userId); //userID저장
+        sessionStorage.setItem("userId", userId); //userId저장
         console.log("세션에 저장");
 
         //체크버튼 활성화  => 로컬에 저장
         if (loginSave) {
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
-          localStorage.setItem("userID", userId);
+          localStorage.setItem("userId", userId);
         }
         window.location.href = "/src/pages/main/main.html"; //저장 후 메인으로 이동
       } else {
