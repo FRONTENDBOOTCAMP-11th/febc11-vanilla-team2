@@ -11,19 +11,32 @@ async function fetchTodayBrunchPosts() {
         "client-id": clientId,
       },
     });
+    console.log(response.data.item);
 
     // API 응답에서 item 배열 추출 및 변환
-    const todayBrunchPosts = response.data.item.map(post => ({
-      _id: post._id,
-      title: post.title,
-      author: post.user.name,
-      contents: post.content,
-      image:
-        typeof post.image === "string" && post.image.trim() !== ""
-          ? `https://11.fesp.shop${post.image}`
-          : "", // 이미지가 없는 경우 빈 문자열      views: post.views,
-    }));
+    const todayBrunchPosts = response.data.item.map(post => {
+      // 이미지 URL을 처리
+      const imageUrl =
+        Array.isArray(post.image) && post.image.length > 0
+          ? `https://11.fesp.shop${post.image[0]}` // 첫 번째 이미지 URL
+          : "https://11.fesp.shop/files/vanilla02/keyword.png"; // 기본 이미지
 
+      // 객체 반환
+      console.log(post);
+      return {
+        _id: post._id,
+        title: post.title,
+        author: post.user.name,
+        contents: post.content,
+        image: imageUrl,
+        view: post.views || 0,
+      };
+    });
+
+    // 조회수 기준으로 정렬
+    todayBrunchPosts.sort((a, b) => b.view - a.view);
+    // 오늘의 게시물 출력
+    console.log(todayBrunchPosts);
     displayPosts(todayBrunchPosts); // 전체 게시물 목록을 displayPosts로 전달
   } catch (error) {
     console.error("게시글을 가져오는 중 오류 발생:", error);
@@ -34,9 +47,6 @@ function displayPosts(posts) {
   const postList = document.getElementById("top10-list");
   postList.innerHTML = ""; // 기존 내용 지우기
 
-  // 조회수 기준으로 정렬
-  posts.sort((a, b) => b.views - a.views);
-
   // 최대 10개 게시물만 표시
   const limitedPosts = posts.slice(0, 10);
 
@@ -45,16 +55,17 @@ function displayPosts(posts) {
     postItem.className = "top10";
     postItem.setAttribute("data-id", post._id);
 
+    // `sanitizeHTML` 함수로 콘텐츠를 안전하게 처리
     postItem.innerHTML = `
       <span class="rank" data-rank="${index + 1}">${index + 1}</span>
       <div class="top10-info">
-        <h1 class="top10-info__header">${post.title}</h1>
+        <h1 class="top10-info__header">${sanitizeHTML(post.title)}</h1>
         <p class="top10-info__author">
-          <span class="by">by</span> <span class="author-name">${post.author}</span>
+          <span class="by">by</span> <span class="author-name">${sanitizeHTML(post.author)}</span>
         </p>
-        <p class="top10-info__text">${post.contents}</p>
+        <p class="top10-info__text">${sanitizeHTML(post.contents)}</p>
       </div>
-      ${post.image ? `<img src="${post.image}" class="top10-img" alt="이미지" />` : ""}
+      ${post.image ? `<img src="${sanitizeHTML(post.image)}" class="top10-img" alt="이미지" />` : ""}
     `;
 
     // 클릭 시 상세페이지로 이동
@@ -66,6 +77,12 @@ function displayPosts(posts) {
   });
 }
 
+// `sanitizeHTML` 함수 정의
+function sanitizeHTML(str) {
+  const tempDiv = document.createElement("div");
+  tempDiv.textContent = str; // 텍스트로 설정하여 HTML 인코딩
+  return tempDiv.innerHTML; // 인코딩된 HTML 반환
+}
 async function fetchSubTopAuthors() {
   try {
     const response = await axios.get("https://11.fesp.shop/users", {
