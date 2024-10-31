@@ -365,3 +365,44 @@ document.addEventListener("DOMContentLoaded", async () => {
     await toggleSubscribe();
   });
 });
+
+// 내 서랍 - 관심 글 로직
+// 특정 페이지에서 현재 게시글 정보를 sessionStorage에 저장하는 함수
+const saveCurrentPostToSessionStorage = post => {
+  // 로그인 여부 확인: accessToken이 있을 때만 실행
+  const accessToken = sessionStorage.getItem("accessToken");
+  if (!accessToken) return; // accessToken이 없으면 함수 종료
+
+  const savedPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
+  const newPost = {
+    id: post.id,
+    title: post.title,
+    author: post.author,
+  };
+
+  console.log("newPost", newPost);
+  // 이미 저장된 게시글 중복 방지
+  const isPostSaved = savedPosts.some(savedPost => savedPost.id === newPost.id);
+  if (!isPostSaved) {
+    // 최대 4개 제한을 위해, 4개 이상일 경우 가장 오래된 게시글을 제거
+    if (savedPosts.length >= 4) {
+      savedPosts.shift(); // 가장 오래된 게시글(첫 번째 요소) 삭제
+    }
+    savedPosts.push(newPost); // 새 게시글 추가
+    sessionStorage.setItem("savedPosts", JSON.stringify(savedPosts));
+  }
+};
+
+// 특정 페이지 접근 시, 해당 게시글의 정보를 sessionStorage에 저장
+window.addEventListener("load", async () => {
+  const posts = await getPost();
+  console.log("상세 페이지 게시글 정보", posts);
+  // 페이지에서 게시글의 id, title, author를 가져와서 저장
+  const post = {
+    id: posts._id,
+    title: posts.title,
+    author: posts.user.name,
+  };
+
+  saveCurrentPostToSessionStorage(post);
+});

@@ -14,129 +14,46 @@
     <div class="wrapper">
       <header class="header"></header>
       <!-- 내 서랍 - 관심 작가 -->
-      <section class="fav-authors">
+      <section class="fav-author">
         <!-- 내 서랍 - 관심 작가 헤더 영역 -->
         <header class="my-drawer__header">
           <h2 class="my-drawer__title">관심 작가</h2>
           <img class="my-drawer__icon" src="../../assets/icons/ic-next.svg" />
         </header>
         <!-- 내 서랍 - 관심 작가 리스트 영역 -->
-        <ul class="fav-authors__list">
-          <li class="fav-authors__item">
-            <img
-              class="fav-authors__avatar"
-              src="../../assets/images/img-author-1.svg"
-              alt="Grace"
-            />
-            <h4 class="fav-authors__name">그레이스</h4>
-          </li>
-          <li class="fav-authors__item">
-            <img
-              class="fav-authors__avatar"
-              src="../../assets/images/img-author-2.svg"
-              alt=""
-            />
-            <h4 class="fav-authors__name">베이스</h4>
-          </li>
-          <li class="fav-authors__item">
-            <img
-              class="fav-authors__avatar"
-              src="../../assets/images/img-author-4.svg"
-              alt=""
-            />
-            <h4 class="fav-authors__name">톰 요크</h4>
-          </li>
-          <li class="fav-authors__item">
-            <img
-              class="fav-authors__avatar"
-              src="../../assets/images/img-author-9.svg"
-              alt=""
-            />
-            <h4 class="fav-authors__name">마틸다 하나씨</h4>
-          </li>
-        </ul>
+        <ul class="fav-author__lists"></ul>
       </section>
 
       <!-- 내 서랍 - 최근 본 -->
-      <section class="recent-views">
+      <section class="recent-view">
         <!-- 내 서랍 - 최근 본 헤더 영역 -->
         <header class="my-drawer__header">
           <h2 class="my-drawer__title">최근 본</h2>
           <img class="my-drawer__icon" src="../../assets/icons/ic-next.svg" />
         </header>
         <!-- 내 서랍 - 최근 본 리스트 영역 -->
-        <ul class="recent-views__list">
-          <li class="recent-views__item">
+        <ul class="recent-view__lists">
+          <li class="recent-view__list">
             <img
-              class="recent-views__book-thumbnail"
+              class="recent-view__book-thumbnail"
               src="../../assets/images/img-book-9.svg"
               alt="book-1.svg"
             />
-            <h3 class="recent-views__title">강남 안에, 강북 남자</h3>
-            <p class="recent-views__author"><em>by</em> 눅눅한과자</p>
-          </li>
-          <li class="recent-views__item">
-            <img
-              class="recent-views__book-thumbnail"
-              src="../../assets/images/img-book-10.svg"
-              alt="book-2.svg"
-            />
-            <h3 class="recent-views__title">
-              서울에서 혼자 밥해먹고 사는 사람
-            </h3>
-            <p class="recent-views__author"><em>by</em> 이학위</p>
-          </li>
-          <li class="recent-views__item">
-            <img
-              class="recent-views__book-thumbnail"
-              src="../../assets/images/img-book-11.svg"
-              alt="book-3.svg"
-            />
-            <h3 class="recent-views__title">이과 남편과 문과 아내의 실화극</h3>
-            <p class="recent-views__author"><em>by</em> 빛날현</p>
+            <h3 class="recent-view__title">강남 안에, 강북 남자</h3>
+            <p class="recent-view__author"><em>by</em> 눅눅한과자</p>
           </li>
         </ul>
       </section>
 
       <!-- 내 서랍 - 관심 글 -->
-      <section class="fav-articles">
+      <section class="fav-article">
         <!-- 내 서랍 - 관심 글 헤더 영역 -->
         <header class="my-drawer__header">
           <h2 class="my-drawer__title">관심 글</h2>
           <img class="my-drawer__icon" src="../../assets/icons/ic-next.svg" />
         </header>
         <!-- 내 서랍 - 관심 글 리스트 영역 -->
-        <ul class="fav-articles__list">
-          <li class="fav-articles__item">
-            <img
-              class="fav-articles__book-thumbnail"
-              src="../../assets/images/img-book-9.svg"
-              alt="book-1.svg"
-            />
-            <h3 class="fav-articles__title">강남 안에, 강북 남자</h3>
-            <p class="fav-articles__author"><em>by</em> 눅눅한과자</p>
-          </li>
-          <li class="fav-articles__item">
-            <img
-              class="fav-articles__book-thumbnail"
-              src="../../assets/images/img-book-10.svg"
-              alt="book-2.svg"
-            />
-            <h3 class="fav-articles__title">
-              서울에서 혼자 밥해먹고 사는 사람
-            </h3>
-            <p class="fav-articles__author"><em>by</em> 이학위</p>
-          </li>
-          <li class="fav-articles__item">
-            <img
-              class="fav-articles__book-thumbnail"
-              src="../../assets/images/img-book-11.svg"
-              alt="book-3.svg"
-            />
-            <h3 class="fav-articles__title">이과 남편과 문과 아내의 실화극</h3>
-            <p class="fav-articles__author"><em>by</em> 빛날현</p>
-          </li>
-        </ul>
+        <ul class="fav-article__lists"></ul>
       </section>
 
       <!-- 내 서랍 - 내 브런치 -->
@@ -147,18 +64,7 @@
           <img class="my-drawer__icon" src="../../assets/icons/ic-next.svg" />
         </header>
         <!-- 내 서랍 - 내 브런치 리스트 영역 -->
-        <ul class="my-brunch__list">
-          <li class="my-brunch__item">
-            <h3 class="my-brunch__chapter">D-70, 30주</h3>
-            <p class="my-brunch__book">딸과 만나기까지 100일간의 기록</p>
-            <p class="my-brunch__published-date">Feb 05 / 2024</p>
-          </li>
-          <li class="my-brunch__item">
-            <h3 class="my-brunch__chapter">6 윤희, - 2</h3>
-            <p class="my-brunch__book">낙원</p>
-            <p class="my-brunch__published-date">Jul 04 / 2024</p>
-          </li>
-        </ul>
+        <ul class="my-brunch__lists"></ul>
       </section>
       <footer class="footer"></footer>
     </div>
