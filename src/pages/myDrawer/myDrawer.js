@@ -63,22 +63,29 @@ const renderFavAuthor = async () => {
 const renderRecentView = () => {
   const recentPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
 
-  $recentViewList.innerHTML = recentPosts
-    .map(recentPost => {
-      console.log(recentPost);
-      return `
+  console.log("Session 값 가져오기", recentPosts);
+  try {
+    $recentViewList.innerHTML = recentPosts
+      .map(recentPost => {
+        const recentPostImage = recentPost.image
+          ? `${apiUrl}/${recentPost.image}`
+          : `${apiUrl}/files/${clientId}/user-jayg.webp`;
+        return `
       <li class="recent-view__list" data-id="${recentPost.id}">
-        <img class="recent-view__book-thumbnail" src="../../assets/images/img-book-9.svg" alt="book-1.svg" />
+        <img class="recent-view__book-thumbnail" src="${recentPostImage}" alt="" />
           <h3 class="recent-view__title">${recentPost.title}</h3>
           <p class="recent-view__author"><em>by</em> ${recentPost.author}</p>
       </li>
       `;
-    })
-    .join("");
+      })
+      .join("");
 
-  document.querySelectorAll(".recent-view__list").forEach(favArticleList => {
-    favArticleList.addEventListener("click", handleRecentView);
-  });
+    document.querySelectorAll(".recent-view__list").forEach(favArticleList => {
+      favArticleList.addEventListener("click", handleRecentView);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // 관심 글 렌더링
