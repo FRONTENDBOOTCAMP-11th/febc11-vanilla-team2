@@ -10,8 +10,6 @@ const api = axios.create({
 const token = sessionStorage.getItem("accessToken");
 let postData;
 
-// 현재 위치를 쿼리 문자열로.. 쿼리 문자열을 파싱해서 저장..
-// 특정 쿼리 매개변수의 값을 get으로 가져와서 저장..
 const params = new URLSearchParams(window.location.search);
 const authorId = params.get("_id");
 
@@ -100,18 +98,52 @@ const detailPageClick = e => {
   window.location.href = `/src/pages/detailPage/detailPage.html?id=${detailPageId}`;
 };
 
-/* .......구독기능....... */
+/* ..........구독기능.......... */
+
+// 현재 로그인 유저의 _id값 찾기 위해
+// 현재 로그인 한 유저 정보 가져오기
+async function getLoginUser() {
+  try {
+    // const userEmail = sessionStorage.getItem("userEmail");
+    const userEmail = "w3@gmail.com"; //지워야 됨
+
+    const response = await api.get("/users");
+    const users = response.data.item;
+
+    // 전체 유저 중 세션에 등록된 이메일로 현재 로그인한 유저 찾기
+    const loginUser = users.find(function (user) {
+      return user.email === userEmail;
+    });
+
+    return loginUser;
+  } catch (error) {
+    console.error("로그인 유저 정보 가져오기 실패:", error);
+  }
+}
+
+// (로그인된 id === 작가홈 id) 비교
+async function checkUser() {
+  let subscribeData = await getBookmark();
+  const hasSubscribe = subscribeData.some(
+    item => item.user._id === postData._id,
+  );
+  return hasSubscribe;
+}
 
 // 구독자(follower) 수 업데이트
 async function updateSubscribeCount() {
-  let subscribeCounts = document.getElementById("#bookmarkedBy");
-  try {
-    const authorData = await getAuthorInfo(postData._id);
-    const subscriberCount = authorData.bookmarkedBy.users;
-    subscribeCounts.innerHTML = subscriberCount;
-  } catch (error) {
-    console.error("구독자 수 업데이트 실패:", error);
+  let checkUserSame = await checkUser();
+  if (!checkUserSame) {
+    try {
+      let bookmarkedByCount = document.querySelector("#bookmarkedBy");
+      const authorData = await getAuthorInfo(postData);
+      const subscriberCount = authorData.bookmarkedBy.users;
+      bookmarkedByCount.innerHTML = subscriberCount;
+    } catch (error) {
+      console.error("구독자(follower) 수 업데이트 실패:", error);
+    }
   }
+  return;
 }
 
 // 구독자 조회
@@ -133,22 +165,28 @@ async function getBookmark() {
   }
 }
 
-// 구독 추가
+// 구독하기 & 구독취소
 const subscribeBtn = document.querySelector(".btn_subscribe");
 const checkIcon = document.querySelector(".ico_check");
 
-// 구독 버튼 클릭
 subscribeBtn.addEventListener("click", async () => {
   try {
-    // 구독을 누른 사람의 id === 작가홈 작가 id
+    const loginUser = await getLoginUser();
+    let targetId = Number(authorId); // string -> Number 바꾸기
+
+    if (loginUser._id === Number(targetId)) {
+      alert("본인 계정은 구독할 수 없습니다");
+      return;
+    }
+
     let subscribeData = await getBookmark();
-    const hasSubcribe = subscribeData.some(
+    const hasSubscribe = subscribeData.some(
       item => item.user._id === postData._id,
     );
 
-    if (!hasSubcribe) {
+    if (!hasSubscribe) {
       await api.post(
-        "/bookmarks/user",
+        `/bookmarks/user`,
         { target_id: postData._id },
         {
           headers: {
@@ -184,8 +222,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   await Promise.all([
     getAuthorInfo(),
     getPosts(),
+    getLoginUser(),
     getBookmark(),
-    updateSubscribeCount(),
   ]);
 
   let subscribeData = await getBookmark();
