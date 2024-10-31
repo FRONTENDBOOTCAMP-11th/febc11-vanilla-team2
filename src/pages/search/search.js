@@ -97,10 +97,11 @@ const renderArticlesResults = articles => {
   if (articles.length > 0) {
     $resultArticles.innerHTML = articles
       .map(article => {
-        const articleImage = article.image
-          ? `https://11.fesp.shop/${article.image}`
-          : null;
-        console.log(articleImage);
+        const articleImage =
+          article.image && article.image.length > 0
+            ? `https://11.fesp.shop/${article.image[0]}`
+            : null;
+
         return `
         <div class="search-results">
           <div class="search-results__meta">글 검색 결과 ${articles.length}건</div>

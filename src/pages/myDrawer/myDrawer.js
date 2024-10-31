@@ -39,8 +39,9 @@ const renderFavAuthor = async () => {
     const favAuthors = response.data.item;
     $favAuthorList.innerHTML = favAuthors
       .map(favAuthor => {
+        console.log(favAuthor);
         return `
-        <li class="fav-author__list" data-id="${favAuthor._id}">
+        <li class="fav-author__list" data-id="${favAuthor.user._id}">
           <img class="fav-author__avatar" src="../../assets/images/img-author-1.svg" alt="Grace" />
           <h4 class="fav-author__name">${favAuthor.user.name}</h4>
         </li>
