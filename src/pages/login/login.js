@@ -89,19 +89,23 @@ window.onload = function () {
 
       // 로그인 성공 확인
       if (response.data.ok === 1) {
+        //세션에 자동 저장
         console.log("로그인 성공 데이터", response.data.item);
+        console.log("ID데이터", response.data.item._id);
         //엑세스 토큰 저장해야함
-
+        const userId = response.data.item._id;
         const accessToken = response.data.item.token.accessToken;
         const refreshToken = response.data.item.token.refreshToken; //토큰 접근
         sessionStorage.setItem("accessToken", accessToken); //토큰 세션 스토리지에 저장함
         sessionStorage.setItem("refreshToken", refreshToken);
+        sessionStorage.setItem("userId", userId); //userId저장
         console.log("세션에 저장");
 
         //체크버튼 활성화  => 로컬에 저장
         if (loginSave) {
           localStorage.setItem("accessToken", accessToken);
           localStorage.setItem("refreshToken", refreshToken);
+          localStorage.setItem("userId", userId);
         }
         window.location.href = "/src/pages/main/main.html"; //저장 후 메인으로 이동
       } else {
