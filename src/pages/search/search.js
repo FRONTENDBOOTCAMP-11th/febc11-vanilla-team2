@@ -21,6 +21,7 @@ const handleSearchInput = () => {
   if (!query) {
     $resultArticles.innerHTML = "";
     $resultAuthors.innerHTML = "";
+    $searchTab.style.display = "none";
     hideNoResults();
   } else {
     $noInputSection.style.display = "none";
@@ -95,9 +96,12 @@ const highlightQuery = (text, query) => {
 const renderArticlesResults = articles => {
   if (articles.length > 0) {
     $resultArticles.innerHTML = articles
-      .map(
-        article =>
-          `
+      .map(article => {
+        const articleImage = article.image
+          ? `https://11.fesp.shop/${article.image}`
+          : null;
+        console.log(articleImage);
+        return `
         <div class="search-results">
           <div class="search-results__meta">글 검색 결과 ${articles.length}건</div>
           <div class="search-results__sort">
@@ -122,12 +126,12 @@ const renderArticlesResults = articles => {
               <span class="result-articles__author">by ${article.user.name}</span>
             </div>
             <div class="result-articles__image">
-              <img src="${article.user.image}" alt="${article.user.name}의 이미지" />
+              ${articleImage ? `<img src="${articleImage}" alt="${article.user.name}의 이미지" />` : ""}
             </div>
           </div>
         </div>
-      `,
-      )
+      `;
+      })
       .join("");
     $resultArticles.style.display = "block";
     $sectionDismatch.style.display = "none";
