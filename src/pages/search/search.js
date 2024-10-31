@@ -150,23 +150,21 @@ const renderArticlesResults = articles => {
 };
 
 const renderAuthorsResults = authors => {
-  console.log(authors);
   if (authors.length > 0) {
     $resultAuthors.innerHTML = authors
-      .map(
-        author =>
-          `
+      .map(author => {
+        return `
           <div class="search-results__meta">작가 검색 결과 ${authors.length}건</div>
           <div class="result-authors__lists" data-id=${author._id}>
             <div class="result-authors__list">
               <div class="result-authors__image">
-                <img src="https://11.fesp.shop/files/${clientId}/user-muzi.webp" alt="${author.name}의 이미지" />
+                <img src="https://11.fesp.shop/files/${clientId}/user-apeach.webp" alt="${author.name}의 이미지" />
               </div>
               <h3 class="result-authors__name">${highlightQuery(author.name, $searchInput.value.trim())}</h3>
             </div>
           </div>
-      `,
-      )
+      `;
+      })
       .join("");
     $resultAuthors.style.display = "block";
     document.querySelector(".search-contents__articles").style.display = "none";

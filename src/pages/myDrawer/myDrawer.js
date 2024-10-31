@@ -62,8 +62,6 @@ const renderFavAuthor = async () => {
 // 최근 본 렌더링
 const renderRecentView = () => {
   const recentPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
-
-  console.log("Session 값 가져오기", recentPosts);
   try {
     $recentViewList.innerHTML = recentPosts
       .map(recentPost => {

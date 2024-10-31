@@ -380,9 +380,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 const saveCurrentPostToSessionStorage = post => {
   const accessToken = sessionStorage.getItem("accessToken");
   if (!accessToken) return;
-
   const savedPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
-  console.log("post 단일", post);
   const newPost = {
     id: post.id,
     title: post.title,
@@ -390,7 +388,6 @@ const saveCurrentPostToSessionStorage = post => {
     image: post.image,
   };
 
-  console.log("newPost 단일", newPost);
   const isPostSaved = savedPosts.some(savedPost => savedPost.id === newPost.id);
   if (!isPostSaved) {
     if (savedPosts.length >= 4) {
