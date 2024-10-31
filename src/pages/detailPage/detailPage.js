@@ -106,7 +106,7 @@ function displayComment(comments) {
           </div>
           <div class="detail-comment_header-container_btn">
             <button class="detail-comment_header-btn">
-              <img src="/public/assets/icons/ic-option.svg" alt="답글 추가 보기" />
+              <img src="/assets/icons/ic-option.svg" alt="답글 추가 보기" />
             </button>
           </div>
         </div>
@@ -222,16 +222,16 @@ async function initializeButtonStates() {
   let bookmarks = await getBookmarks();
   const isLike = bookmarks?.some(item => item.post._id === postData._id);
   likeBtnSrc.src = isLike
-    ? "/public/assets/icons/ic-like-on.svg"
-    : "/public/assets/icons/ic-like-off.svg";
+    ? "/assets/icons/ic-like-on.svg"
+    : "/assets/icons/ic-like-off.svg";
 
   let subscribeData = await getSubscribe();
   const isSubscribed = subscribeData?.some(
     item => item.user._id === postData.user._id,
   );
   subcribeBtnSrc.src = isSubscribed
-    ? "/public/assets/icons/ic-subscribe-on.svg"
-    : "/public/assets/icons/ic-subscribe-off.svg";
+    ? "/assets/icons/ic-subscribe-on.svg"
+    : "/assets/icons/ic-subscribe-off.svg";
 }
 //로그인 함수//좋아요랑 구독버튼 클릭시에만 로그인 여부를 확인함
 function checkLogin() {
@@ -279,7 +279,7 @@ async function toggleBookmark() {
           },
         },
       );
-      likeBtnSrc.src = "/public/assets/icons/ic-like-on.svg";
+      likeBtnSrc.src = "/assets/icons/ic-like-on.svg";
     } else {
       const bookmarkId = bookmarks.find(
         item => item.post._id === postData._id,
@@ -291,7 +291,7 @@ async function toggleBookmark() {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      likeBtnSrc.src = "/public/assets/icons/ic-like-off.svg";
+      likeBtnSrc.src = "/assets/icons/ic-like-off.svg";
     }
 
     postData = await getPost();
@@ -327,7 +327,7 @@ async function toggleSubscribe() {
           },
         },
       );
-      subcribeBtnSrc.src = "/public/assets/icons/ic-subscribe-on.svg";
+      subcribeBtnSrc.src = "/assets/icons/ic-subscribe-on.svg";
     } else {
       const subscribeId = subscribeData.find(
         item => item.user._id === postData.user._id,
@@ -339,7 +339,7 @@ async function toggleSubscribe() {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      subcribeBtnSrc.src = "/public/assets/icons/ic-subscribe-off.svg";
+      subcribeBtnSrc.src = "/assets/icons/ic-subscribe-off.svg";
     }
     await updateSubscribeCount(); //구독자 수 업뎃
   } catch (error) {

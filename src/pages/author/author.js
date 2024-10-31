@@ -169,7 +169,7 @@ subscribeBtn.addEventListener("click", async () => {
           },
         },
       );
-      checkIcon.src = "/public/assets/icons/ic-subscribe-on.svg";
+      checkIcon.src = "/assets/icons/ic-subscribe-on.svg";
     } else {
       const subscribeId = subscribeData.find(
         item => item.user._id === postData._id,
@@ -179,7 +179,7 @@ subscribeBtn.addEventListener("click", async () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      checkIcon.src = "/public/assets/icons/ic-subscribe-off.svg";
+      checkIcon.src = "/assets/icons/ic-subscribe-off.svg";
     }
     await updateSubscribeCount();
   } catch (error) {
@@ -217,8 +217,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     item => item.user._id === postData._id,
   );
   if (isSubscribed) {
-    checkIcon.src = "/public/assets/icons/ic-subscribe-on.svg";
+    checkIcon.src = "/assets/icons/ic-subscribe-on.svg";
   } else {
-    checkIcon.src = "/public/assets/icons/ic-subscribe-off.svg";
+    checkIcon.src = "/assets/icons/ic-subscribe-off.svg";
   }
 });
