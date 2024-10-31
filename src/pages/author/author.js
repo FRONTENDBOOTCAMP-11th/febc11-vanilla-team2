@@ -104,15 +104,15 @@ const detailPageClick = e => {
 // 현재 로그인 한 유저 정보 가져오기
 async function getLoginUser() {
   try {
-    // const userEmail = sessionStorage.getItem("userEmail");
-    const userEmail = "w3@gmail.com"; //지워야 됨
+    const userId = Number(sessionStorage.getItem("userId"));
 
+    // console.log(typeof userId, userId);
     const response = await api.get("/users");
     const users = response.data.item;
 
     // 전체 유저 중 세션에 등록된 이메일로 현재 로그인한 유저 찾기
     const loginUser = users.find(function (user) {
-      return user.email === userEmail;
+      return user._id === userId;
     });
 
     return loginUser;
@@ -121,19 +121,13 @@ async function getLoginUser() {
   }
 }
 
-// (로그인된 id === 작가홈 id) 비교
-async function checkUser() {
+// 구독자(follower) 수 업데이트
+async function updateSubscribeCount() {
   let subscribeData = await getBookmark();
   const hasSubscribe = subscribeData.some(
     item => item.user._id === postData._id,
   );
-  return hasSubscribe;
-}
-
-// 구독자(follower) 수 업데이트
-async function updateSubscribeCount() {
-  let checkUserSame = await checkUser();
-  if (!checkUserSame) {
+  if (!hasSubscribe) {
     try {
       let bookmarkedByCount = document.querySelector("#bookmarkedBy");
       const authorData = await getAuthorInfo(postData);
@@ -173,7 +167,7 @@ subscribeBtn.addEventListener("click", async () => {
   try {
     const loginUser = await getLoginUser();
     let targetId = Number(authorId); // string -> Number 바꾸기
-
+    console.log(loginUser._id, targetId);
     if (loginUser._id === Number(targetId)) {
       alert("본인 계정은 구독할 수 없습니다");
       return;
