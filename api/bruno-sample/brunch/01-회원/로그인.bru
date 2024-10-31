@@ -1,0 +1,22 @@
+meta {
+  name: 로그인
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/users/login?1=123
+  body: json
+  auth: none
+}
+
+params:query {
+  1: 123
+}
+
+body:json {
+  {
+    "email": "w1@gmail.com",
+    "password": "11111111"
+  }
+}

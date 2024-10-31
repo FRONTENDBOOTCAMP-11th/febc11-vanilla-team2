@@ -1,0 +1,21 @@
+meta {
+  name: 게시물 추가
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/posts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "무사히 마흔살이 될 수 있을까",
+    "author": "강윤이",
+    "summary": "병원에서 암 진단을 받고 나와 햇볕이 작열하며 끓어오르는 거리를 …",
+    "image": "/src/assets/images/top1.svg"
+  }
+  
+}

@@ -1,0 +1,28 @@
+meta {
+  name: 게시물
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://11.fesp.shop/posts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "이미지테스트7",
+    "subTitle": "이미지테스트7",
+    "content": "이미지테스트7",
+    "image": "/files/vanilla02/ZzzGvdq0X.svg",
+    "user": {
+      "_id": 13,
+      "type": "user",
+      "name": "권",
+      "email": "khk@gmail.com"
+    },
+    "type": "post"
+  }
+  
+}
