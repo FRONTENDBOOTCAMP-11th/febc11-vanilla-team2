@@ -39,12 +39,12 @@ const renderFavAuthor = async () => {
     const favAuthors = response.data.item;
     $favAuthorList.innerHTML = favAuthors
       .map(favAuthor => {
-        const favAuthorsImage = favAuthor.user.image
-          ? `${apiUrl}/${favAuthor.user.image}`
-          : `${apiUrl}/${clientId}/user-muzi.webp`;
+        const favAuthorImage = favAuthor.user.image
+          ? `${apiUrl}${favAuthor.user.image}`
+          : `${apiUrl}/files/${clientId}/user-apeach.webp`;
         return `
         <li class="fav-author__list" data-id="${favAuthor.user._id}">
-          <img class="fav-author__avatar" src="${favAuthorsImage}" alt="Grace" />
+          <img class="fav-author__avatar" src="${favAuthorImage}" alt="Grace" />
           <h4 class="fav-author__name">${favAuthor.user.name}</h4>
         </li>
       `;
@@ -99,9 +99,15 @@ const renderFavArticle = async () => {
     const favArticles = response.data.item;
     $favArticleList.innerHTML = favArticles
       .map(favArticle => {
+        console.log(favArticle);
+        const favArticleImage =
+          favArticle.post.image && favArticle.post.image.length > 0
+            ? `${apiUrl}/${favArticle.post.image[0]}`
+            : `${apiUrl}/files/${clientId}/user-jayg.webp`;
+
         return `
         <li class="fav-article__list" data-id="${favArticle.post._id}">
-          <img class="fav-article__book-thumbnail" src="../../assets/images/img-book-9.svg" alt="book-1.svg" />
+          <img class="fav-article__book-thumbnail" src="${favArticleImage}" alt="book-1.svg" />
           <h3 class="fav-article__title">${favArticle.post.title}</h3>
           <p class="fav-article__author"><em>by</em> ${favArticle.post.user.name}</p>
         </li>
