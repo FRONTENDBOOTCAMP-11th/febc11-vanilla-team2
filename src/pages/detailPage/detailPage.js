@@ -188,6 +188,7 @@ async function getSubscribe() {
     return response.data.item;
   } catch (error) {
     if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
       window.location.href = "/src/pages/login/login.html";
     } else {
       console.error("게시글 북마크 목록 얻어오기 실패", error);
@@ -208,13 +209,10 @@ async function getBookmarks() {
     return response.data.item;
   } catch (error) {
     if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
       window.location.href = "/src/pages/login/login.html";
     } else {
-      if (error.response.status === 401) {
-        window.location.href = "/src/pages/login/login.html";
-      } else {
-        console.error("게시글 북마크 목록 얻어오기 실패", error);
-      }
+      console.error("게시글 북마크 목록 얻어오기 실패", error);
     }
   }
 }
@@ -300,6 +298,7 @@ async function toggleBookmark() {
     likeCount.innerHTML = postData.bookmarks;
   } catch (error) {
     if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
       window.location.href = "/src/pages/login/login.html";
     } else {
       console.error("게시글 북마크 목록 얻어오기 실패", error);
@@ -345,6 +344,7 @@ async function toggleSubscribe() {
     await updateSubscribeCount(); //구독자 수 업뎃
   } catch (error) {
     if (error.response.status === 401) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
       window.location.href = "/src/pages/login/login.html";
     } else {
       console.error("게시글 북마크 목록 얻어오기 실패", error);
