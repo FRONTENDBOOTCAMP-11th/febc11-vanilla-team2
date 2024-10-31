@@ -106,11 +106,9 @@ async function getLoginUser() {
   try {
     const userId = Number(sessionStorage.getItem("userId"));
 
-    // console.log(typeof userId, userId);
     const response = await api.get("/users");
     const users = response.data.item;
 
-    // 전체 유저 중 세션에 등록된 이메일로 현재 로그인한 유저 찾기
     const loginUser = users.find(function (user) {
       return user._id === userId;
     });
@@ -119,25 +117,6 @@ async function getLoginUser() {
   } catch (error) {
     console.error("로그인 유저 정보 가져오기 실패:", error);
   }
-}
-
-// 구독자(follower) 수 업데이트
-async function updateSubscribeCount() {
-  let subscribeData = await getBookmark();
-  const hasSubscribe = subscribeData.some(
-    item => item.user._id === postData._id,
-  );
-  if (!hasSubscribe) {
-    try {
-      let bookmarkedByCount = document.querySelector("#bookmarkedBy");
-      const authorData = await getAuthorInfo(postData);
-      const subscriberCount = authorData.bookmarkedBy.users;
-      bookmarkedByCount.innerHTML = subscriberCount;
-    } catch (error) {
-      console.error("구독자(follower) 수 업데이트 실패:", error);
-    }
-  }
-  return;
 }
 
 // 구독자 조회
@@ -159,20 +138,22 @@ async function getBookmark() {
   }
 }
 
-// 구독하기 & 구독취소
 const subscribeBtn = document.querySelector(".btn_subscribe");
 const checkIcon = document.querySelector(".ico_check");
 
+// 로그인유저와 작가가 같으면 구독버튼 숨기기
+async function hideSubscribeBtn() {
+  const loginUser = await getLoginUser();
+  if (loginUser._id === Number(authorId)) {
+    subscribeBtn.style.display = "none";
+  } else {
+    subscribeBtn.style.display = "block";
+  }
+}
+
+// 구독하기 & 구독취소
 subscribeBtn.addEventListener("click", async () => {
   try {
-    const loginUser = await getLoginUser();
-    let targetId = Number(authorId); // string -> Number 바꾸기
-    console.log(loginUser._id, targetId);
-    if (loginUser._id === Number(targetId)) {
-      alert("본인 계정은 구독할 수 없습니다");
-      return;
-    }
-
     let subscribeData = await getBookmark();
     const hasSubscribe = subscribeData.some(
       item => item.user._id === postData._id,
@@ -211,6 +192,17 @@ subscribeBtn.addEventListener("click", async () => {
   }
 });
 
+// 구독자(follower) 수 업데이트
+async function updateSubscribeCount() {
+  try {
+    const authorData = await getAuthorInfo();
+    const subscriberCount = authorData.bookmarkedBy.users;
+    document.getElementById("bookmarkedBy").textContent = subscriberCount;
+  } catch (error) {
+    console.error("구독자(follower) 수 업데이트 실패:", error);
+  }
+}
+
 /* DOMContentLoaded */
 document.addEventListener("DOMContentLoaded", async function () {
   await Promise.all([
@@ -218,6 +210,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     getPosts(),
     getLoginUser(),
     getBookmark(),
+    hideSubscribeBtn(),
   ]);
 
   let subscribeData = await getBookmark();
