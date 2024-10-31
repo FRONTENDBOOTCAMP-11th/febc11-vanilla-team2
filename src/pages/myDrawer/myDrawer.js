@@ -15,17 +15,18 @@ window.addEventListener("load", async () => {
     await renderFavAuthor();
     await renderFavArticle();
     await renderMyBrunch();
+    renderRecentView();
   }
 });
 
 // DOM Node
 const $favAuthorList = document.querySelector(".fav-author__lists");
-const $recentViewList = document.querySelector(".recent-view__list");
+const $recentViewList = document.querySelector(".recent-view__lists");
 const $favArticleList = document.querySelector(".fav-article__lists");
 const $myBrunchList = document.querySelector(".my-brunch__lists");
 
 // Render Function
-// 관심 작가
+// 관심 작가 렌더링
 const renderFavAuthor = async () => {
   try {
     const response = await axios.get(`${apiUrl}/bookmarks/user`, {
@@ -55,10 +56,29 @@ const renderFavAuthor = async () => {
   }
 };
 
-// 최근 본
-const renderRecentView = async () => {};
+// 최근 본 렌더링
+const renderRecentView = () => {
+  const recentPosts = JSON.parse(sessionStorage.getItem("savedPosts")) || [];
 
-// 관심 글
+  console.log(recentPosts);
+  $recentViewList.innerHTML = recentPosts
+    .map(recentPost => {
+      return `
+      <li class="recent-view__list" data-id="${recentPost.id}">
+        <img class="recent-view__book-thumbnail" src="../../assets/images/img-book-9.svg" alt="book-1.svg" />
+          <h3 class="recent-view__title">${recentPost.title}</h3>
+          <p class="recent-view__author"><em>by</em> ${recentPost.author}</p>
+      </li>
+      `;
+    })
+    .join("");
+
+  document.querySelectorAll(".recent-view__list").forEach(favArticleList => {
+    favArticleList.addEventListener("click", handleRecentView);
+  });
+};
+
+// 관심 글 렌더링
 const renderFavArticle = async () => {
   try {
     const response = await axios.get(`${apiUrl}/bookmarks/post`, {
@@ -90,7 +110,7 @@ const renderFavArticle = async () => {
   }
 };
 
-// 내 브런치
+// 내 브런치 렌더링
 const renderMyBrunch = async () => {
   try {
     const response = await axios.get(`${apiUrl}/posts/users`, {
@@ -130,7 +150,10 @@ const handleFavAuthor = event => {
 };
 
 // 최근 본 브런치 상세페이지로 이동
-const handleRecentView = () => {};
+const handleRecentView = event => {
+  const recentViewListId = event.currentTarget.getAttribute("data-id");
+  window.location.href = `/src/pages/detailPage/detailPage.html?id=${recentViewListId}`;
+};
 
 // 관심 글 브런치 상세페이지로 이동
 const handleFavArticle = event => {

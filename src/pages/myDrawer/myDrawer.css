@@ -65,6 +65,7 @@
 .recent-view__lists {
   display: flex;
   overflow-x: auto;
+  cursor: pointer;
 }
 
 .recent-view__lists::-webkit-scrollbar {
