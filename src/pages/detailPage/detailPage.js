@@ -81,7 +81,7 @@ async function getAuthor(authorId) {
 
 //작가와 로그인한 게시글ID 같으면 구독버튼 숨기기
 const userId = sessionStorage.getItem("userId");
-function hideSubscribeButtonForAuthor() {
+function hideSubscribeButton() {
   if (postData.user._id === Number(userId)) {
     subscribeBtn.style.display = "none";
   } else {
@@ -165,7 +165,7 @@ async function printPage() {
         : `https://11.fesp.shop/files/vanilla02/user-apeach.webp`;
       console.log("printPage authorData:", authorData.bookmarkedBy.users);
     }
-    hideSubscribeButtonForAuthor(); //작가가 사용자와 같으면 구독버튼 숨김
+    hideSubscribeButton(); //작가가 사용자와 같으면 구독버튼 숨김
     if (postData.replies) {
       displayComment(postData.replies);
     } else {
