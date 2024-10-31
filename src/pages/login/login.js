@@ -13,15 +13,6 @@ window.onload = function () {
   let refreshToken = "";
   let loginSave = false;
 
-  //로그인 저장 체크버튼 클릭시 로컬에 저장함
-  const storagedAccessToken = localStorage.getItem("accessToken");
-  const storagedRefreshTokenToken = localStorage.getItem("refreshToken");
-  if (storagedAccessToken && storagedRefreshTokenToken) {
-    window.location.href = "src/pages/main/main.html";
-  }
-
-  //로그인 저장버튼 클릭 시 자동저장 구현
-
   //로그인 저장버튼 클릭
   checkBtn.addEventListener("click", async e => {
     e.preventDefault();
@@ -124,7 +115,6 @@ window.onload = function () {
   });
 
   //회원가입 버튼 누르면 회원가입 화면으로 이동
-
   signupBtn.addEventListener("click", e => {
     e.preventDefault();
     window.location.href = "/src/pages/login/signup.html";
