@@ -43,7 +43,7 @@ async function getAuthorInfo() {
 /* 작가 글 목록 가져오기 */
 async function getPosts() {
   // 테스트용도로 ?type=info 설정함, 나중에 제거 or ?type=post로 바꾸기
-  const response = await api.get(`/posts/users/${authorId}?type=info`);
+  const response = await api.get(`/posts/users/${authorId}?type=post`);
   let posts = response.data.item;
 
   const postsContainer = document.querySelector(

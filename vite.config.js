@@ -6,6 +6,7 @@ export default defineConfig({
       input: {
         index: "index.html", // 기본 index.html
         login: "src/pages/login/login.html", // 추가 HTML 파일
+        signup: "src/pages/login/signup.html",
         main: "src/pages/main/main.html",
         myDrawer: "src/pages/myDrawer/myDrawer.html",
         search: "src/pages/search/search.html",
