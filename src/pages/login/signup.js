@@ -124,10 +124,10 @@ window.onload = function () {
   passwordBtn.addEventListener("click", () => {
     if (signupPassword.type === "password") {
       signupPassword.type = "text";
-      eyeOnImg[0].src = "/public/assets/icons/ic-eye-on.svg";
+      eyeOnImg[0].src = "/assets/icons/ic-eye-on.svg";
     } else {
       signupPassword.type = "password";
-      eyeOnImg[0].src = "/public/assets/icons/ic-eye-off.svg";
+      eyeOnImg[0].src = "/assets/icons/ic-eye-off.svg";
     }
   });
 
@@ -135,10 +135,10 @@ window.onload = function () {
   confirmPasswordBtn.addEventListener("click", () => {
     if (confirmPassword.type === "password") {
       confirmPassword.type = "text";
-      eyeOnImg[1].src = "/public/assets/icons/ic-eye-on.svg";
+      eyeOnImg[1].src = "/assets/icons/ic-eye-on.svg";
     } else {
       confirmPassword.type = "password";
-      eyeOnImg[1].src = "/public/assets/icons/ic-eye-off.svg";
+      eyeOnImg[1].src = "/assets/icons/ic-eye-off.svg";
     }
   });
 };

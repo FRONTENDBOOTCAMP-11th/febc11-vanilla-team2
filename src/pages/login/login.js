@@ -26,12 +26,12 @@ window.onload = function () {
       ".login-form_button-checkBtn_cover",
     );
     if (loginSave) {
-      checkBtnColor.src = "/public/assets/icons/ic-check-on.svg";
+      checkBtnColor.src = "/assets/icons/ic-check-on.svg";
       signupBtn.classList.add("visually_hidden"); //회원가입 버튼 숨김
       loginBtn.style.backgroundColor = "var(--color-green20)"; //로그인 버튼 색 변화
       loginBtn.style.color = "var(--color-white)";
     } else {
-      checkBtnColor.src = "/public/assets/icons/ic-check-off.svg"; //원래 기본 값
+      checkBtnColor.src = "/assets/icons/ic-check-off.svg"; //원래 기본 값
       signupBtn.classList.remove("visually_hidden");
       loginBtn.style.backgroundColor = "";
       loginBtn.style.color = "";
