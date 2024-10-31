@@ -184,7 +184,7 @@ const renderNoResults = () => {
   $sectionDismatch.innerHTML = `
     <div class="result-dismatch">
       <div class="result-dismatch__image">
-        <img src="../../assets/images/img-dismatch.svg" alt="검색 결과가 없습니다." />
+        <img src="/assets/images/img-dismatch.svg" alt="검색 결과가 없습니다." />
       </div>
       <h3 class="result-dismatch__description">검색 결과가 없습니다.</h3>
     </div>
