@@ -103,7 +103,7 @@ p {
   display: inline-block;
   width: 21px;
   height: 21px;
-  background-image: url("/src/assets/icons/ic-donation.svg");
+  background-image: url("/public/assets/icons/ic-donation.svg");
   background-repeat: no-repeat;
   margin-right: 5px;
   vertical-align: middle;
@@ -255,7 +255,7 @@ p {
 /* bestseller */
 
 .bestseller {
-  background-image: url("/src/assets/images/img-best-seller.svg");
+  background-image: url("/public/assets/images/img-best-seller.svg");
   display: flex;
   flex-direction: column;
 }
@@ -378,7 +378,7 @@ p {
   content: "";
   position: absolute;
   display: inline-block;
-  background-image: url("/src/assets/icons/ic-mark.svg");
+  background-image: url("/public/assets/icons/ic-mark.svg");
   background-size: contain;
   background-repeat: no-repeat;
   top: 30px;
@@ -603,7 +603,7 @@ p {
   content: "";
   position: absolute;
   display: inline-block;
-  background-image: url("/src/assets/icons/ic-mark.svg");
+  background-image: url("/public/assets/icons/ic-mark.svg");
   background-size: contain;
   background-repeat: no-repeat;
   top: 30px;
