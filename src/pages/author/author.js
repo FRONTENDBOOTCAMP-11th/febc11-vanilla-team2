@@ -12,7 +12,6 @@ let postData;
 
 const params = new URLSearchParams(window.location.search);
 const authorId = Number(params.get("id"));
-console.log(typeof authorId, authorId);
 
 /* 작가 정보 가져오기 */
 async function getAuthorInfo() {
@@ -135,12 +134,7 @@ async function getBookmark() {
     });
     return response.data.item;
   } catch (error) {
-    if (error.response.status === 401 || !token) {
-      alert("인증 실패. 로그인 페이지로 이동합니다");
-      window.location.href = "src/pages/login/login.html";
-    } else {
-      console.error("북마크 목록 가져오는 중 에러 발생:", error);
-    }
+    console.error("북마크 목록 가져오는 중 에러 발생:", error);
   }
 }
 
@@ -190,8 +184,8 @@ subscribeBtn.addEventListener("click", async () => {
     await updateSubscribeCount();
   } catch (error) {
     if ((error.response && error.response.status === 401) || !token) {
-      alert("인증 실패. 로그인 페이지로 이동합니다.");
-      window.location.href = "src/pages/login/login.html";
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "/src/pages/login/login.html";
     } else {
       console.error("구독 처리 중 오류 발생:", error);
     }
@@ -215,7 +209,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     getAuthorInfo(),
     getPosts(),
     getLoginUser(),
-    getBookmark(),
     hideSubscribeBtn(),
   ]);
 
