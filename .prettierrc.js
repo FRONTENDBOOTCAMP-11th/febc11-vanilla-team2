@@ -14,5 +14,5 @@ export default {
   // windows에 뜨는 'Delete cr' 에러 해결
   endOfLine: "auto",
   // 싱글 쿼트 사용 여부(false로 설정)
-  singleQuote: false
+  singleQuote: false,
 };

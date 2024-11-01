@@ -5,9 +5,13 @@ meta {
 }
 
 post {
-  url: {{url}}/users/login
+  url: {{url}}/users/login?1=123
   body: json
   auth: none
+}
+
+params:query {
+  1: 123
 }
 
 body:json {

@@ -14,39 +14,6 @@ a {
   box-sizing: border-box;
 }
 
-/* header */
-.header-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  padding: 10px 20px;
-  margin: 0 auto;
-  max-width: 360px;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #f8f8f8;
-}
-
-.header img,
-button {
-  cursor: pointer;
-}
-
-.header-icons img {
-  margin-right: 10px;
-}
-
-.header-icons .header-icons_userProfile {
-  width: 30px;
-  height: 30px;
-  margin-right: 0px;
-}
-
 /* profile */
 .wrap-profile.coverImage {
   position: relative;
@@ -72,6 +39,8 @@ button {
   left: 220px;
   width: 80px;
   height: 80px;
+  border-radius: 100%;
+  object-fit: cover;
 }
 
 .wrap-profile-thumb-info_authorName {
