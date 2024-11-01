@@ -19,7 +19,7 @@ async function fetchTodayBrunchPosts() {
       const imageUrl =
         Array.isArray(post.image) && post.image.length > 0
           ? `https://11.fesp.shop${post.image[0]}` // 첫 번째 이미지 URL
-          : "https://11.fesp.shop/files/vanilla02/keyword.png"; // 기본 이미지
+          : "https://11.fesp.shop/files/vanilla02/dp1C0lzzt.png"; // 기본 이미지
 
       // 객체 반환
       console.log(post);

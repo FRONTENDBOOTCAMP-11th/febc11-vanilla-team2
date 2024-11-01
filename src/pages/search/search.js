@@ -100,7 +100,7 @@ const renderArticlesResults = articles => {
         const articleImage =
           article.image && article.image.length > 0
             ? `https://11.fesp.shop/${article.image[0]}`
-            : null;
+            : `https://11.fesp.shop/files/vanilla02/dp1C0lzzt.png`;
 
         return `
         <div class="search-results">
@@ -153,6 +153,7 @@ const renderAuthorsResults = authors => {
   if (authors.length > 0) {
     $resultAuthors.innerHTML = authors
       .map(author => {
+        console.log(author);
         return `
           <div class="search-results__meta">작가 검색 결과 ${authors.length}건</div>
           <div class="result-authors__lists" data-id=${author._id}>

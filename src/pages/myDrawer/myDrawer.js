@@ -67,7 +67,7 @@ const renderRecentView = () => {
       .map(recentPost => {
         const recentPostImage = recentPost.image
           ? `${apiUrl}/${recentPost.image}`
-          : `${apiUrl}/files/${clientId}/user-jayg.webp`;
+          : `${apiUrl}/files/${clientId}/dp1C0lzzt.png`;
         return `
       <li class="recent-view__list" data-id="${recentPost.id}">
         <img class="recent-view__book-thumbnail" src="${recentPostImage}" alt="" />
@@ -103,7 +103,7 @@ const renderFavArticle = async () => {
         const favArticleImage =
           favArticle.post.image && favArticle.post.image.length > 0
             ? `${apiUrl}/${favArticle.post.image[0]}`
-            : `${apiUrl}/files/${clientId}/user-jayg.webp`;
+            : `${apiUrl}/files/${clientId}/dp1C0lzzt.png`;
 
         return `
         <li class="fav-article__list" data-id="${favArticle.post._id}">
